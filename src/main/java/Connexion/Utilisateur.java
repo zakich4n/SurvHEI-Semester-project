@@ -1,3 +1,5 @@
+package Connexion;
+
 public class Utilisateur {
     public String login;
     public String mdp;
