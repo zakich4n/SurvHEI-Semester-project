@@ -6,11 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-
     <title>Page de login</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="style.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
 
 </head>
 
@@ -18,23 +17,22 @@
 <body>
 
 <div class="login-box">
-    <h2>Connexion</h2>
-    <form method="post" >
+    <h2>Login</h2>
+    <form id="loginForm" method="post">
         <div class="user-box">
-            <label>Username : </label>
-            <input type="text" name="login" value="">
-
+            <input type="text" id="login" name="login" value="">
+            <label>Username</label>
         </div>
         <div class="user-box">
-            <label>Password : </label>
-            <input type="password" name="mdp" value="">
-
+            <input type="password" id="password" name="mdp" value="">
+            <label>Password</label>
         </div>
 
-        <p>Veuillez entrez un identifiant et un mot de passe valides</p>
+        <p>Veuillez entrer un identifiant et un mot de passe valides</p>
+
         <button type="submit">Envoyer<span></span> <span></span>
             <span></span> <span></span></button>
-        <a href="servlet/New">Créer un compte ! <span></span> <span></span>
+        <a href="SignUp">Créer un compte ! <span></span> <span></span>
             <span></span> <span></span>
         </a>
     </form>
