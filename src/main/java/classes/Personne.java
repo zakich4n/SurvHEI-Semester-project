@@ -1,5 +1,6 @@
 package classes;
-public class Personne{
+
+public class Personne {
     public String login;
     public String mdp;
     public String nom;
