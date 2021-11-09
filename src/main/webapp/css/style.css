@@ -280,7 +280,7 @@ body {
     font-size: 1.4em;
 }
 
-.brand a, .brand a:visited {
+.brand img, .brand img:visited {
     color: #fff;
     text-decoration: none;
 }
