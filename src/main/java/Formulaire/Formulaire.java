@@ -1,9 +1,15 @@
 package Formulaire;
 
-public class Formulaire {
-    public boolean Anonyne;
+import Codage.Encode;
 
-    public Formulaire(boolean anon) {
-        this.Anonyne=anon;
+public class Formulaire {
+    public boolean Anonyme;
+    public Formulaire formulaire;
+
+    public Formulaire(boolean anon, Formulaire form) {
+        this.Anonyme=anon;
+        this.formulaire=form;
     }
+
+
 }

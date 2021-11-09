@@ -1,19 +1,14 @@
 package Codage;
 
 import Formulaire.Formulaire;
+import Formulaire.Page;
 
 public interface Encode {
-    /*
-        Type : Question ou Affichage
-        Question : "Habitez vous en France"
-        Type de réponse : Oui ou Non
-        Obligatoire : Oui
-
+     /*
+        Passage de Formulaire à RawData
+        Passage de Reponse à Raw data
      */
 
-    String EncodeFormulaire(Formulaire formulaire);
-
-    String EncodeReponse();
-
+    String encode(Page page);
 
 }
