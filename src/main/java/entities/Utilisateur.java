@@ -1,4 +1,4 @@
-package Connexion;
+package entities;
 
 public class Utilisateur {
     private Integer IDUser;
@@ -24,6 +24,16 @@ public class Utilisateur {
         this.Sexe=Sexe;
         this.IsAdmin=IsAdmin;
     }
+
+    public Utilisateur(String user, String password){
+        this.User=user;
+        this.Password=password;
+    }
+
+    public String getUser(){ return User;}
+    public String getPassword(){return Password;}
+    public void setUser(String utilisateur){this.User=utilisateur;}
+    public void setPassword(String password){this.Password=password;}
 
 
 
