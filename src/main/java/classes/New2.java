@@ -1,4 +1,4 @@
-package classe;
+package classes;
 
 import java.io.*;
 import javax.servlet.*;
@@ -44,7 +44,7 @@ public class New2 extends HttpServlet
             con = DriverManager.getConnection(ds.getUrl(),ds.getName(),ds.getMdp());
 
             String login = req.getParameter("login");
-            String mdp = Hash.toHexString(Hash.getSHA(req.getParameter("mdp")));
+            String mdp = ""/*Hash.toHexString(Hash.getSHA(req.getParameter("mdp")))*/;
             String nom = req.getParameter("nom");
             String prenom = req.getParameter("prenom");
 
