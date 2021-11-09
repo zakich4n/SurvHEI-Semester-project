@@ -4,7 +4,7 @@ import java.io.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
-import java.sql.*;mbo
+import java.sql.*;
 
 
 @WebServlet("/servlet/New2")

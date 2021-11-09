@@ -253,65 +253,6 @@ login-box button span:nth-child(3) {
     }
 }
 
-nav {
-    margin: 27px auto 0;
-
-    position: relative;
-    width: 450px;
-    height: 50px;
-    background-color: #34495e;
-    border-radius: 8px;
-    font-size: 0;
-}
-nav a, a button{
-    line-height: 50px;
-    height: 100%;
-    font-size: 15px;
-    display: inline-block;
-    position: relative;
-    z-index: 1;
-    text-decoration: none;
-    text-transform: uppercase;
-    text-align: center;
-    color: white;
-    cursor: pointer;
-}
-nav .animation {
-    position: absolute;
-    height: 100%;
-    top: 0;
-    z-index: 0;
-    transition: all .5s ease 0s;
-    border-radius: 8px;
-}
-
-a:nth-child(1) {
-    width: 150px;
-}
-a:nth-child(2) {
-    width: 150px;
-}
-a:nth-child(3) {
-    width: 150px;
-}
-
-nav .start-home, a:nth-child(1):hover~.animation {
-    width: 150px;
-    left: 0;
-    background-color: #1abc9c;
-}
-nav .start-about, a:nth-child(2):hover~.animation {
-    width: 150px;
-    left: 150px;
-    background-color: #3498db;
-}
-
-nav .start-blog, a:nth-child(3):hover~.animation {
-    width: 150px;
-    left: 300px;
-    background-color: #e74c3c;
-
-}
 
 div a {
     height: 100%;
@@ -452,4 +393,105 @@ input[type=submit]:active{
     -o-transform: scale(0.95);
     -ms-transform: scale(0.95);
     transform: scale(0.95);
+}
+
+<!--CSS barre navigation -->
+html {
+    height: 100%;
+}
+body {
+    margin:0;
+    padding:0;
+    font-family: sans-serif;
+    background: linear-gradient(#141e30, #243b55);
+}
+
+
+.navigation {
+    height: 70px;
+    background: #34495e;
+}
+
+.brand {
+    position: absolute;
+    padding-left: 20px;
+    float: left;
+    line-height: 70px;
+    text-transform: uppercase;
+    font-size: 1.4em;
+}
+
+.brand a, .brand a:visited {
+    color: #fff;
+    text-decoration: none;
+}
+
+.nav-container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+nav {
+    float: right;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul::after{
+    content: "";
+    display: table;
+    clear: both;
+}
+
+nav a{
+    display: block;
+    text-decoration: none;
+    color: white;
+}
+
+nav a:hover {
+    color: whitesmoke;
+}
+
+nav > ul li:hover .nav-dropdown{
+    display: block;
+}
+
+nav ul li {
+    float: left;
+    position: relative;
+
+}
+
+nav ul li a, nav ul li a:visited {
+    display: block;
+    padding: 0 20px;
+    line-height: 70px;
+    color: #fff;
+    text-decoration: none;
+}
+
+nav ul li a:hover, nav ul li a:visited:hover {
+    border-radius: 10%;
+    background: #003060;
+    color: #fff;
+}
+
+nav ul li ul li {
+    min-width: 190px;
+}
+nav ul li ul li a {
+    padding: 15px;
+    line-height: 20px;
+}
+
+.nav-dropdown {
+    display: none;
+    position: absolute;
+    z-index: 1;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
 }
