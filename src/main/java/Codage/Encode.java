@@ -9,6 +9,6 @@ public interface Encode {
         Passage de Reponse à Raw data
      */
 
-    String encode(Page page);
+    String encode(Formulaire form);
 
 }

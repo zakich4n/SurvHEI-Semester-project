@@ -2,13 +2,15 @@ package Formulaire;
 
 import Codage.Encode;
 
+import java.util.ArrayList;
+
 public class Formulaire {
     public boolean Anonyme;
-    public Formulaire formulaire;
+    public ArrayList<Page> pages;
 
-    public Formulaire(boolean anon, Formulaire form) {
+    public Formulaire(boolean anon, ArrayList<Page> pages) {
         this.Anonyme=anon;
-        this.formulaire=form;
+        this.pages=pages;
     }
 
 
