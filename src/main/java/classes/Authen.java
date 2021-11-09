@@ -1,4 +1,4 @@
-package classe;
+package classes;
 import java.io.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -39,7 +39,7 @@ public class Authen extends HttpServlet {
 
             // execution de la requete
             Statement stmt = con.createStatement();
-            String query = "select * from users where login='" + req.getParameter("login") + "' and mdp='"+ Hash.toHexString(Hash.getSHA(req.getParameter("mdp"))) + "'";
+            String query = "select * from users where login='" + req.getParameter("login") + "' and mdp='"/*+ Hash.toHexString(Hash.getSHA(req.getParameter("mdp"))) + "'"*/;
 
             ResultSet rs = stmt.executeQuery(query);
 

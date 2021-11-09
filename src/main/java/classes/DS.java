@@ -1,4 +1,4 @@
-package classe;
+package classes;
 
 public class DS{
 
