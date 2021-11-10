@@ -7,28 +7,33 @@ import java.util.ArrayList;
 
 public class  Compile implements Encode, Decode {
     static final String SEPARATOR="#";
-    static final String TERMINAL="|";
+    static final String TERMINAL="@";
 
 
     @Override
     public String encode(Formulaire form) {
-
-
+        ArrayList<Page> pages= form.getPages();
         String data = "";
-        /*encodage de chaque page
-        data=data
-                .concat(page.getObligatoire()).concat(SEPARATOR)
-                .concat(page.getGenre()).concat(SEPARATOR)
-                .concat(page.getNumero()).concat(SEPARATOR)
-                .concat(page.getType()).concat(SEPARATOR)
-                .concat(page.getQuestion()).concat(SEPARATOR)
-                .concat(page.getChoices()).concat(SEPARATOR)
-                .concat(TERMINAL);
-        */
+        for (Page page : pages) {
+            data = data + data
+                    .concat(page.getObligatoire()).concat(SEPARATOR)
+                    .concat(page.getGenre()).concat(SEPARATOR)
+                    .concat(page.getNumero()).concat(SEPARATOR)
+                    .concat(page.getType()).concat(SEPARATOR)
+                    .concat(page.getQuestion()).concat(SEPARATOR)
+                    .concat(page.getChoices()).concat(SEPARATOR)
+                    .concat(TERMINAL);
+        }
+        if (form.getAnonState()) {
+            data=data+"true".concat(TERMINAL);
+        }
+        else {
+            data=data+"false".concat(TERMINAL);
+        }
         return data;
     }
 
-    @Override // "Obligatoire[0]#Type[1]#Numero[2]#Genre[3]#Question[4]#Choix[5]#|"
+    @Override // "Obligatoire[0]#Type[1]#Numero[2]#Genre[3]#Question[4]#Choix[5]#@"
     public Formulaire decode(String rawData) {
         String[] page = rawData.split(TERMINAL); //on departage le raw data avec le separateur terminal pour divise en page
         ArrayList<Page> Form=new ArrayList<Page>();
@@ -42,8 +47,8 @@ public class  Compile implements Encode, Decode {
                 case "MultipleChoice":
                     MultipleChoice multi=new MultipleChoice(Integer.parseInt(Question[2]),Question[4],Boolean.parseBoolean(Question[0]));
                     String[] Choix=Question[5].split(",");
-                    for (int y=0; y< Choix.length;y++) {
-                        multi.addChoice(Choix[y]);
+                    for (String choix : Choix) {
+                        multi.addChoice(choix);
                     }
                     Form.add(multi);
                     break;

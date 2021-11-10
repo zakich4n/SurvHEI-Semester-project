@@ -13,5 +13,7 @@ public class Formulaire {
         this.pages=pages;
     }
 
+    public ArrayList<Page> getPages() {return pages;}
 
+    public boolean getAnonState() {return Anonyme;}
 }
