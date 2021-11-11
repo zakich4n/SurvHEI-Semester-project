@@ -1,6 +1,6 @@
 package Servlets;
 
-import Connexion.Login;
+import DAO.Login;
 import entities.Utilisateur;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.WebContext;
