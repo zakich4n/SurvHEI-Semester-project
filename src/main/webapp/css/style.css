@@ -267,6 +267,7 @@ body {
 
 
 .navigation {
+    display: block;
     height: 70px;
     background: #34495e;
 }
@@ -356,4 +357,40 @@ nav ul li ul li a {
     position: absolute;
     z-index: 1;
     box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
+    }
+img {
+    max-width: 40%;
+    max-height: 40%;
+    float: left;
+    margin-top: -65px;
+}
+
+/* Contenu de la page */
+
+h3 {
+    text-align : center;
+}
+
+#legende {
+    display: inline-flex;
+    margin-left: 60px;
+}
+
+.photo img {
+    max-width: 300px;
+    max-height: auto;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.photo p {
+    font-size: 60%;
+    display: inline;
+}
+
+span {
+    display: flex;
+    flex-flow: column;
+    
+    margin: auto;
 }
