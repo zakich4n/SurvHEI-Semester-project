@@ -1,8 +1,7 @@
 package DAO;
 
-import entities.Utilisateur;
-import impl.DataSourceProvider;
-import utils.MotDePasseUtils;
+import entity.Utilisateur;
+import controller.webservices.MotDePasseUtils;
 
 import javax.sql.DataSource;
 import java.sql.Connection;

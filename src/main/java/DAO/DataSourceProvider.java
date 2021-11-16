@@ -1,4 +1,4 @@
-package impl;
+package DAO;
 
 import org.mariadb.jdbc.MariaDbDataSource;
 

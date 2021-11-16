@@ -1,4 +1,4 @@
-package Servlets;
+package controller.servlets;
 
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.WebContext;

@@ -1,7 +1,7 @@
 package ConnexionTest;
 
 import DAO.Login;
-import entities.Utilisateur;
+import entity.Utilisateur;
 import org.junit.Assert;
 import org.junit.Test;
 

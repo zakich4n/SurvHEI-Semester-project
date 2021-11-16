@@ -1,20 +1,18 @@
-package Servlets;
+package controller.servlets;
 
 import DAO.SignUp;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.WebContext;
 import org.thymeleaf.templatemode.TemplateMode;
 import org.thymeleaf.templateresolver.ServletContextTemplateResolver;
-import utils.MotDePasseUtils;
+import controller.webservices.MotDePasseUtils;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
 
 @WebServlet("/SignUp")
 public class SignUpServlet extends HttpServlet {
@@ -43,14 +41,15 @@ public class SignUpServlet extends HttpServlet {
         String password = request.getParameter("Password");
         String passwordc = request.getParameter("Passwordc");
 
-        /*DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        LocalDateTime DateBirth  = LocalDateTime.parse(DateOfBirth, dateFormat);*/
+
+        DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm");
+        LocalDateTime DateBirth  = LocalDateTime.parse(DateOfBirth, dateFormat);
 
         if(!passwordc.equals(password)){
             response.sendRedirect("SignUp");
         } else {
             password = MotDePasseUtils.genererMotDePasse(passwordc);
-            SignUp.addUser(User, password, Email, LastName, FirstName, genre);
+            SignUp.addUser(User, password, Email, LastName, FirstName, genre, DateBirth);
             response.sendRedirect("connexion");
         }
     }

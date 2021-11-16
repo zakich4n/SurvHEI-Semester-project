@@ -1,12 +1,11 @@
-package Servlets;
+package controller.servlets;
 
 import DAO.Login;
-import entities.Utilisateur;
+import entity.Utilisateur;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.WebContext;
 import org.thymeleaf.templatemode.TemplateMode;
 import org.thymeleaf.templateresolver.ServletContextTemplateResolver;
-import utils.MotDePasseUtils;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -15,14 +14,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("/connexion")
-public class ConnexionServlet extends HttpServlet {
+@WebServlet("/connexionfailed")
+public class ConnexionFailedServlet extends HttpServlet {
     private Login login;
-    private MotDePasseUtils mdp = new MotDePasseUtils();
 
     public void init() {
         login = new Login();
+
     }
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         ServletContextTemplateResolver resolver = new ServletContextTemplateResolver(req.getServletContext());
@@ -34,33 +34,28 @@ public class ConnexionServlet extends HttpServlet {
         engine.setTemplateResolver(resolver);
 
         WebContext context = new WebContext(req, resp, req.getServletContext());
-        engine.process("pagelogin", context, resp.getWriter());
-
-
-
+        engine.process("pageloginfailed", context, resp.getWriter());
     }
+
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         String user = req.getParameter("login");
         String motDePasse = req.getParameter("mdp");
-//CHANGER ICI POUR HASHER LE MOT DE PASSE
 
-        if (user==null || motDePasse==null){
+        if (user == null || motDePasse == null) {
             resp.sendRedirect("connexionfailed");
 
-        }else{
-            Utilisateur utilisateur= new Utilisateur(user, motDePasse);
+        } else {
+            Utilisateur utilisateur = new Utilisateur(user, motDePasse);
             if (login.valider(utilisateur)) {
-                req.getSession().setAttribute("utilisateurConnecte",user);
+
                 resp.sendRedirect("Accueil");
             } else {
                 resp.sendRedirect("connexionfailed");
             }
         }
-
-
 
 
     }
