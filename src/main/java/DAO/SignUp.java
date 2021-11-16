@@ -1,5 +1,7 @@
 package DAO;
 
+import entity.Utilisateur;
+
 import javax.sql.DataSource;
 import java.sql.*;
 import java.time.LocalDateTime;
@@ -7,7 +9,7 @@ import java.time.LocalDateTime;
 public class SignUp {
 
 
-    public static void addUser(String User, String Password, String Email, String Nom, String Prenom, String Sexe, LocalDateTime DateBirth) {
+    public static void addUser(Utilisateur user) {
 
         try {
             DataSource dataSource = DataSourceProvider.getDataSource();
@@ -15,13 +17,13 @@ public class SignUp {
                 String sql = "INSERT INTO dbsurvhei.survhei_user (User, Password, Email, Nom, Prenom, Sexe, DateNaissance) VALUES(?,?,?,?,?,?,?)";
                 try (PreparedStatement preparedStatement = connection.prepareStatement(
                         sql, Statement.RETURN_GENERATED_KEYS)) {
-                    preparedStatement.setString(1, User);
-                    preparedStatement.setString(2, Password);
-                    preparedStatement.setString(3, Email);
-                    preparedStatement.setString(4, Nom);
-                    preparedStatement.setString(5, Prenom);
-                    preparedStatement.setString(6, Sexe);
-                    preparedStatement.setTimestamp(7, Timestamp.valueOf(DateBirth));
+                    preparedStatement.setString(1, user.getUser());
+                    preparedStatement.setString(2, user.getPassword());
+                    preparedStatement.setString(3, user.getEmail());
+                    preparedStatement.setString(4, user.getNom());
+                    preparedStatement.setString(5, user.getPrenom());
+                    preparedStatement.setString(6, user.getSexe());
+                    preparedStatement.setTimestamp(7, Timestamp.valueOf(user.getDateNaissance()));
 
                     preparedStatement.executeUpdate();
                     ResultSet ids = preparedStatement.getGeneratedKeys();
