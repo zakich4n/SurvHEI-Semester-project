@@ -1,0 +1,29 @@
+/* Contenu de la page */
+
+h3 {
+    text-align : center;
+}
+
+#legende {
+    display: inline-flex;
+    margin-left: 60px;
+}
+
+.photo img {
+    max-width: 300px;
+    max-height: auto;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.photo p {
+    font-size: 60%;
+    display: inline;
+}
+
+span {
+    display: flex;
+    flex-flow: column;
+
+    margin: auto;
+}
