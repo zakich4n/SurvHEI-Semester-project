@@ -1,6 +1,6 @@
  
 create table survhei_user (
-    IDUser int AUTO_INCREMENT not null PRIMARY key, User varchar(80) not null, Password text not null, DateCreation date not null default CURRENT_DATE, Email varchar(80) not null, Nom varchar(80) not null, Prenom varchar(80) not null, DateNaissance date not null, Sexe varchar(80) not null, IsAdmin boolean not null) engine=innodb;
+    IDUser int AUTO_INCREMENT not null PRIMARY key, User varchar(80) not null, Password text not null, DateCreation date not null default CURRENT_DATE, Email varchar(80) not null, Nom varchar(80) not null, Prenom varchar(80) not null, DateNaissance datetime not null, Sexe varchar(80) not null, IsAdmin boolean default null) engine=innodb;
 
 create table formulaire (
     IDFormulaire int AUTO_INCREMENT not null primary key, NomFormulaire varchar(80) not null, NombreDeQuestion int not null, TempsMoyen int not null, Desactive boolean not null, QuestionBrut text not null, Anonyme boolean not null, IDUserCreator int not null, foreign key (IDUserCreator) references survhei_user(IDUser)) engine=innodb;

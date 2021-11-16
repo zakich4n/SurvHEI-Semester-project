@@ -1,12 +1,12 @@
 package ConnexionTest;
 
-import DAO.Login;
+import DAO.LoginDao;
 import entity.Utilisateur;
 import org.junit.Assert;
 import org.junit.Test;
 
 public class LoginTestCase {
-    private Login login = new Login();
+    private LoginDao login = new LoginDao();
 
 
     @Test

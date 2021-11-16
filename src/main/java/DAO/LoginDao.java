@@ -1,16 +1,41 @@
 package DAO;
 
 import entity.Utilisateur;
+import controller.webservices.MotDePasseUtils;
 
 import javax.sql.DataSource;
 import java.sql.*;
-import java.time.LocalDateTime;
 
-public class SignUp {
+public class LoginDao {
+    private MotDePasseUtils motDePasseUtils = new MotDePasseUtils();
 
+    public boolean valider(Utilisateur utilisateur) {
+        boolean res = false;
+
+        try {
+            DataSource dataSource = DataSourceProvider.getDataSource();
+
+
+            try (Connection connection = dataSource.getConnection()) {
+                try (PreparedStatement statement = connection.prepareStatement("select * from survhei_user where User=?")) {
+                    statement.setString(1, utilisateur.getUser());
+                    try (ResultSet results = statement.executeQuery()) {
+                        while (results.next()) {
+                            String mdphash = results.getString("Password");
+                            if (motDePasseUtils.validerMotDePasse(utilisateur.getPassword(), mdphash)) {
+                                res = true;
+                            }
+                        }
+                    }
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return res;
+    }
 
     public static void addUser(Utilisateur user) {
-
         try {
             DataSource dataSource = DataSourceProvider.getDataSource();
             try (Connection connection = dataSource.getConnection()) {
@@ -30,9 +55,11 @@ public class SignUp {
                 }
 
             }
-        }catch (SQLException e) {
+        } catch (SQLException e) {
 
             e.printStackTrace();
         }
+
+
     }
 }

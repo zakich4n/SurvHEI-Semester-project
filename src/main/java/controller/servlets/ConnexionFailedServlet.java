@@ -1,6 +1,6 @@
 package controller.servlets;
 
-import DAO.Login;
+import DAO.LoginDao;
 import entity.Utilisateur;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.WebContext;
@@ -16,10 +16,10 @@ import java.io.IOException;
 
 @WebServlet("/connexionfailed")
 public class ConnexionFailedServlet extends HttpServlet {
-    private Login login;
+    private LoginDao login;
 
     public void init() {
-        login = new Login();
+        login = new LoginDao();
 
     }
 

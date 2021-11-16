@@ -1,12 +1,12 @@
 package controller.servlets;
 
-import DAO.SignUp;
 import entity.Utilisateur;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.WebContext;
 import org.thymeleaf.templatemode.TemplateMode;
 import org.thymeleaf.templateresolver.ServletContextTemplateResolver;
 import controller.webservices.MotDePasseUtils;
+import service.LoginService;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -51,7 +51,7 @@ public class SignUpServlet extends HttpServlet {
         } else {
             password = MotDePasseUtils.genererMotDePasse(passwordc);
             Utilisateur user = new Utilisateur(1, login, password, email, lastName, firstName, dateBirth, genre );
-            SignUp.addUser(user);
+            LoginService.getInstance().addUser(user);
             response.sendRedirect("connexion");
         }
     }
