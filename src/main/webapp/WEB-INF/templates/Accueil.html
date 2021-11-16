@@ -11,13 +11,14 @@
     <body>
         <nav class="navbar">
             <div class="navbar-header">
-                <a href="Accueil.html">SurvHEI</a>
+                <a href="Accueil">SurvHEI
+                    <span th:text="${login}">35</span></a>
             </div>
             <div>
                 <ul>
-                    <li><a href="Accueil.html">Survey</a></li>
-                    <li><a href="Accueil.html">Recent</a></li>
-                    <li><a href="pagelogin.html">Compte</a></li>
+                    <li><a href="Accueil">Survey</a></li>
+                    <li><a href="Accueil">Recent</a></li>
+                    <li><a href="pagelogin">Compte</a></li>
                 </ul>
             </div>
         </nav>
@@ -25,7 +26,6 @@
         <div>
             <h1>Les Surveys récents</h1>
         </div>
-
-
+        <a href="deconnexion">Se déconnecter</a>
     </body>
 </html>

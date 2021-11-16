@@ -1,6 +1,5 @@
 package controller.servlets;
 
-import DAO.LoginDao;
 import entity.Utilisateur;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.WebContext;
@@ -18,7 +17,6 @@ import java.io.IOException;
 
 @WebServlet("/connexion")
 public class ConnexionServlet extends HttpServlet {
-    private LoginDao login;
     private MotDePasseUtils mdp = new MotDePasseUtils();
 
 
@@ -34,9 +32,6 @@ public class ConnexionServlet extends HttpServlet {
 
         WebContext context = new WebContext(req, resp, req.getServletContext());
         engine.process("pagelogin", context, resp.getWriter());
-
-
-
     }
 
     @Override
@@ -52,15 +47,11 @@ public class ConnexionServlet extends HttpServlet {
         }else{
             Utilisateur utilisateur= new Utilisateur(user, motDePasse);
             if (LoginService.getInstance().valider(utilisateur)) {
-                req.getSession().setAttribute("utilisateurConnecte",user);
+                req.getSession().setAttribute("login",user);
                 resp.sendRedirect("Accueil");
             } else {
                 resp.sendRedirect("connexionfailed");
             }
         }
-
-
-
-
     }
 }

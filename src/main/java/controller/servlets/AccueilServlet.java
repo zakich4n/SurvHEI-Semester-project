@@ -2,8 +2,10 @@ package controller.servlets;
 
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.WebContext;
+import org.thymeleaf.extras.java8time.dialect.Java8TimeDialect;
 import org.thymeleaf.templatemode.TemplateMode;
 import org.thymeleaf.templateresolver.ServletContextTemplateResolver;
+import service.LoginService;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -11,10 +13,11 @@ import javax.servlet.annotation.*;
 import java.io.IOException;
 
 @WebServlet("/Accueil")
-public class PostAuthentificationServlet extends HttpServlet {
+public class AccueilServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
+        String login = (String) req.getSession().getAttribute("login");
         ServletContextTemplateResolver resolver = new ServletContextTemplateResolver(req.getServletContext());
         resolver.setPrefix("/WEB-INF/templates/");
         resolver.setSuffix(".html");
@@ -24,6 +27,9 @@ public class PostAuthentificationServlet extends HttpServlet {
         engine.setTemplateResolver(resolver);
 
         WebContext context = new WebContext(req, resp, req.getServletContext());
+        engine.addDialect(new Java8TimeDialect());
+
+        context.setVariable("login", login);
         engine.process("Accueil", context, resp.getWriter());
 
 
