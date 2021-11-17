@@ -1,32 +1,12 @@
 <!DOCTYPE html>
 <html lang="fr">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="css/style.css" rel="stylesheet">
-        <link href="css/nav.css" rel="stylesheet">
-
-        <title>SurvHEI</title>
-    </head>
-
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accueil</title>
+    <link href="../../css/nav.css" rel="stylesheet">
+</head>
     <body>
-        <nav class="navbar">
-            <div class="navbar-header">
-                <a href="Accueil">SurvHEI
-                    <span th:text="${login}">35</span></a>
-            </div>
-            <div>
-                <ul>
-                    <li><a href="Accueil">Survey</a></li>
-                    <li><a href="Accueil">Recent</a></li>
-                    <li><a href="pagelogin">Compte</a></li>
-                </ul>
-            </div>
-        </nav>
-
-        <div>
-            <h1>Les Surveys récents</h1>
-        </div>
-        <a href="deconnexion">Se déconnecter</a>
+        <section  th:replace="~{ fragments :: navigation }"></section>
     </body>
 </html>
