@@ -13,11 +13,6 @@ h1 {
     font-family: 'Lato', sans-serif;
     font-size: 54px; font-weight: 300;
     line-height: 58px; margin: 0 0 58px;
-    text-shadow:  0 0 7px #fff,
-    0 0 10px #fff,
-    0 0 42px rgb(255, 255, 255),
-    0 0 77px rgb(255, 255, 255),
-    0 0 100px rgb(255, 255, 255)
 }
 
 div , p {
@@ -39,7 +34,7 @@ div , p {
     border-radius: 10px;
 }
 
-.login-box h1 {
+.login-box h2 {
     margin: 0 0 30px;
     padding: 0;
     color: #fff;
@@ -258,207 +253,144 @@ login-box button span:nth-child(3) {
     }
 }
 
-nav {
-    margin: 27px auto 0;
 
-    position: relative;
-    width: 450px;
-    height: 50px;
-    background-color: #34495e;
-    border-radius: 8px;
-    font-size: 0;
-}
-nav a, a button{
-    line-height: 50px;
+<!--CSS barre navigation -->
+html {
     height: 100%;
-    font-size: 15px;
-    display: inline-block;
-    position: relative;
-    z-index: 1;
-    text-decoration: none;
-    text-transform: uppercase;
-    text-align: center;
-    color: white;
-    cursor: pointer;
 }
-nav .animation {
-    position: absolute;
-    height: 100%;
-    top: 0;
-    z-index: 0;
-    transition: all .5s ease 0s;
-    border-radius: 8px;
+body {
+    margin:0;
+    padding:0;
+    font-family: sans-serif;
+    background: linear-gradient(#141e30, #243b55);
 }
 
-a:nth-child(1) {
-    width: 150px;
-}
-a:nth-child(2) {
-    width: 150px;
-}
-a:nth-child(3) {
-    width: 150px;
-}
 
-nav .start-home, a:nth-child(1):hover~.animation {
-    width: 150px;
-    left: 0;
-    background-color: #1abc9c;
-}
-nav .start-about, a:nth-child(2):hover~.animation {
-    width: 150px;
-    left: 150px;
-    background-color: #3498db;
-}
-
-nav .start-blog, a:nth-child(3):hover~.animation {
-    width: 150px;
-    left: 300px;
-    background-color: #e74c3c;
-
-}
-
-div a {
-    height: 100%;
-    font-size: 15px;
-    display: inline-block;
-    position: relative;
-    z-index: 1;
-    text-decoration: none;
-    text-transform: uppercase;
-    text-align: center;
-    color: white;
-    cursor: pointer;
-}
-
-#listm a:hover {
-    background:#444;
-    color: #fff;
-    transition-duration: 0.3s;
-    -moz-transition-duration: 0.3s;
-    -webkit-transition-duration: 0.3s;
-}
-
-.form-ajout {
-    width: 250px;
+.navigation {
     display: block;
-    vertical-align: top;
-    margin: 6px;
+    height: 70px;
+    background: #34495e;
 }
 
-#membre {
-    position: fixed;
-    width: 330px;
+.brand {
+    position: absolute;
+    padding-left: 20px;
+    float: left;
+    line-height: 70px;
+    text-transform: uppercase;
+    font-size: 1.4em;
 }
 
-
-#chat{
-    width: 510px;
+.brand img, .brand img:visited {
+    color: #fff;
+    text-decoration: none;
 }
 
-#chatprive{
-    width: 1000px;
+.nav-container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+section.navigation{
+    font-size: 18px;
+}
+nav {
+    float: right;
+    font-size: 18px;
 }
 
-#buttonadd, #aadd{
-    padding: 0px;
-    margin-top: 0px;
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul::after{
+    content: "";
+    display: table;
+    clear: both;
+}
+
+nav a{
+    display: block;
+    text-decoration: none;
+    color: white;
+}
+
+nav a:hover {
+    color: whitesmoke;
+}
+
+nav > ul li:hover .nav-dropdown{
+    display: block;
+}
+
+nav ul li {
+    float: left;
+    position: relative;
+
+}
+
+nav ul li a, nav ul li a:visited {
+    display: block;
+    padding: 0 20px;
+    line-height: 70px;
+    color: #fff;
+    text-decoration: none;
+}
+
+nav ul li a:hover, nav ul li a:visited:hover {
+    border-radius: 10%;
+    background: #003060;
     color: #fff;
 }
 
-#chatcom{
-    width: 750px;
+nav ul li ul li {
+    min-width: 190px;
 }
-
-#submitmsg{
+nav ul li ul li a {
+    padding: 15px;
     line-height: 20px;
-    text-transform: uppercase;
-    text-align: center;
-    color: white;
-    background-color: cadetblue;
-    cursor: pointer;
 }
 
-.login-box2 {
+.nav-dropdown {
+    display: none;
     position: absolute;
-    text-align: center;
-    top: 20%;
-    left: 50%;
-    width: 800px;
-    padding: 10px;
-    transform: translate(-50%, -50%);
-    background: rgba(0,0,0,.5);
-    box-sizing: content-box;
-    box-shadow: 0 15px 25px rgba(0,0,0,.6);
-    border-radius: 10px;
+    z-index: 1;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
+    }
+img {
+    max-width: 40%;
+    max-height: 40%;
+    float: left;
+    margin-top: -65px;
 }
 
-.choix-box{
-    position: absolute;
-    top: 30%;
-    left: 38%;
+/* Contenu de la page */
+
+h3 {
+    text-align : center;
 }
 
-#chatbox{
-    height: 500px;
-    width: 1000px;
-    overflow: auto;
+#legende {
+    display: inline-flex;
+    margin-left: 60px;
+}
+s
+.photo img {
+    max-width: 300px;
+    max-height: auto;
+    padding: 20px;
+    margin-top: 20px;
 }
 
-#chatbox{
-    height: 600px;
-    width: 1000px;
-    overflow: auto;
-    position: absolute;
-    top: 760%;
-    left: 50%;
-    padding: 40px;
-    transform: translate(-50%, -50%);
-    background: rgba(0,0,0,.5);
-    box-sizing: border-box;
-    box-shadow: 0 15px 25px rgba(0,0,0,.6);
-    border-radius: 10px;
+.photo p {
+    font-size: 60%;
+    display: inline;
 }
 
-#formchat{
-    position: absolute;
-    top: 1400%
-}
-
-input[type=submit]{
-    background-color: #56baed;
-    border: none;
-    color: white;
-    padding: 15px 80px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    text-transform: uppercase;
-    font-size: 13px;
-    -webkit-box-shadow: 0 10px 30px 0 rgba(95,186,233,0.4);
-    box-shadow: 0 10px 30px 0 rgba(95,186,233,0.4);
-    -webkit-border-radius: 5px 5px 5px 5px;
-    border-radius: 5px 5px 5px 5px;
-    margin: 5px 20px 40px 20px;
-    -webkit-transition: all 0.3s ease-in-out;
-    -moz-transition: all 0.3s ease-in-out;
-    -ms-transition: all 0.3s ease-in-out;
-    -o-transition: all 0.3s ease-in-out;
-    transition: all 0.3s ease-in-out;
-}
-
-input[type=submit]:hover{
-    background-color: #39ace7;
-}
-
-input[type=submit]:active{
-    -moz-transform: scale(0.95);
-    -webkit-transform: scale(0.95);
-    -o-transform: scale(0.95);
-    -ms-transform: scale(0.95);
-    transform: scale(0.95);
-}
-.login-box p {
-    color: #03e9f4;
-    font-size: 12px;
+span {
+    display: flex;
+    flex-flow: column;
+    
+    margin: auto;
 }
