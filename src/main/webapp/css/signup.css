@@ -1,5 +1,5 @@
 html {
-    height: 140%;
+    height: 200%;
 }
 body {
     margin:0;
@@ -22,7 +22,7 @@ h1 {
 
 .formulaire {
     position: absolute;
-    top: 65%;
+    top: 90%;
     left: 50%;
     width: 400px;
     padding: 40px;
@@ -190,7 +190,7 @@ button{
         bottom: 100%;
     }
 }
-#date {
+#datenaissance {
     position: relative;
     left: 50%;
 }
@@ -215,4 +215,15 @@ button{
     left: 0;
     color: #03e9f4;
     font-size: 16px;
+}
+
+#erreur{
+    top:0;
+    left: 0;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    pointer-events: none;
+    transition: .5s;
+    color: #03e9f4;
 }

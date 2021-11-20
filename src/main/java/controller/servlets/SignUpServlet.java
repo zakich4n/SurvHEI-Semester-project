@@ -46,13 +46,9 @@ public class SignUpServlet extends HttpServlet {
         DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         LocalDateTime dateBirth  = LocalDate.parse(dateBirthString, dateFormat).atStartOfDay();
 
-        if(!passwordc.equals(password)){
-            response.sendRedirect("SignUp");
-        } else {
-            password = MotDePasseUtils.genererMotDePasse(passwordc);
-            Utilisateur user = new Utilisateur(1, login, password, email, lastName, firstName, dateBirth, genre );
-            LoginService.getInstance().addUser(user);
-            response.sendRedirect("connexion");
-        }
+        password = MotDePasseUtils.genererMotDePasse(passwordc);
+        Utilisateur user = new Utilisateur(1, login, password, email, lastName, firstName, dateBirth, genre );
+        LoginService.getInstance().addUser(user);
+        response.sendRedirect("connexion");
     }
 }

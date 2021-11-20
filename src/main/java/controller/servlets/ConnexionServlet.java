@@ -40,18 +40,10 @@ public class ConnexionServlet extends HttpServlet {
         String user = req.getParameter("login");
         String motDePasse = req.getParameter("mdp");
 
-
-        if (user==null || motDePasse==null){
-            resp.sendRedirect("connexionfailed");
-
-        }else{
-            Utilisateur utilisateur= new Utilisateur(user, motDePasse);
-            if (LoginService.getInstance().valider(utilisateur)) {
-                req.getSession().setAttribute("login",user);
-                resp.sendRedirect("Accueil");
-            } else {
-                resp.sendRedirect("connexionfailed");
-            }
+        Utilisateur utilisateur= new Utilisateur(user, motDePasse);
+        if (LoginService.getInstance().valider(utilisateur)) {
+            req.getSession().setAttribute("login",user);
+            resp.sendRedirect("Accueil");
         }
     }
 }

@@ -9,26 +9,26 @@
 <body>
 	<div class="formulaire">
 		<h1>Sign Up !</h1>
-		<form id="loginForm" method="post">
+		<form id="SignupForm" method="post">
 			<div class="user-box">
-				<input type="text" name="User">
+				<input type="text" name="User" id="user">
 				<label>Username</label>
 			</div>
 			<div class="user-box">
-				<input type="text" name="Email">
+				<input type="text" name="Email" id="email">
 				<label>Email</label>
 			</div>
 			<div class="user-box">
-				<input type="text" name="Nom">
+				<input type="text" name="Nom" id="nom">
 				<label>Last Name</label>
 			</div>
 			<div class="user-box">
-				<input type="text" name="prenom">
+				<input type="text" name="prenom" id="prenom">
 				<label>First Name</label>
 			</div>
 			<div class="user-box1">
 				<label>Date of Birth</label>
-				<input type="date" name="DateNaissance" id="date">
+				<input type="date" name="DateNaissance" id="datenaissance">
 			</div>
 			<div class="user-box1">
 				<label>Gender</label>
@@ -38,17 +38,20 @@
                 </select>
 			</div>
 			<div class="user-box">
-				<input type="password" name="Password">
+				<input type="password" name="Password" id="mdp">
 				<label>Password</label>
 			</div>
 			<div class="user-box">
-				<input type="password" name="Passwordc">
+				<input type="password" name="Passwordc" id="mdpc">
 				<label>Password Confirmation</label>
 			</div>
+
 			<button type="submit">Envoyer<span></span> <span></span>
             <span></span> <span></span></button>
-		</form>		
+			<p id="erreur"></p>
+		</form>
 	</div>
+	<script src="js/SignUp.js"></script>
 </body>
 </html>
 
