@@ -1,4 +1,4 @@
-Welcome to ServHEI !
+Welcome to SurvHEI !
 
 A website where you can create and complete forms.
 
