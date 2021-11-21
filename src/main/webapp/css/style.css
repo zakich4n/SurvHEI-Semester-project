@@ -381,10 +381,9 @@ h3 {
     display: inline-flex;
     margin-left: 60px;
 }
-s
+
 .photo img {
     max-width: 300px;
-    max-height: auto;
     padding: 20px;
     margin-top: 20px;
 }
