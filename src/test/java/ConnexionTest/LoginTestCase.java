@@ -12,16 +12,16 @@ public class LoginTestCase {
     @Test
     public void ShouldReturnTrueIfExists(){
         //GIVEN
-        boolean resultat1;
-        boolean resultat2;
-        Utilisateur utilisateurExists = new Utilisateur("User2", "password");
+        int resultat1;
+        int resultat2;
+        Utilisateur utilisateurExists = new Utilisateur("JT", "ghb2cx4f");
         Utilisateur utilisateurDoesntExist = new Utilisateur("notExist", "password1");
         //WHEN
         resultat1 = login.valider(utilisateurExists);
         resultat2 = login.valider(utilisateurDoesntExist);
         //THEN
-        Assert.assertTrue(resultat1);
-        Assert.assertFalse(resultat2);
+        Assert.assertEquals(2,resultat1);
+        Assert.assertEquals(1, resultat2);
 
     }
 
