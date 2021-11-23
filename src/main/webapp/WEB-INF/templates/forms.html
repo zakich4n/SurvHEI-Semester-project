@@ -1,19 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Formulaire</title>
 </head>
 <body>
-    <h1>Formulaire test n°1</h1>
+    <h1>Formulaire</h1>
     <span></span>
+
     <form>
-        <div>
+        <div th:each="page : ${pagesList}" >
+
+        <h1 th:text="${page.Question}">Question 1</h1>
             <input type="radio" id="Oui" name="YesOrNo" value="Oui">
             <label>Oui</label>
-        </div>
 
-        <div>
             <input type="radio" id="Non" name="YesOrNo" value="Non">
             <label>Non</label>
         </div>

@@ -18,7 +18,7 @@ public class FormsList {
 
     public Formulaire getFormsByID(int id) {return FormsList.get(id);}
 
-    public Formulaire addFilm(Formulaire form) {
+    public Formulaire addForm(Formulaire form) {
         Integer id = FormsList.lastKey() + 1;
         form.setID(id);
         FormsList.put(id, form);

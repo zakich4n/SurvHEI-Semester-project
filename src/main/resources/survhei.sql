@@ -16,7 +16,7 @@ create table supprimer (
 
 insert into survhei_user (User, Password, Email, Nom, Prenom, DateNaissance, Sexe, IsAdmin) values ('user', 'password', 'prenom.nom@student.junia.com','Nom', 'Prenom',  str_to_date('2000-00-00','%Y-%m-%d'), 'm', true);
 
-insert into formulaire (NomFormulaire, NombreDeQuestion, TempsMoyen, Desactive, QuestionBrut, Anonyme, IDUserCreator) values ('Survhei', 3, 1, false, "Quel est ton domaine HEI?; Quel est ton futur métier?; Est-ce que tu y crois ?;", true, 1);
+insert into formulaire (NomFormulaire, NombreDeQuestion, TempsMoyen, Desactive, QuestionBrut, Anonyme, IDUserCreator) values ('Survhei', 3, 1, false, 'Quel est ton domaine HEI?; Quel est ton futur métier?; Est-ce que tu y crois ?;', true, 1);
 
 insert into completer (IDUser, IDFormulaire) values (1,1);
 insert into editer (IDUser, IDFormulaire) values (1,1);
