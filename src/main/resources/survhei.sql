@@ -24,6 +24,7 @@ create table formulaire (
 
 create table Question (
                           id_question int auto_increment primary key not null,
+                          question varchar(80) not null,
                           obligatoire boolean not null,
                           id_formulaire_correspondant int not null, foreign key (id_formulaire_correspondant) references formulaire( 	id_formulaire))engine=innodb;
 
