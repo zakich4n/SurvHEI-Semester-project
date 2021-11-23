@@ -26,6 +26,8 @@ div , p {
     color: #ffffff;
     font-family: 'Lato', sans-serif;
     font-size: x-large;
+    text-align: center;
+    margin-right: 10%;
 }
 
 .login-box {
