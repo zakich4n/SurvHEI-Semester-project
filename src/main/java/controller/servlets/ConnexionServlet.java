@@ -31,7 +31,9 @@ public class ConnexionServlet extends HttpServlet {
         engine.setTemplateResolver(resolver);
 
         WebContext context = new WebContext(req, resp, req.getServletContext());
+
         engine.process("pagelogin", context, resp.getWriter());
+
     }
 
     @Override
@@ -41,11 +43,14 @@ public class ConnexionServlet extends HttpServlet {
         String motDePasse = req.getParameter("mdp");
 
         Utilisateur utilisateur= new Utilisateur(user, motDePasse);
-        if (LoginService.getInstance().valider(utilisateur)) {
+        if (LoginService.getInstance().valider(utilisateur)==1) {
             req.getSession().setAttribute("login",user);
             resp.sendRedirect("Accueil");
         }else{
-
+            if(LoginService.getInstance().valider(utilisateur)==2){
+                req.getSession().setAttribute("login",user);
+                resp.sendRedirect("AccueilAdmin");
+            }
         }
     }
 }

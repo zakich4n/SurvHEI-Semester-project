@@ -14,7 +14,7 @@ public class LoginService {
 
     private LoginService(){}
 
-    public boolean valider(Utilisateur utilisateur){return logindao.valider(utilisateur);}
+    public int valider(Utilisateur utilisateur){return logindao.valider(utilisateur);}
 
     public void addUser(Utilisateur utilisateur) {
         LoginDao.addUser(utilisateur);
