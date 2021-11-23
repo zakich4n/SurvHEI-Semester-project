@@ -199,6 +199,10 @@ button{
     left: 50%;
     padding-bottom: 10%;
 }
+
+#gender option{
+    color: black;
+}
 .formulaire .user-box1 select{
     width: 50%;
     padding: 10px 0;
