@@ -390,6 +390,9 @@ h3 {
 .photo p {
     font-size: 60%;
     display: inline;
+    text-align: center;
+    margin-right: 10%;
+
 }
 
 span {
