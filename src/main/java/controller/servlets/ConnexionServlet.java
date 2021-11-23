@@ -44,6 +44,8 @@ public class ConnexionServlet extends HttpServlet {
         if (LoginService.getInstance().valider(utilisateur)) {
             req.getSession().setAttribute("login",user);
             resp.sendRedirect("Accueil");
+        }else{
+
         }
     }
 }

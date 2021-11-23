@@ -2,7 +2,6 @@
 
 document.getElementById("SignupForm").addEventListener("submit", function(e) {
 
-    e.preventDefault();
     var user = document.getElementById("user");
     var email = document.getElementById("email");
     var nom = document.getElementById("nom");
@@ -10,6 +9,8 @@ document.getElementById("SignupForm").addEventListener("submit", function(e) {
     var datenaissance = document.getElementById("datenaissance");
     var mdp = document.getElementById("mdp");
     var mdpc = document.getElementById("mdpc");
+
+    var erreur=null;
 
     if(mdp.value != mdpc.value){
         erreur="Veuillez entrer deux mots de passe identiques";
@@ -35,13 +36,15 @@ document.getElementById("SignupForm").addEventListener("submit", function(e) {
     if(!user.value){
         erreur = "Veuillez entrer votre user";
     }
-    if(erreur){
+
+
+    if(erreur != null){
         e.preventDefault();
         document.getElementById("erreur").innerHTML=erreur ;
-        erreur=null;
         return false;
     }else{
         alert('Successful Registration !');
+        return true;
     }
 })
 
