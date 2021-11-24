@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sign Up</title>
+    <link rel="stylesheet" type="text/css" href="../../css/createform.css">
+</head>
+<body>
+<div class="formulaire">
+    <h1>Créer ton formulaire !</h1>
+    <form id="CreateForm" method="post">
+        <div class="user-box">
+            <input type="text" name="Q1" id="Q1">
+            <label>Question 1</label>
+            <div class="obligatoire">
+                <p class="lobligatoire">obligatoire :</p>
+                <input type="checkbox" class="cbox" name="cQ1" id="cQ1" >
+            </div>
+        </div>
+
+        <div class="user-box">
+            <input type="text" name="Q2" id="Q2">
+            <label>Question 2</label>
+            <div class="obligatoire">
+                <p class="lobligatoire">obligatoire :</p>
+                <input type="checkbox" class="cbox" name="cQ2" id="cQ2" >
+            </div>
+        </div>
+
+        <div class="user-box">
+            <input type="text" name="Q3" id="Q3">
+            <label>Question 3</label>
+            <div class="obligatoire">
+                <p class="lobligatoire">obligatoire :</p>
+                <input type="checkbox" class="cbox" name="cQ3" id="cQ3" >
+            </div>
+        </div>
+        <button type="submit">Envoyer<span></span> <span></span>
+            <span></span> <span></span></button>
+        <p id="erreur"></p>
+        <script src="js/SignUp.js"></script>
+    </form>
+</div>
+</body>
+</html>
+
