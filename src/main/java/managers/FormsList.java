@@ -14,15 +14,16 @@ public class FormsList {
         return FormsListHolder.instance;
     }
 
-    private TreeMap<Integer, Formulaire> FormsList;
+    static TreeMap<Integer, Formulaire> FormsList= new TreeMap<>();
+
+    public TreeMap getFormsList() {return FormsList;}
 
     public Formulaire getFormsByID(int id) {return FormsList.get(id);}
 
-    public Formulaire addForm(Formulaire form) {
-        Integer id = FormsList.lastKey() + 1;
-        form.setID(id);
-        FormsList.put(id, form);
-        return form;
+    public Formulaire addForm(int id, Formulaire form) {
+            form.setID(id);
+            FormsList.put(id, form);
+            return form;
     }
 
 }

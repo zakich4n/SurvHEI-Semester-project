@@ -11,12 +11,13 @@ public class Formulaire {
     public Formulaire(boolean anon, ArrayList<Page> pages) {
         this.Anonyme=anon;
         this.pages=pages;
-        this.id= Integer.parseInt(null);
     }
 
     public ArrayList<Page> getPages() {return pages;}
 
     public void setID(int id) {this.id=id;}
+
+    public int getID() {return id;}
 
     public boolean getAnonState() {return Anonyme;}
 

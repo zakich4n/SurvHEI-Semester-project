@@ -28,17 +28,17 @@ public class FormsServlet extends SurvHEISurvlet {
 
 
 
-        //Creation de 3 question/page
+        /*Creation de 3 question/page
         Page une=new YesOrNO(1,"Etes vous beau ?",true);
         Page deux=new YesOrNO(2,"Etes vous sur ??",true);
         Page trois=new YesOrNO(3,"Mentez vous un tout petit peu ??",true);
         ArrayList<Page> pages=new ArrayList<>();
         pages.add(une); pages.add(deux); pages.add(trois);
-
+        */
 
  //       Formulaire form=new Formulaire(true,pages);
  //       FormsList.getInstance().addForm(form);
-        webContext.setVariable("pagesList", pages);
+       // webContext.setVariable("pagesList", pages);
 
         TemplateEngine templateEngine = createTemplateEngine(req.getServletContext());
         templateEngine.process("forms", webContext, resp.getWriter());
