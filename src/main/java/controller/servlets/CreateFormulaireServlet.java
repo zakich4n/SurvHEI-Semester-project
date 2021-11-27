@@ -26,7 +26,6 @@ public class CreateFormulaireServlet extends HttpServlet {
         engine.setTemplateResolver(resolver);
 
         WebContext context = new WebContext(req, resp, req.getServletContext());
-
         engine.process("createform", context, resp.getWriter());
 
     }
