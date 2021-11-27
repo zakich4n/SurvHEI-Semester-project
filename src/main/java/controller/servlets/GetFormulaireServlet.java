@@ -10,8 +10,8 @@ import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 
-@WebServlet("/Formulaire")
-public class FormulaireServlet extends HttpServlet {
+@WebServlet("/GetFormulaire")
+public class GetFormulaireServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         ServletContextTemplateResolver resolver = new ServletContextTemplateResolver(req.getServletContext());
