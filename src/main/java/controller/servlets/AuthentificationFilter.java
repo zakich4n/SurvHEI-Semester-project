@@ -6,8 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-/* Mapping pour le filtre*/
-/* Chaque requete commençant par /prive/ passera par ce filtre et le code présent dans doFilter sera executé */
+
 @WebFilter("/prive/*")
 public class AuthentificationFilter implements Filter {
 
