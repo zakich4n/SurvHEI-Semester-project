@@ -10,6 +10,8 @@ public class DeconnexionServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.getSession().removeAttribute("typeuser");
+        req.getSession().removeAttribute("login");
+        req.getSession().removeAttribute("iduser");
         resp.sendRedirect("Accueil");
     }
 
