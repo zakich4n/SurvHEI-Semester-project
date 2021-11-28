@@ -14,7 +14,7 @@ create table survhei_user (
 
 create table formulaire (
                             id_formulaire  int auto_increment primary key not null,
-                            nom_formualire varchar(80) not null,
+                            nom_formulaire varchar(80) not null,
                             nombre_de_question int not null,
                             temps_moyen int not null,
                             actif boolean not null,

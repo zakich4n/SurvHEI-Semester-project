@@ -8,7 +8,8 @@ import java.sql.*;
 public class FormulaireDao {
 
 
-    public void AddFormulaire(Formulaire formulaire){
+    public int AddFormulaire(Formulaire formulaire){
+        int generatedId = 0;
         try {
             DataSource dataSource = DataSourceProvider.getDataSource();
             try (Connection connection = dataSource.getConnection()) {
@@ -24,6 +25,11 @@ public class FormulaireDao {
 
                     preparedStatement.executeUpdate();
                     ResultSet ids = preparedStatement.getGeneratedKeys();
+                    if (ids.next()) {
+                        generatedId = ids.getInt(1);
+                    }
+
+
                 }
 
             }
@@ -31,5 +37,6 @@ public class FormulaireDao {
 
             e.printStackTrace();
         }
+        return generatedId;
     }
 }

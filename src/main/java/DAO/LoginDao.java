@@ -9,8 +9,10 @@ import java.sql.*;
 public class LoginDao {
     private MotDePasseUtils motDePasseUtils = new MotDePasseUtils();
 
-    public int valider(Utilisateur utilisateur) {
+    public int[] valider(Utilisateur utilisateur) {
+        int[] resultat = new int[2];
         int res = 0;
+        int id=0;
         try {
             DataSource dataSource = DataSourceProvider.getDataSource();
 
@@ -23,6 +25,8 @@ public class LoginDao {
                             String mdphash = results.getString("Password");
                             if (motDePasseUtils.validerMotDePasse(utilisateur.getPassword(), mdphash)) {
                                 res = 1;
+                                id= results.getInt("IDUser");
+
                                 if (results.getInt("isAdmin")==1){
                                     res=2;
                                 }
@@ -34,7 +38,9 @@ public class LoginDao {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return res;
+        resultat[0]=res;
+        resultat[1]=id;
+        return resultat;
     }
 
     public static void addUser(Utilisateur user) {

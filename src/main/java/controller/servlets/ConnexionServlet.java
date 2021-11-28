@@ -43,12 +43,14 @@ public class ConnexionServlet extends HttpServlet {
         String motDePasse = req.getParameter("mdp");
 
         Utilisateur utilisateur= new Utilisateur(user, motDePasse);
-        if (LoginService.getInstance().valider(utilisateur)==1) {
+        if (LoginService.getInstance().valider(utilisateur)[0]==1) {
             req.getSession().setAttribute("login",user);
             resp.sendRedirect("Accueil");
         }else{
-            if(LoginService.getInstance().valider(utilisateur)==2){
+            if(LoginService.getInstance().valider(utilisateur)[0]==2){
                 req.getSession().setAttribute("login",user);
+                int iduser = LoginService.getInstance().valider(utilisateur)[1];
+                req.getSession().setAttribute("iduser",iduser);
                 resp.sendRedirect("AccueilAdmin");
             }
         }

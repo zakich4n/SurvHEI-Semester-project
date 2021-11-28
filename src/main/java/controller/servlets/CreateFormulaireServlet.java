@@ -33,6 +33,9 @@ public class CreateFormulaireServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+        //Récupération de l'id du formulaire
+        int NewformulaireId =(int) request.getSession().getAttribute("NewFormulaireId");
+
         //Récupération des informations pour la question 1
         String q1 = request.getParameter("Q1");
         boolean cq1;
@@ -42,7 +45,7 @@ public class CreateFormulaireServlet extends HttpServlet {
             cq1 = true;
         }
 
-        Question Q1 = new Question(q1, 1, 1, cq1);
+        Question Q1 = new Question(q1, 1, NewformulaireId, cq1);
         CreateFormService.getInstance().AddQuestion(Q1);
 
         //Récupération des informations de la question 2
@@ -54,7 +57,7 @@ public class CreateFormulaireServlet extends HttpServlet {
             cq2 = true;
         }
 
-        Question Q2 = new Question(q2, 2, 1, cq2);
+        Question Q2 = new Question(q2, 2, NewformulaireId, cq2);
         CreateFormService.getInstance().AddQuestion(Q2);
 
         //Récupération des informations de la question 3
@@ -66,11 +69,8 @@ public class CreateFormulaireServlet extends HttpServlet {
             cq3 = true;
         }
 
-        Question Q3 = new Question(q3, 3, 1, cq3);
+        Question Q3 = new Question(q3, 3, NewformulaireId, cq3);
         CreateFormService.getInstance().AddQuestion(Q3);
-
-
-
 
     }
 }

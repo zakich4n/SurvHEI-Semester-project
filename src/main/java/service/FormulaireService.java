@@ -15,5 +15,5 @@ public class FormulaireService {
 
     private FormulaireService(){}
 
-    public void AddFormulaire(Formulaire formulaire){ formulairedao.AddFormulaire(formulaire);}
+    public int AddFormulaire(Formulaire formulaire){ return formulairedao.AddFormulaire(formulaire);}
 }
