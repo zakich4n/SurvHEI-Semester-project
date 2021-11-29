@@ -40,6 +40,7 @@ public class Forms {
                                     FormsList.getInstance().addForm(Integer.parseInt(ListIDForm.get(i)),new Formulaire(ListAnonState.get(i), pages));
                                 }
                             }
+                            pages.clear();
                         } //fin creation des forms dans FormsList
                     }
                 }
@@ -49,4 +50,6 @@ public class Forms {
         }
         return FormsList.getInstance().getFormsList();
     }
+
+
 }
