@@ -1,6 +1,6 @@
 create table survhei_user (
                               IDUser int AUTO_INCREMENT not null PRIMARY key,
-                              User varchar(80) not null,
+                              User varchar(80) unique not null,
                               Password text not null,
                               DateCreation date not null default CURRENT_DATE,
                               Email varchar(80) not null,

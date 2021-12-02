@@ -15,8 +15,6 @@ public class LoginDao {
         int id=0;
         try {
             DataSource dataSource = DataSourceProvider.getDataSource();
-
-
             try (Connection connection = dataSource.getConnection()) {
                 try (PreparedStatement statement = connection.prepareStatement("select * from survhei_user where User=?")) {
                     statement.setString(1, utilisateur.getUser());
@@ -61,13 +59,46 @@ public class LoginDao {
                     preparedStatement.executeUpdate();
                     ResultSet ids = preparedStatement.getGeneratedKeys();
                 }
-
             }
         } catch (SQLException e) {
-
             e.printStackTrace();
         }
+    }
+
+    public static void deleteUser(String User){
+        try{
+            DataSource dataSource = DataSourceProvider.getDataSource();
+            try (Connection connection = dataSource.getConnection()) {
+                try (PreparedStatement statement = connection.prepareStatement(
+                        "delete from dbsurvhei.survhei_user where User=?")) {
+                    statement.setString(1, User);
+                    statement.executeUpdate();
+                }
+            }
+        }catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 
 
+    public int getByIdName(String User, String Nom, String Prenom){
+        int IdUsertodelete = 0;
+        try {
+            DataSource dataSource = DataSourceProvider.getDataSource();
+            try (Connection connection = dataSource.getConnection()) {
+                try (PreparedStatement statement = connection.prepareStatement(
+                        "select IDUser from dbsurvhei.survhei_user where User=? and Nom=? and Prenom=?")) {
+                    statement.setString(1, User);
+                    statement.setString(2, Nom);
+                    statement.setString(3, Prenom);
+                    try (ResultSet results = statement.executeQuery()) {
+                       IdUsertodelete = results.getInt("IDUser");
+                    }
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return IdUsertodelete;
     }
 }
