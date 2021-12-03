@@ -28,10 +28,7 @@ public class FormulaireDao {
                     if (ids.next()) {
                         generatedId = ids.getInt(1);
                     }
-
-
                 }
-
             }
         } catch (SQLException e) {
 
@@ -39,4 +36,37 @@ public class FormulaireDao {
         }
         return generatedId;
     }
+
+
+    public static void deleteQuest(int FormId){
+        try{
+            DataSource dataSource = DataSourceProvider.getDataSource();
+            try (Connection connection = dataSource.getConnection()) {
+                try (PreparedStatement statement = connection.prepareStatement(
+                        "delete from dbsurvhei.question where id_formulaire_correspondant=?")) {
+                    statement.setInt(1, FormId);
+                    statement.executeUpdate();
+                }
+            }
+        }catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void deleteForm(int FormId){
+        try{
+            DataSource dataSource = DataSourceProvider.getDataSource();
+            try (Connection connection = dataSource.getConnection()) {
+                try (PreparedStatement statement = connection.prepareStatement(
+                        "delete from dbsurvhei.formulaire where id_formulaire=?")) {
+                    statement.setInt(1, FormId);
+                    statement.executeUpdate();
+                }
+            }
+        }catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+
 }

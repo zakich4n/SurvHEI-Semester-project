@@ -1,7 +1,7 @@
 package Formulaire;
 
-import Codage.Decode;
-import Codage.Encode;
+import codage.Decode;
+import codage.Encode;
 
 import java.util.ArrayList;
 

@@ -45,7 +45,7 @@ public class ConnexionServlet extends HttpServlet {
         }
 
         if (typeuser.equals("1") ){
-            engine.process("Accueil", context, resp.getWriter());
+            engine.process("AccueilUser", context, resp.getWriter());
         }
         if (typeuser.equals("2") ){
             engine.process("AccueilAdmin", context, resp.getWriter());

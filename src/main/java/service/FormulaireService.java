@@ -16,4 +16,8 @@ public class FormulaireService {
     private FormulaireService(){}
 
     public int AddFormulaire(Formulaire formulaire){ return formulairedao.AddFormulaire(formulaire);}
+
+    public void deleteQuest(int FormId){ formulairedao.deleteQuest(FormId);}
+
+    public void deleteForm(int FormId){ formulairedao.deleteForm(FormId);}
 }

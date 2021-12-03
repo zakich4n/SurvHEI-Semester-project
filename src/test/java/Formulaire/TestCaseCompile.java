@@ -1,14 +1,8 @@
 package Formulaire;
-import Formulaire.*;
-import Formulaire.Compile;
-import Codage.*;
-import managers.FormsList;
-import org.junit.Assert;
-import org.junit.Test;
-
-import java.util.ArrayList;
 
 public class TestCaseCompile {
+
+    /*
 
     @Test
     public void shouldEncodeAndReturnSingleString() {
@@ -62,5 +56,7 @@ public class TestCaseCompile {
         Assert.assertNotNull(form.getID());
     }
 
+
+     */
 
 }
