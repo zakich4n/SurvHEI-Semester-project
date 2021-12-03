@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<section class="navigation" th:fragment="navigation">
+    <div class="brand">
+        <a href="Accueil"><img id="logosite" src="images/logob.png"></a>
+    </div>
+
+    <div class="nav-container">
+        <nav>
+            <div class="nav-mobile"><a id="nav-toggle" href="Accueil"><span></span></a></div>
+            <ul class="nav-list">
+                <li>
+                    <a href="connexion">Accueil</a>
+                </li>
+                <li>
+                    <a href="SupprimerUser">Supprimer un utilisateur</a>
+                </li>
+                <li>
+                    <a href="#!">Services</a>
+                    <ul class="nav-dropdown">
+                        <li>
+                            <a href="GetFormulaire">Formulaires</a>
+                        </li>
+                        <li>
+                            <a href="NewFormulaire">Créer un formulaire</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="connexion">Connexion</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</section>
+
+</body>
+</html>

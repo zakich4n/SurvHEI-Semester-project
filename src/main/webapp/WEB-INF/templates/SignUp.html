@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Sign Up</title>
+	<link rel="stylesheet" type="text/css" href="css/signup.css">
+</head>
+<body>
+	<div class="formulaire">
+		<h1>Sign Up !</h1>
+		<form id="SignupForm" method="post">
+			<div class="user-box">
+				<input type="text" name="User" id="user">
+				<label>Username</label>
+			</div>
+			<div class="user-box">
+				<input type="text" name="Email" id="email">
+				<label>Email</label>
+			</div>
+			<div class="user-box">
+				<input type="text" name="Nom" id="nom">
+				<label>Last Name</label>
+			</div>
+			<div class="user-box">
+				<input type="text" name="prenom" id="prenom">
+				<label>First Name</label>
+			</div>
+			<div class="user-box1">
+				<label>Date of Birth</label>
+				<input type="date" name="DateNaissance" id="datenaissance" max="2007-12-31" min="1949-12-31">
+			</div>
+			<div class="user-box1">
+				<label>Gender</label>
+                <select id="gender" name="genre">
+                    <option value="m">Male</option>
+                    <option value="f">Female</option>
+                </select>
+			</div>
+			<div class="user-box">
+				<input type="password" name="Password" id="mdp">
+				<label>Password</label>
+			</div>
+			<div class="user-box">
+				<input type="password" name="Passwordc" id="mdpc">
+				<label>Password Confirmation</label>
+			</div>
+
+
+
+
+			<div class="user-box" id="UniqueUser" hidden="">
+				<p>Ce nom d'utilisateur est déjà pris, Veuillez en entrer un autre svp</p>
+			</div>
+
+
+
+
+
+
+
+
+
+
+
+
+			<button type="submit">Envoyer<span></span> <span></span>
+            <span></span> <span></span></button>
+			<p id="erreur"></p>
+			<script src="js/SignUp.js"></script>
+		</div>
+	</div>
+</body>
+</html>
+
