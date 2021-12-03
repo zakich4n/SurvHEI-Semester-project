@@ -24,8 +24,8 @@ public class ConnexionServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        String typeuser =(String) req.getSession().getAttribute("typeuser");
-        String login =(String) req.getSession().getAttribute("login");
+        String typeuser = (String) req.getSession().getAttribute("typeuser");
+        String login = (String) req.getSession().getAttribute("login");
 
         ServletContextTemplateResolver resolver = new ServletContextTemplateResolver(req.getServletContext());
         resolver.setPrefix("/WEB-INF/templates/");
@@ -40,14 +40,11 @@ public class ConnexionServlet extends HttpServlet {
         WebContext context = new WebContext(req, resp, req.getServletContext());
         context.setVariable("login", login);
 
-        if (typeuser == null){
+        if (typeuser == null) {
             engine.process("pagelogin", context, resp.getWriter());
-        }
-
-        if (typeuser.equals("1") ){
+        } else if (typeuser.equals("1")) {
             engine.process("Accueil", context, resp.getWriter());
-        }
-        if (typeuser.equals("2") ){
+        } else if (typeuser.equals("2")) {
             engine.process("AccueilAdmin", context, resp.getWriter());
         }
 
