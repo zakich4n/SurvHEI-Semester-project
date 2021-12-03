@@ -3,23 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <title>Formulaire</title>
-    <link href="css/style.css" rel="stylesheet">
+    <link href="css/forms.css" rel="stylesheet">
 </head>
 <body>
-    <h1>Formulaire</h1>
+<div class="login-box">
+    <h2>Formulaire</h2>
     <span></span>
 
     <form>
-        <div th:each="page : ${pagesList}" >
+        <div class="user-box" th:each="page : ${pagesList}" >
 
-        <h1 th:text="${page.Question}">Question 1</h1>
-            <input type="radio" id="Oui" th:name="${page.Numero}" value="true">
-            <label>Oui</label>
+        <h3 th:text="${page.Question}">Question 1</h3>
+            <p class="ouinon">Oui<input type="radio" id="Oui" th:name="${page.Numero}" value="true"></p>
 
-            <input type="radio" id="Non" th:name="${page.Numero}" value="false">
-            <label>Non</label>
+
+            <p class="ouinon">Non<input type="radio" id="Non" th:name="${page.Numero}" value="false"></p>
+
         </div>
-        <input type="submit" name="submit" formmethod="POST">
+        <button type="submit">Envoyer<span></span> <span></span>
+            <span></span> <span></span></button>
     </form>
+</div>
 </body>
 </html>
