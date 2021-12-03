@@ -48,3 +48,11 @@ document.getElementById("SignupForm").addEventListener("submit", function(e) {
     }
 })
 
+
+let UniqueUser = function () {
+
+    document.getElementById("UniqueUser").hidden = false;
+
+}
+
+

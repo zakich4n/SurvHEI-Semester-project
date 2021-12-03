@@ -47,8 +47,14 @@ public class SignUpServlet extends HttpServlet {
         LocalDateTime dateBirth  = LocalDate.parse(dateBirthString, dateFormat).atStartOfDay();
 
         password = MotDePasseUtils.genererMotDePasse(passwordc);
-        Utilisateur user = new Utilisateur(1, login, password, email, lastName, firstName, dateBirth, genre );
-        LoginService.getInstance().addUser(user);
-        response.sendRedirect("connexion");
+
+        if(!LoginService.getInstance().checkIfExist(login)){
+            Utilisateur user = new Utilisateur(1, login, password, email, lastName, firstName, dateBirth, genre );
+            LoginService.getInstance().addUser(user);
+            response.sendRedirect("connexion");
+        }else{
+            response.sendRedirect("SignUp");
+        }
+
     }
 }

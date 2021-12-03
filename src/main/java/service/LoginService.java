@@ -24,4 +24,6 @@ public class LoginService {
 
     public int getByIdName(String User, String Nom, String Prenom){return logindao.getByIdName(User, Nom, Prenom);}
 
+    public boolean checkIfExist(String User){return logindao.checkIfExist(User);}
+
 }

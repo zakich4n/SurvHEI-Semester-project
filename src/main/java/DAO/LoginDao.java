@@ -101,4 +101,29 @@ public class LoginDao {
         }
         return IdUsertodelete;
     }
+
+
+    public boolean checkIfExist(String User){
+        boolean exists = true;
+        try {
+            DataSource dataSource = DataSourceProvider.getDataSource();
+            try (Connection connection = dataSource.getConnection()) {
+                try (PreparedStatement statement = connection.prepareStatement("select * from dbsurvhei.survhei_user where User=?")) {
+                    statement.setString(1, User);
+                    try (ResultSet results = statement.executeQuery()) {
+                        if (!results.next()) {
+                            exists = false;
+                        }
+                    }
+                }
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        System.out.println("Ce nom d'utilisateur est pris ? " +exists);
+        return exists;
+    }
 }
+
+
