@@ -38,6 +38,7 @@ public class Utilisateur {
     public String getSexe(){return Sexe;}
 
 
+
     public void setUser(String utilisateur){this.User=utilisateur;}
     public void setPassword(String password){this.Password=password;}
 

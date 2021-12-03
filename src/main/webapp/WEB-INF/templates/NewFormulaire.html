@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Create Form</title>
+    <link rel="stylesheet" type="text/css" href="../../css/NewFormulaire.css">
+</head>
+<body>
+<div class="formulaire">
+    <h1>Créer ton formulaire !</h1>
+    <form id="CreateForm" method="post">
+        <div class="user-box">
+            <input type="text" name="nameform" id="nameform">
+            <label>Quel est le nom de ton formulaire ?</label>
+            <div class="anonyme">
+                <p class="lanonyme">Veux-tu être anonyme ?</p>
+                <input type="checkbox" class="cboxa" name="cnameform" id="cnameform" >
+            </div>
+        </div>
+        <div class="user-box">
+            <input type="text" name="timeform" id="timeform">
+            <label>Temps estimé pour y répondre (en minute) :</label>
+        </div>
+        <button type="submit">Envoyer<span></span> <span></span>
+            <span></span> <span></span></button>
+        <p id="erreur1"></p>
+        <script src="js/CreateForm1.js"></script>
+    </form>
+</div>
+</body>
+</html>
+
+
+
+

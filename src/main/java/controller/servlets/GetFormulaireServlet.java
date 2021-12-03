@@ -10,11 +10,10 @@ import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 
-@WebServlet("/Accueil")
-public class PostAuthentificationServlet extends HttpServlet {
+@WebServlet("/GetFormulaire")
+public class GetFormulaireServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
         ServletContextTemplateResolver resolver = new ServletContextTemplateResolver(req.getServletContext());
         resolver.setPrefix("/WEB-INF/templates/");
         resolver.setSuffix(".html");
@@ -24,8 +23,8 @@ public class PostAuthentificationServlet extends HttpServlet {
         engine.setTemplateResolver(resolver);
 
         WebContext context = new WebContext(req, resp, req.getServletContext());
-        engine.process("Accueil", context, resp.getWriter());
 
+        engine.process("Formulaires", context, resp.getWriter());
 
     }
 

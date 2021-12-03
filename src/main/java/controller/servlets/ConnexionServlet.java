@@ -1,12 +1,13 @@
 package controller.servlets;
 
-import DAO.Login;
 import entity.Utilisateur;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.WebContext;
+import org.thymeleaf.extras.java8time.dialect.Java8TimeDialect;
 import org.thymeleaf.templatemode.TemplateMode;
 import org.thymeleaf.templateresolver.ServletContextTemplateResolver;
 import controller.webservices.MotDePasseUtils;
+import service.LoginService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -17,14 +18,15 @@ import java.io.IOException;
 
 @WebServlet("/connexion")
 public class ConnexionServlet extends HttpServlet {
-    private Login login;
     private MotDePasseUtils mdp = new MotDePasseUtils();
 
-    public void init() {
-        login = new Login();
-    }
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+        String typeuser =(String) req.getSession().getAttribute("typeuser");
+        String login =(String) req.getSession().getAttribute("login");
+
         ServletContextTemplateResolver resolver = new ServletContextTemplateResolver(req.getServletContext());
         resolver.setPrefix("/WEB-INF/templates/");
         resolver.setSuffix(".html");
@@ -33,10 +35,21 @@ public class ConnexionServlet extends HttpServlet {
         TemplateEngine engine = new TemplateEngine();
         engine.setTemplateResolver(resolver);
 
+        engine.addDialect(new Java8TimeDialect());
+
         WebContext context = new WebContext(req, resp, req.getServletContext());
-        engine.process("pagelogin", context, resp.getWriter());
+        context.setVariable("login", login);
 
+        if (typeuser == null){
+            engine.process("pagelogin", context, resp.getWriter());
+        }
 
+        if (typeuser.equals("1") ){
+            engine.process("Accueil", context, resp.getWriter());
+        }
+        if (typeuser.equals("2") ){
+            engine.process("AccueilAdmin", context, resp.getWriter());
+        }
 
     }
 
@@ -45,23 +58,17 @@ public class ConnexionServlet extends HttpServlet {
 
         String user = req.getParameter("login");
         String motDePasse = req.getParameter("mdp");
-//CHANGER ICI POUR HASHER LE MOT DE PASSE
 
-        if (user==null || motDePasse==null){
-            resp.sendRedirect("connexionfailed");
+        Utilisateur utilisateur= new Utilisateur(user, motDePasse);
 
-        }else{
-            Utilisateur utilisateur= new Utilisateur(user, motDePasse);
-            if (login.valider(utilisateur)) {
-                req.getSession().setAttribute("utilisateurConnecte",user);
-                resp.sendRedirect("Accueil");
-            } else {
-                resp.sendRedirect("connexionfailed");
-            }
+        if (LoginService.getInstance().valider(utilisateur)[0]==1 || LoginService.getInstance().valider(utilisateur)[0]==2) {
+            req.getSession().setAttribute("login",user);
+
+            req.getSession().setAttribute("iduser",LoginService.getInstance().valider(utilisateur)[1]);
+
+            req.getSession().setAttribute("typeuser", Integer.toString(LoginService.getInstance().valider(utilisateur)[0]));
+
+            resp.sendRedirect("connexion");
         }
-
-
-
-
     }
 }

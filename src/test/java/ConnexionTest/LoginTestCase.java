@@ -1,27 +1,32 @@
 package ConnexionTest;
 
-import DAO.Login;
+import DAO.LoginDao;
 import entity.Utilisateur;
 import org.junit.Assert;
 import org.junit.Test;
+import service.LoginService;
 
 public class LoginTestCase {
-    private Login login = new Login();
+    private LoginDao login = new LoginDao();
 
 
     @Test
     public void ShouldReturnTrueIfExists(){
         //GIVEN
-        boolean resultat1;
-        boolean resultat2;
-        Utilisateur utilisateurExists = new Utilisateur("User2", "password");
-        Utilisateur utilisateurDoesntExist = new Utilisateur("notExist", "password1");
+        int resultat1;
+        int resultat2;
+        int resultat3;
+        Utilisateur UserExists = new Utilisateur("user", "azerty");
+        Utilisateur AdminExists = new Utilisateur("admin", "motdepasse");
+        Utilisateur UserDoesntExist = new Utilisateur("notExist", "pass");
         //WHEN
-        resultat1 = login.valider(utilisateurExists);
-        resultat2 = login.valider(utilisateurDoesntExist);
+        resultat1 = login.valider(UserExists)[0];
+        resultat2 = login.valider(AdminExists)[0];
+        resultat3 = login.valider(UserDoesntExist)[0];
         //THEN
-        Assert.assertTrue(resultat1);
-        Assert.assertFalse(resultat2);
+        Assert.assertEquals(1,resultat1);
+        Assert.assertEquals(2, resultat2);
+        Assert.assertEquals(0, resultat3);
 
     }
 

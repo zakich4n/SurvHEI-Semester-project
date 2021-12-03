@@ -1,5 +1,5 @@
 html {
-    height: 100%;
+    height: 200%;
 }
 body {
     margin:0;
@@ -9,21 +9,25 @@ body {
 }
 
 h1 {
+    padding: 2%;
     color: #ffffff;
     font-family: 'Lato', sans-serif;
     font-size: 54px; font-weight: 300;
-    line-height: 58px; margin: 0 0 58px;
+    line-height: 58px;
     text-shadow:  0 0 7px #fff,
     0 0 10px #fff,
     0 0 42px rgb(255, 255, 255),
     0 0 77px rgb(255, 255, 255),
     0 0 100px rgb(255, 255, 255)
+
 }
 
 div , p {
     color: #ffffff;
     font-family: 'Lato', sans-serif;
     font-size: x-large;
+    text-align: center;
+    margin-right: 10%;
 }
 
 .login-box {
@@ -39,7 +43,7 @@ div , p {
     border-radius: 10px;
 }
 
-.login-box h1 {
+.login-box h2 {
     margin: 0 0 30px;
     padding: 0;
     color: #fff;
@@ -258,207 +262,359 @@ login-box button span:nth-child(3) {
     }
 }
 
-nav {
-    margin: 27px auto 0;
 
-    position: relative;
-    width: 450px;
-    height: 50px;
-    background-color: #34495e;
-    border-radius: 8px;
-    font-size: 0;
-}
-nav a, a button{
-    line-height: 50px;
-    height: 100%;
-    font-size: 15px;
-    display: inline-block;
-    position: relative;
-    z-index: 1;
-    text-decoration: none;
-    text-transform: uppercase;
-    text-align: center;
-    color: white;
-    cursor: pointer;
-}
-nav .animation {
-    position: absolute;
-    height: 100%;
-    top: 0;
-    z-index: 0;
-    transition: all .5s ease 0s;
-    border-radius: 8px;
+<!--CSS barre navigation -->
+
+body {
+    margin:0;
+    padding:0;
+    font-family: sans-serif;
+    background: linear-gradient(#141e30, #243b55);
 }
 
-a:nth-child(1) {
-    width: 150px;
-}
-a:nth-child(2) {
-    width: 150px;
-}
-a:nth-child(3) {
-    width: 150px;
-}
 
-nav .start-home, a:nth-child(1):hover~.animation {
-    width: 150px;
-    left: 0;
-    background-color: #1abc9c;
-}
-nav .start-about, a:nth-child(2):hover~.animation {
-    width: 150px;
-    left: 150px;
-    background-color: #3498db;
-}
-
-nav .start-blog, a:nth-child(3):hover~.animation {
-    width: 150px;
-    left: 300px;
-    background-color: #e74c3c;
-
-}
-
-div a {
-    height: 100%;
-    font-size: 15px;
-    display: inline-block;
-    position: relative;
-    z-index: 1;
-    text-decoration: none;
-    text-transform: uppercase;
-    text-align: center;
-    color: white;
-    cursor: pointer;
-}
-
-#listm a:hover {
-    background:#444;
-    color: #fff;
-    transition-duration: 0.3s;
-    -moz-transition-duration: 0.3s;
-    -webkit-transition-duration: 0.3s;
-}
-
-.form-ajout {
-    width: 250px;
+.navigation {
     display: block;
-    vertical-align: top;
-    margin: 6px;
+    height: 70px;
+    background: rgba(0,0,0,.5);
 }
 
-#membre {
-    position: fixed;
-    width: 330px;
+.brand {
+    position: absolute;
+    padding-left: 20px;
+    float: left;
+    line-height: 70px;
+    text-transform: uppercase;
+    font-size: 1.4em;
 }
 
-
-#chat{
-    width: 510px;
+.brand img, .brand img:visited {
+    color: #fff;
+    text-decoration: none;
 }
 
-#chatprive{
-    width: 1000px;
+.nav-container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+section.navigation{
+    font-size: 18px;
+}
+nav {
+    float: right;
+    font-size: 18px;
 }
 
-#buttonadd, #aadd{
-    padding: 0px;
-    margin-top: 0px;
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul::after{
+    content: "";
+    display: table;
+    clear: both;
+}
+
+nav a{
+    display: block;
+    text-decoration: none;
+    color: white;
+}
+
+nav a:hover {
+    color: whitesmoke;
+}
+
+nav > ul li:hover .nav-dropdown{
+    display: block;
+}
+
+nav ul li {
+    float: left;
+    position: relative;
+
+}
+
+nav ul li a, nav ul li a:visited {
+    display: block;
+    padding: 0 20px;
+    line-height: 70px;
+    color: #fff;
+    text-decoration: none;
+}
+
+nav ul li a:hover, nav ul li a:visited:hover {
+    border-radius: 10%;
+    background: #003060;
     color: #fff;
 }
 
-#chatcom{
-    width: 750px;
+nav ul li ul li {
+    min-width: 190px;
 }
-
-#submitmsg{
+nav ul li ul li a {
+    padding: 15px;
     line-height: 20px;
-    text-transform: uppercase;
+}
+
+.nav-dropdown {
+    display: none;
+    position: absolute;
+    z-index: 1;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
+    }
+#logosite {
+    max-width: 40%;
+    max-height: 40%;
+    float: left;
+    margin-top: -65px;
+}
+
+/* Contenu de la page */
+
+h3 {
+    text-align : center;
+}
+
+#legende {
+    display: inline-flex;
+    margin-left: 60px;
+}
+
+.photo img {
+    max-width: 300px;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.photo p {
+    font-size: 60%;
+    display: inline;
     text-align: center;
-    color: white;
-    background-color: cadetblue;
-    cursor: pointer;
+    margin-right: 10%;
+
 }
 
-.login-box2 {
-    position: absolute;
-    text-align: center;
-    top: 20%;
-    left: 50%;
-    width: 800px;
-    padding: 10px;
-    transform: translate(-50%, -50%);
-    background: rgba(0,0,0,.5);
-    box-sizing: content-box;
-    box-shadow: 0 15px 25px rgba(0,0,0,.6);
-    border-radius: 10px;
+span {
+    display: flex;
+    flex-flow: column;
+    margin: auto;
 }
-
-.choix-box{
-    position: absolute;
-    top: 30%;
-    left: 38%;
-}
-
-#chatbox{
-    height: 500px;
-    width: 1000px;
-    overflow: auto;
-}
-
-#chatbox{
-    height: 600px;
-    width: 1000px;
-    overflow: auto;
-    position: absolute;
-    top: 760%;
-    left: 50%;
-    padding: 40px;
-    transform: translate(-50%, -50%);
-    background: rgba(0,0,0,.5);
-    box-sizing: border-box;
-    box-shadow: 0 15px 25px rgba(0,0,0,.6);
-    border-radius: 10px;
-}
-
-#formchat{
-    position: absolute;
-    top: 1400%
-}
-
-input[type=submit]{
-    background-color: #56baed;
-    border: none;
-    color: white;
-    padding: 15px 80px;
-    text-align: center;
-    text-decoration: none;
+#welc{
     display: inline-block;
-    text-transform: uppercase;
-    font-size: 13px;
-    -webkit-box-shadow: 0 10px 30px 0 rgba(95,186,233,0.4);
-    box-shadow: 0 10px 30px 0 rgba(95,186,233,0.4);
-    -webkit-border-radius: 5px 5px 5px 5px;
-    border-radius: 5px 5px 5px 5px;
-    margin: 5px 20px 40px 20px;
-    -webkit-transition: all 0.3s ease-in-out;
-    -moz-transition: all 0.3s ease-in-out;
-    -ms-transition: all 0.3s ease-in-out;
-    -o-transition: all 0.3s ease-in-out;
-    transition: all 0.3s ease-in-out;
 }
 
-input[type=submit]:hover{
-    background-color: #39ace7;
+
+/* Contenu page Accueil */
+
+figure {
+    box-shadow: 50px 50px 50px 50px rgba(0,0,0,.2);
+    padding: 1% 1% 4% 1%;
+    margin: 3%;
+    display: inline-block;
+    border-radius: 30px;
+
 }
 
-input[type=submit]:active{
-    -moz-transform: scale(0.95);
-    -webkit-transform: scale(0.95);
-    -o-transform: scale(0.95);
-    -ms-transform: scale(0.95);
-    transform: scale(0.95);
+.boutonformulaire .imgfig {
+    border-radius: 30px;
+    width: 100%;
+    margin: 3%;
 }
-.login-box p {
+
+figure figcaption {
+    text-align: center;
+    font-size: 1em;
+    color: #ffffff;
+    font-family: 'Lato', sans-serif;
+    text-shadow:  0 0 7px #fff,
+    0 0 10px #fff,
+    0 0 42px rgb(255, 255, 255),
+    0 0 77px rgb(255, 255, 255),
+    0 0 100px rgb(255, 255, 255)
+
+}
+
+/*Boutton deconnecter*/
+
+#deco a {
+    position: relative;
+    display: inline-block;
+    padding: 10px 20px;
     color: #03e9f4;
-    font-size: 12px;
+    font-size: 16px;
+    text-decoration: none;
+    text-transform: uppercase;
+    overflow: hidden;
+    transition: .5s;
+    margin-top: 40px;
+    letter-spacing: 4px
+}
+
+#deco button {
+    position: relative;
+    display: inline-block;
+    padding: 10px 20px;
+    color: #03e9f4;
+    font-size: 16px;
+    text-decoration: none;
+    text-transform: uppercase;
+    overflow: hidden;
+    transition: .5s;
+    margin-top: 40px;
+    letter-spacing: 4px;
+    margin-left: 75%;
+    margin-top: 8%;
+}
+
+#deco a:hover {
+    background: #03e9f4;
+    color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #03e9f4,
+    0 0 25px #03e9f4,
+    0 0 50px #03e9f4,
+    0 0 100px #03e9f4;
+}
+
+#deco button:hover {
+    background: #03e9f4;
+    color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #03e9f4,
+    0 0 25px #03e9f4,
+    0 0 50px #03e9f4,
+    0 0 100px #03e9f4;
+}
+
+#deco a span {
+    position: absolute;
+    display: block;
+}
+
+#deco button{
+    background-color : #0f1724;
+    border: 0px;
+}
+
+#deco button span {
+    position: absolute;
+    display: block;
+}
+
+#deco a span:nth-child(1) {
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #03e9f4);
+    animation: btn-anim1 1s linear infinite;
+}
+
+#deco button span:nth-child(1) {
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #03e9f4);
+    animation: btn-anim1 1s linear infinite;
+}
+
+@keyframes btn-anim1 {
+    0% {
+        left: -100%;
+    }
+    50%,100% {
+        left: 100%;
+    }
+}
+
+#deco a span:nth-child(2) {
+    top: -100%;
+    right: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(180deg, transparent, #03e9f4);
+    animation: btn-anim2 1s linear infinite;
+    animation-delay: .25s
+}
+
+#deco button span:nth-child(2) {
+    top: -100%;
+    right: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(180deg, transparent, #03e9f4);
+    animation: btn-anim2 1s linear infinite;
+    animation-delay: .25s
+}
+
+
+@keyframes btn-anim2 {
+    0% {
+        top: -100%;
+    }
+    50%,100% {
+        top: 100%;
+    }
+}
+
+#deco a span:nth-child(3) {
+    bottom: 0;
+    right: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(270deg, transparent, #03e9f4);
+    animation: btn-anim3 1s linear infinite;
+    animation-delay: .5s
+}
+
+#deco button span:nth-child(3) {
+    bottom: 0;
+    right: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(270deg, transparent, #03e9f4);
+    animation: btn-anim3 1s linear infinite;
+    animation-delay: .5s
+}
+
+@keyframes btn-anim3 {
+    0% {
+        right: -100%;
+    }
+    50%,100% {
+        right: 100%;
+    }
+}
+
+#deco a span:nth-child(4) {
+    bottom: -100%;
+    left: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(360deg, transparent, #03e9f4);
+    animation: btn-anim4 1s linear infinite;
+    animation-delay: .75s
+}
+
+#deco button span:nth-child(4) {
+    bottom: -100%;
+    left: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(360deg, transparent, #03e9f4);
+    animation: btn-anim4 1s linear infinite;
+    animation-delay: .75s
+}
+
+@keyframes btn-anim4 {
+    0% {
+        bottom: -100%;
+    }
+    50%,100% {
+        bottom: 100%;
+    }
 }
