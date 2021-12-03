@@ -12,10 +12,10 @@
         <div th:each="page : ${pagesList}" >
 
         <h1 th:text="${page.Question}">Question 1</h1>
-            <input type="radio" id="Oui" name="YesOrNo" value="Oui">
+            <input type="radio" id="Oui" th:name="${page.Question}" value="true">
             <label>Oui</label>
 
-            <input type="radio" id="Non" name="YesOrNo" value="Non">
+            <input type="radio" id="Non" th:name="${page.Question}" value="false">
             <label>Non</label>
         </div>
         <input type="submit" name="Envoyer" formmethod="POST">
