@@ -2,18 +2,18 @@ package Reponse;
 
 import Formulaire.Formulaire;
 
-import java.util.List;
+import java.util.TreeMap;
 
 public class Reponse {
     private Formulaire formulaire;
     private int idUser;
-    private List<Boolean> reponse;
+    private TreeMap<Integer, Boolean> reponse;
 
-    public Reponse(Formulaire form, List<Boolean> rep) {
+    public Reponse(Formulaire form, TreeMap<Integer, Boolean> rep) {
         this.formulaire=form;
         this.idUser=0;
         this.reponse=rep;
     }
 
-
+    public Formulaire getFormulaire() {return formulaire;}
 }

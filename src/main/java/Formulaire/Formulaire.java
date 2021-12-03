@@ -23,6 +23,12 @@ public class Formulaire {
 
     public boolean getAnonState() {return Anonyme;}
 
+    public int GetNumberOfPage() {
+        return pages.size();
+    }
 
+    public Page getPageNumber(int id) {
+        return pages.get(id);
+    }
 
 }

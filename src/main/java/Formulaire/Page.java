@@ -23,12 +23,15 @@ public abstract class Page {
     public String getGenre() {return Genre;}
 
     public String getNumero() {return String.valueOf(Numero);}
+    public int getNumeroAsInt() {return Numero;}
 
     public String getQuestion() {return Question;}
 
     public String getObligatoire() {return String.valueOf(Obligatoire);}
 
     public String getType() {return Type;}
+
+
 
 
 
