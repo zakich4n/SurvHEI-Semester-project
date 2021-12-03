@@ -25,7 +25,7 @@ public class AuthentificationFilter implements Filter {
     if (identifiant == null || "".equals(identifiant)) { /* Si pas d'utilisateur dans la session on refuse l'acces à la partie privée */
       System.out.println("Il faut être connecté pour accéder à cette page !");
       HttpServletResponse httpResponse = (HttpServletResponse) response;
-      httpResponse.sendRedirect("../connexion");
+      httpResponse.sendRedirect("connexion");
       return;
     }
     /* Sinon on laisse le traitement se poursuivre */
