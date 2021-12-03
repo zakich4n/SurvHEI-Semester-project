@@ -9,9 +9,9 @@ public class Reponse {
     private int idUser;
     private List<Boolean> reponse;
 
-    public Reponse(Formulaire form, int iduser, List<Boolean> rep) {
+    public Reponse(Formulaire form, List<Boolean> rep) {
         this.formulaire=form;
-        this.idUser=iduser;
+        this.idUser=0;
         this.reponse=rep;
     }
 

@@ -1,5 +1,7 @@
 package Formulaire;
 
+import managers.FormsList;
+
 import java.util.ArrayList;
 
 public class Formulaire {
@@ -7,11 +9,11 @@ public class Formulaire {
     public ArrayList<Page> pages;
     public int id;
 
-
     public Formulaire(boolean anon, ArrayList<Page> pages) {
         this.Anonyme=anon;
         this.pages=pages;
     }
+
 
     public ArrayList<Page> getPages() {return pages;}
 

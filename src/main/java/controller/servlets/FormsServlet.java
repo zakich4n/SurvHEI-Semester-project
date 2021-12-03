@@ -27,18 +27,7 @@ public class FormsServlet extends SurvHEISurvlet {
         WebContext webContext = new WebContext(req, resp, req.getServletContext());
         FormsList frm=new FormsList().getInstance();
         int IDForm = Integer.parseInt(req.getParameter("id"));
-
-        /*Creation de 3 question/page
-        Page une=new YesOrNO(1,"Etes vous beau ?",true);
-        Page deux=new YesOrNO(2,"Etes vous sur ??",true);
-        Page trois=new YesOrNO(3,"Mentez vous un tout petit peu ??",true);
-        ArrayList<Page> pages=new ArrayList<>();
-        pages.add(une); pages.add(deux); pages.add(trois);
-        Formulaire form=new Formulaire(true,pages);
-        FormsList.getInstance().addForm(1,form);
-        */
-        // webContext.setVariable("pagesList", pages);
-
+        frm.init();
         webContext.setVariable("pagesList", frm.getFormsByID(IDForm).getPages());
 
         TemplateEngine templateEngine = createTemplateEngine(req.getServletContext());
