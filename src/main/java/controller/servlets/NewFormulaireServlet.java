@@ -1,6 +1,6 @@
 package controller.servlets;
 
-import entity.Formulaire;
+import Formulaire.*;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.WebContext;
 import org.thymeleaf.templatemode.TemplateMode;
@@ -11,6 +11,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
+import java.util.ArrayList;
 
 @WebServlet("/NewFormulaire")
 public class NewFormulaireServlet extends HttpServlet {
@@ -44,10 +45,10 @@ public class NewFormulaireServlet extends HttpServlet {
         }else{
             anonyme = true;
         }
-
-        Formulaire formulaire = new Formulaire(title, 3, temps, true, anonyme, iduser);
-        int NewFormulaireId = FormulaireService.getInstance().AddFormulaire(formulaire);
-        request.getSession().setAttribute("NewFormulaireId", NewFormulaireId);
+                                            //title, 3, temps, true, anonyme, iduser
+        Formulaire formulaire = new Formulaire(anonyme, "test",new ArrayList<Page>(),temps,iduser);
+        //int NewFormulaireId = FormulaireService.getInstance().AddFormulaire(formulaire);
+        //request.getSession().setAttribute("NewFormulaireId", NewFormulaireId);
 
         response.sendRedirect("CreateFormulaire");
 

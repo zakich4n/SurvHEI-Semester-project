@@ -13,6 +13,7 @@ public class Utilisateur {
     private String Sexe;
     private boolean IsAdmin;
 
+
     public Utilisateur(final int IDUser, String User,String Password, String email, String nom, String prenom, LocalDateTime DateNaissance, String Sexe){
         this.IDUser=IDUser;
         this.User=User;

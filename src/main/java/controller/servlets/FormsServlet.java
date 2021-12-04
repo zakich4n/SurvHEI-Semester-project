@@ -1,25 +1,18 @@
 package controller.servlets;
 
 
-import DAO.Forms;
 import Formulaire.Formulaire;
-import Formulaire.Page;
-import Formulaire.YesOrNO;
 import Reponse.Reponse;
 import managers.FormsList;
 import managers.ReponseList;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.WebContext;
-import org.thymeleaf.templatemode.TemplateMode;
-import org.thymeleaf.templateresolver.ServletContextTemplateResolver;
 
 
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
-import java.io.Console;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.TreeMap;
 
 @WebServlet("/forms")
@@ -30,7 +23,7 @@ public class FormsServlet extends SurvHEISurvlet {
         WebContext webContext = new WebContext(req, resp, req.getServletContext());
         FormsList frm=new FormsList().getInstance();
         int IDForm = Integer.parseInt(req.getParameter("id"));
-        frm.init();
+
         webContext.setVariable("pagesList", frm.getFormsByID(IDForm).getPages());
 
         TemplateEngine templateEngine = createTemplateEngine(req.getServletContext());
@@ -51,7 +44,7 @@ public class FormsServlet extends SurvHEISurvlet {
                                         temp.getPageNumber(i).getNumero()
                     ))));
         }
-        ReponseList.getInstance().addReponse(new Reponse(temp, rep));
+        //ReponseList.getInstance().addReponse(new Reponse(temp, rep));
         resp.sendRedirect("forms?id="+req.getParameter("id"));
     }
 }

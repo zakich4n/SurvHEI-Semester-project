@@ -2,8 +2,8 @@ package service;
 
 import DAO.CreateFormDao;
 import DAO.FormulaireDao;
-import entity.Formulaire;
-import entity.Question;
+import Formulaire.Formulaire;
+
 
 public class FormulaireService {
     private FormulaireDao formulairedao = new FormulaireDao();
@@ -15,5 +15,5 @@ public class FormulaireService {
 
     private FormulaireService(){}
 
-    public int AddFormulaire(Formulaire formulaire){ return formulairedao.AddFormulaire(formulaire);}
+   // public int AddFormulaire(Formulaire formulaire){ return formulairedao.AddFormulaire(formulaire);}
 }

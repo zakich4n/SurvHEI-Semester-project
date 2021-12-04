@@ -18,12 +18,5 @@ public class ReponseList {
 
     static TreeMap<Integer, Reponse> ReponseList= new TreeMap<>();
 
-    public void addReponse(Reponse rep) {
-        if (ReponseList.isEmpty()) {
-            ReponseList.put(0, rep);
-        }
-        else {
-            ReponseList.put(ReponseList.lastKey() + 1, rep);
-        }
-    }
+
 }

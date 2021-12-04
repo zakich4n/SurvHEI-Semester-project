@@ -1,17 +1,17 @@
 package DAO;
 
-import entity.Question;
+import Formulaire.*;
 
 import javax.sql.DataSource;
 import java.sql.*;
 
 public class CreateFormDao {
 
-    public void AddQuestion(Question question){
+    public void AddQuestion(Page question){
         try {
             DataSource dataSource = DataSourceProvider.getDataSource();
             try (Connection connection = dataSource.getConnection()) {
-                String sql = "INSERT INTO dbsurvhei.question (question, ordre_question, id_formulaire_correspondant, obligatoire) VALUES(?,?,?,?)";
+                String sql = "INSERT INTO survhei.question (question, ordre_question, id_formulaire_correspondant, obligatoire) VALUES(?,?,?,?)";
                 try (PreparedStatement preparedStatement = connection.prepareStatement(
                         sql, Statement.RETURN_GENERATED_KEYS)) {
                     preparedStatement.setString(1, question.getQuestion());

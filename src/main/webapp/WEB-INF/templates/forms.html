@@ -3,13 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <title>Formulaire</title>
+    <link href="css/style.css" rel="stylesheet">
 </head>
 <body>
+<div class="login-box">
     <h1>Formulaire</h1>
     <span></span>
 
     <form>
-        <div th:each="page : ${pagesList}" >
+        <div class="user-box" th:each="page : ${pagesList}" >
 
         <h1 th:text="${page.Question}">Question 1</h1>
             <input type="radio" id="Oui" th:name="${page.Numero}" value="true">
@@ -20,5 +22,6 @@
         </div>
         <input type="submit" name="submit" formmethod="POST">
     </form>
+</div>
 </body>
 </html>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,41 +10,21 @@
 <section  th:replace="~{ fragments :: navigation }"></section>
 <h1>Nos formulaires</h1>
 
+<di th:each="form : ${formList}">
+<a class="boutonformulaire"  th:href="${form.id}" href="">
+    <figure class="figure" style="width: 50px; height: 50px; background-color: #141e30;">
+        <img class="imgfig"  src="images/jt.jpg">
+        <figcaption th:text="${form.nom}">Test formulaire</figcaption>
+    </figure>
+</a>
+</di>
 
 <a class="boutonformulaire" href="">
     <figure class="figure" style="width: 50px; height: 50px; background-color: #141e30;">
-        <img class="imgfig" src=images/jt.jpg">
+        <img class="imgfig" src="images/maxime.jpg">
         <figcaption>Test formulaire</figcaption>
     </figure>
 </a>
-
-<a class="boutonformulaire" href="">
-    <figure class="figure" style="width: 50px; height: 50px; background-color: #141e30;">
-        <img class="imgfig" src=images/maxime.jpg">
-        <figcaption>Test formulaire</figcaption>
-    </figure>
-</a>
-
-<a class="boutonformulaire" href="">
-    <figure class="figure" style="width: 50px; height: 50px; background-color: #141e30;">
-        <img class="imgfig" src=images/moi.jpg">
-        <figcaption>Test formulaire</figcaption>
-    </figure>
-</a>
-<a class="boutonformulaire" href="">
-    <figure class="figure" style="width: 50px; height: 50px; background-color: #141e30;">
-        <img class="imgfig" src=images/zaki.jpg">
-        <figcaption>Test formulaire</figcaption>
-    </figure>
-</a>
-
-<a class="boutonformulaire" href="">
-    <figure class="figure" style="width: 50px; height: 50px; background-color: #141e30;">
-        <img class="imgfig" src=images/zaki.jpg">
-        <figcaption>Test formulaire</figcaption>
-    </figure>
-</a>
-
 
 </body>
 </html>
