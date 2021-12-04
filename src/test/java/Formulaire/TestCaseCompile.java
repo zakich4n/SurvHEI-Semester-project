@@ -15,6 +15,7 @@ public class TestCaseCompile {
             form.addQuestionsThroughFormulaire(new YesOrNO(2,"the",false, form.getID()));
             form.addQuestionsThroughFormulaire(new YesOrNO(3,"test",false, form.getID()));
 
+
             int check=new FormsDAO().addFormulaireToDB(form);
             System.out.println(check);
             Assert.assertNotNull(check);
