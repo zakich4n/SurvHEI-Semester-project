@@ -21,7 +21,6 @@ import java.time.format.DateTimeFormatter;
 public class SignUpServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        int temp = Integer.parseInt(req.getParameter("erreur"));
         ServletContextTemplateResolver resolver = new ServletContextTemplateResolver(req.getServletContext());
         resolver.setPrefix("/WEB-INF/templates/");
         resolver.setSuffix(".html");
@@ -32,7 +31,6 @@ public class SignUpServlet extends HttpServlet {
 
 
         WebContext context = new WebContext(req, resp, req.getServletContext());
-        context.setVariable("temp", temp);
         engine.process("SignUp", context, resp.getWriter());
     }
 

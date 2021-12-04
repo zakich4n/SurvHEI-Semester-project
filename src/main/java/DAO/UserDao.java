@@ -33,13 +33,13 @@ public class UserDao {
         }
     }
 
-    public static void deleteUser(String User){
+    public static void deleteUser(int IDUser){
         try{
             DataSource dataSource = DataSourceProvider.getDataSource();
             try (Connection connection = dataSource.getConnection()) {
                 try (PreparedStatement statement = connection.prepareStatement(
-                        "delete from dbsurvhei.survhei_user where User=?")) {
-                    statement.setString(1, User);
+                        "delete from dbsurvhei.survhei_user where IDUser=?")) {
+                    statement.setInt(1, IDUser);
                     statement.executeUpdate();
                 }
             }
@@ -84,7 +84,8 @@ public class UserDao {
                                     results.getString("User"),
                                     results.getString("Nom"),
                                     results.getString("Prenom"),
-                                    results.getBoolean("IsAdmin"));
+                                    results.getBoolean("IsAdmin"),
+                                    results.getString("email"));
                             listOfUser.add(user);
                         }
                     }

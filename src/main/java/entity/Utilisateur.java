@@ -13,6 +13,15 @@ public class Utilisateur {
     private String Sexe;
     private boolean IsAdmin;
 
+    public Utilisateur(int IDUser, String User, String nom, String prenom, boolean IsAdmin, String email){
+        this.IDUser=IDUser;
+        this.User=User;
+        this.nom=nom;
+        this.prenom=prenom;
+        this.email=email;
+        this.IsAdmin=IsAdmin;
+    }
+
     public Utilisateur(final int IDUser, String User,String Password, String email, String nom, String prenom, LocalDateTime DateNaissance, String Sexe){
         this.IDUser=IDUser;
         this.User=User;
@@ -29,13 +38,6 @@ public class Utilisateur {
         this.Password=password;
     }
 
-    public Utilisateur(int IDUser, String User, String nom, String prenom, boolean IsAdmin){
-        this.IDUser=IDUser;
-        this.User=User;
-        this.nom=nom;
-        this.prenom=prenom;
-        this.IsAdmin=IsAdmin;
-    }
 
     public String getUser(){ return User;}
     public String getPassword(){return Password;}

@@ -22,7 +22,7 @@ public class UserService {
         userdao.addUser(utilisateur);
     }
 
-    public void deleteUser(String User){userdao.deleteUser(User);}
+    public void deleteUser(int IDUser){userdao.deleteUser(IDUser);}
 
     public boolean checkIfExist(String User){return userdao.checkIfExist(User);}
 
