@@ -7,6 +7,7 @@ import org.thymeleaf.templatemode.TemplateMode;
 import org.thymeleaf.templateresolver.ServletContextTemplateResolver;
 import controller.webservices.MotDePasseUtils;
 import service.LoginService;
+import service.UserService;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -20,6 +21,7 @@ import java.time.format.DateTimeFormatter;
 public class SignUpServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        int temp = Integer.parseInt(req.getParameter("erreur"));
         ServletContextTemplateResolver resolver = new ServletContextTemplateResolver(req.getServletContext());
         resolver.setPrefix("/WEB-INF/templates/");
         resolver.setSuffix(".html");
@@ -28,7 +30,9 @@ public class SignUpServlet extends HttpServlet {
         TemplateEngine engine = new TemplateEngine();
         engine.setTemplateResolver(resolver);
 
+
         WebContext context = new WebContext(req, resp, req.getServletContext());
+        context.setVariable("temp", temp);
         engine.process("SignUp", context, resp.getWriter());
     }
 
@@ -48,12 +52,14 @@ public class SignUpServlet extends HttpServlet {
 
         password = MotDePasseUtils.genererMotDePasse(passwordc);
 
-        if(!LoginService.getInstance().checkIfExist(login)){
+        if(!UserService.getInstance().checkIfExist(login)){
             Utilisateur user = new Utilisateur(1, login, password, email, lastName, firstName, dateBirth, genre );
-            LoginService.getInstance().addUser(user);
+            UserService.getInstance().addUser(user);
             response.sendRedirect("connexion");
         }else{
-            response.sendRedirect("SignUp");
+            response.sendRedirect("SignUp?erreur=1");
+
+
         }
 
     }

@@ -5,6 +5,7 @@ import org.thymeleaf.context.WebContext;
 import org.thymeleaf.templatemode.TemplateMode;
 import org.thymeleaf.templateresolver.ServletContextTemplateResolver;
 import service.LoginService;
+import service.UserService;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -25,12 +26,12 @@ public class SupprimerUserServlet extends HttpServlet {
         engine.setTemplateResolver(resolver);
 
         WebContext context = new WebContext(req, resp, req.getServletContext());
-        engine.process("supprimeruser", context, resp.getWriter());
+        engine.process("SupprimerUser", context, resp.getWriter());
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String user = request.getParameter("suppuser");
-        LoginService.getInstance().deleteUser(user);
+        UserService.getInstance().deleteUser(user);
     }
 }
