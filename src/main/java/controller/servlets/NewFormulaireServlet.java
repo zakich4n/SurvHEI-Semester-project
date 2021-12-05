@@ -1,11 +1,11 @@
 package controller.servlets;
 
+import DAO.FormsDAO;
 import Formulaire.*;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.WebContext;
 import org.thymeleaf.templatemode.TemplateMode;
 import org.thymeleaf.templateresolver.ServletContextTemplateResolver;
-import service.FormulaireService;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -46,11 +46,11 @@ public class NewFormulaireServlet extends HttpServlet {
             anonyme = true;
         }
                                             //title, 3, temps, true, anonyme, iduser
-        Formulaire formulaire = new Formulaire(anonyme, "test",new ArrayList<Page>(),temps,iduser);
-        //int NewFormulaireId = FormulaireService.getInstance().AddFormulaire(formulaire);
-        //request.getSession().setAttribute("NewFormulaireId", NewFormulaireId);
+        Formulaire formulaire = new Formulaire(anonyme, title,new ArrayList<Page>(),temps, true,iduser);
+        int NewFormulaireId = new FormsDAO().addFormulaireToDB(formulaire);
+        request.getSession().setAttribute("NewFormulaireId", NewFormulaireId);
 
-        response.sendRedirect("CreateFormulaire");
+        response.sendRedirect("CreateFormulaire?idFormulaire="+NewFormulaireId);
 
     }
 }

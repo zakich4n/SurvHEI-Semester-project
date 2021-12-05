@@ -20,7 +20,6 @@ public abstract class Page {
     }
 
     public String getGenre() {return Genre;}
-
     public String getNumero() {return String.valueOf(Numero);}
     public int getNumeroAsInt() {return Numero;}
 

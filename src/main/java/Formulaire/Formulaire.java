@@ -1,5 +1,6 @@
 package Formulaire;
 
+import DAO.FormsDAO;
 import managers.FormsList;
 
 import java.util.ArrayList;
@@ -14,8 +15,8 @@ public class Formulaire {
     private int id_createur;
 
 
-    public Formulaire(boolean anon, String title, ArrayList<Page> pages, int tps, int idcrea) {
-        this.actif=true;
+    public Formulaire(boolean anon, String title, ArrayList<Page> pages, int tps, boolean actif, int idcrea) {
+        this.actif=actif;
         this.title=title;
         this.temps=tps;
         this.id_createur=idcrea;
@@ -49,7 +50,12 @@ public class Formulaire {
     public void addQuestionsThroughFormulaire(Page page) {
         pages.add(page);
     }
-
+    public void addQuestionsThroughFormulaire(Page page, boolean SendToServer) {
+        if (SendToServer) {
+            pages.add(page);
+            new FormsDAO().addPageToDB(page);
+        }
+    }
     public int getNb_questions() {
         return pages.size();
     }
