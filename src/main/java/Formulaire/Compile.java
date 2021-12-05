@@ -1,4 +1,4 @@
-package Formulaire;
+/*package Formulaire;
 
 import codage.Decode;
 import codage.Encode;
@@ -58,3 +58,4 @@ public class  Compile implements Encode, Decode {
         return result;
     }
 }
+*/
