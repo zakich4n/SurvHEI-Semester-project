@@ -44,12 +44,12 @@ public class ConnexionServlet extends HttpServlet {
             engine.process("pagelogin", context, resp.getWriter());
         }
 
-        if (typeuser.equals("1") ){
+        else if (typeuser.equals("1") ){
             engine.process("AccueilUser", context, resp.getWriter());
         }
-        if (typeuser.equals("2") ){
+        else if (typeuser.equals("2") ) {
             engine.process("AccueilAdmin", context, resp.getWriter());
-        }
+         }
 
     }
 
