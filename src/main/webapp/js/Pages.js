@@ -1,3 +1,5 @@
+let sessionValue = '<%=Session["typeuser"]%>'
+
 function addFields(){
     var number = document.getElementById("member").value;
     var container = document.getElementById("GenerateQuestions");
@@ -79,5 +81,34 @@ function addFields(){
         container.appendChild(checkbox);
         container.appendChild(userbox2);
         container.appendChild(userbox);
+
+    }
+
+}
+
+function deleteForm(IDForm) {
+    let deleteFormRequest=new XMLHttpRequest();
+    deleteFormRequest.open("DELETE","/Formulaire?id="+IDForm,true);
+    deleteFormRequest.onload = function () {
+        location.reload();
+    }
+    deleteFormRequest.send();
+}
+
+function searchAndHide() {
+    var input, filter, ul, li, a, i, txtValue;
+    input = document.getElementById('FormSearchBar');
+    filter = input.value.toUpperCase();
+    ul = document.getElementById("individualForm");
+    li = document.getElementsByClassName('removable');
+    console.log(input+" : "+filter);
+    for (i = 0; i < li.length; i++) {
+        a = li[i].getElementsByTagName("figcaption")[0];
+        txtValue = a.textContent || a.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            li[i].style.display = "";
+        } else {
+            li[i].style.display = "none";
+        }
     }
 }

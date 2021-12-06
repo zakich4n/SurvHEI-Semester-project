@@ -60,4 +60,23 @@ public class Formulaire {
         return pages.size();
     }
 
+    public void setTitle(String title) {this.title=title;}
+
+    public void setAnonyme(boolean anonyme) {
+        Anonyme = anonyme;
+    }
+
+    public void setTemps(int temps) {
+        this.temps = temps;
+    }
+
+    public void setActif(boolean actif) {
+        this.actif = actif;
+    }
+
+    public void setId_createur(int id_createur) {
+        this.id_createur = id_createur;
+    }
+
+
 }

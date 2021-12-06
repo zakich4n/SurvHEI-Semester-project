@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="fr" xmlns:th="http://www.thymeleaf.org">
 <head>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+    <script type="text/javascript" src="js/Pages.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Accueil</title>
@@ -8,16 +10,20 @@
 </head>
 <body>
 <section  th:replace="~{ fragments :: navigation }"></section>
-<h1>Nos formulaires</h1>
+<h1>[[${NbForms}]] formulaires disponibles</h1>
+<br/>
+<input type="text" id="FormSearchBar" onkeyup="searchAndHide()" placeholder="Search for names..">
+<br/>
 
-<di th:each="form : ${formList}">
+<div id="individualForm" th:each="form : ${formList}" th:switch="${UserType}">
 <a class="boutonformulaire"   th:href="@{/forms?id={id}(id=${form.id})}"  href="">
-    <figure class="figure" style="width: 50px; height: 50px; background-color: #141e30;">
+    <figure class="figure removable" style="width: 50px; height: 50px; background-color: #141e30;">
         <img class="imgfig"  src="images/jt.jpg">
         <figcaption th:text="${form.title}">Test formulaire</figcaption>
     </figure>
 </a>
-</di>
-
+    <button th:case="'2'" class="button-24 removable" role="button" th:onclick="@{deleteForm({id})(id=${form.id})}">Supprimer</button>
+    <button th:case="*" style="display: none;" role="button">Supprimer</button>
+</div>
 </body>
 </html>

@@ -11,6 +11,9 @@ import org.thymeleaf.templateresolver.ServletContextTemplateResolver;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import java.io.IOException;
 import java.util.Collection;
 
@@ -19,11 +22,13 @@ public class GetFormulaireServlet extends SurvHEISurvlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         int NbForms= new FormsDAO().getAllFormulaireFromDB();
+        String UserType=(String) req.getSession().getAttribute("typeuser");
         WebContext context = new WebContext(req, resp, req.getServletContext());
         Collection<Formulaire> formList = FormsList.getInstance().getFormsList().values();
 
         context.setVariable("formList", formList);
-
+        context.setVariable("NbForms",NbForms);
+        context.setVariable("UserType",UserType);
         TemplateEngine engine = createTemplateEngine(req.getServletContext());
         engine.process("Formulaires", context, resp.getWriter());
 
@@ -35,8 +40,9 @@ public class GetFormulaireServlet extends SurvHEISurvlet {
     }
 
     @Override
-    protected void doDelete(HttpServletRequest request, HttpServletResponse response) {
-        new FormsDAO().getAllFormulaireFromDB();
-        int IDForm=Integer.parseInt("IDForm");
+    protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
+        int IDForm = Integer.parseInt(req.getParameter("id"));
+        new FormsDAO().DeleteFormulaire(FormsList.getInstance().getFormsByID(IDForm));
     }
+
 }

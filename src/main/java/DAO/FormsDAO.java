@@ -139,6 +139,7 @@ public class FormsDAO {
 
                     System.out.println("Project deleted with id = " + IDForm);
                     connection.close();
+                    FormsList.deleteFromFormsList(IDForm);
                     return true;
 
                 }
@@ -156,40 +157,30 @@ public class FormsDAO {
         return false;
     }
 
-    /*
-    public boolean DeleteFormulaire(Formulaire formulaire) {
-        FormsList FormsList= managers.FormsList.getInstance();
-        int IDForm=formulaire.getID();
+    public void editFormInDB(Formulaire formulaire) {
         try {
             DataSource dataSource = DataSourceProvider.getDataSource();
-            try(Connection connection = dataSource.getConnection()) {
-                PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM formulaire WHERE id_formulaire=?");
-                preparedStatement.setString(1,String.valueOf(IDForm));
-                System.out.println("Result of statement query"+preparedStatement);
-                int result = preparedStatement.executeUpdate();
-                System.out.println("Result of DELETE query "+result);
-                if(result!=0) {
+            try (Connection connection = dataSource.getConnection()) {
+                String sql = "INSERT INTO formulaire(nom_formulaire, nombre_de_question, temps_moyen, actif, anonyme, id_user_createur, id_formulaire) VALUES (?,?,?,?,?,?,?)";
+                try (PreparedStatement preparedStatement = connection.prepareStatement(
+                        sql, Statement.RETURN_GENERATED_KEYS)) {
+                    preparedStatement.setString(1, formulaire.getTitle());
+                    preparedStatement.setInt(2,formulaire.getNb_questions() );
+                    preparedStatement.setInt(3, formulaire.getTemps());
+                    preparedStatement.setBoolean(4, formulaire.getActif());
+                    preparedStatement.setBoolean(5, formulaire.getAnonyme());
+                    preparedStatement.setInt(6, formulaire.getId_createur());
+                    preparedStatement.setInt(7,formulaire.getID());
 
-                    PreparedStatement preparedStatement2 = connection.prepareStatement("DELETE FROM question WHERE 'id_formulaire_correspondant'='"+IDForm+"';");
-                    preparedStatement2.executeUpdate();
-
-                    System.out.println("Project deleted with id = " + IDForm);
-                    connection.close();
-                    return true;
-
+                    preparedStatement.executeUpdate();
                 }
-                else {
-                    System.out.println("No project was deleted with id = " + IDForm);
-                    connection.close();
-                    return false;
-                }
+
             }
-        }
-        catch (SQLException e) {
+        } catch (SQLException e) {
 
             e.printStackTrace();
         }
-        return false;
     }
-     */
+
+
 }

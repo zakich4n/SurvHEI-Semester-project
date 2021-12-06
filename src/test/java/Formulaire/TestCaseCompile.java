@@ -49,7 +49,7 @@ public class TestCaseCompile {
         @Test
     public void shouldDeleteForms() {
             System.out.println("Added :"+new FormsDAO().getAllFormulaireFromDB());
-            boolean result= new FormsDAO().DeleteFormulaire(FormsList.getInstance().getFormsByID(26));
+            boolean result= new FormsDAO().DeleteFormulaire(FormsList.getInstance().getFormsByID(1));
             Assert.assertTrue(result);
         }
 

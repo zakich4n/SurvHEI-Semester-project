@@ -27,6 +27,12 @@ public class FormsList {
         FormsList.put(id, form);
     }
 
+    public void deleteFromFormsList(Formulaire form) {
+        FormsList.remove(form.getID());
+    }
+    public void deleteFromFormsList(int idform) {
+        FormsList.remove(idform);
+    }
 
 
 
