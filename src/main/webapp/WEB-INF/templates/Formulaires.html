@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr" xmlns:th="http://www.thymeleaf.org">
 <head>
+    <link rel="icon" type="image/png" sizes="16x16" href="../../images/logob.png">
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
     <script type="text/javascript" src="js/Pages.js"></script>
     <meta charset="UTF-8">
@@ -16,7 +17,7 @@
 <br/>
 
 <div id="individualForm" th:each="form : ${formList}" th:switch="${UserType}">
-<a class="boutonformulaire"   th:href="@{/forms?id={id}(id=${form.id})}"  href="">
+<a class="boutonformulaire removable"   th:href="@{/forms?id={id}(id=${form.id})}"  href="">
     <figure class="figure removable" style="width: 50px; height: 50px; background-color: #141e30;">
         <img class="imgfig"  src="images/jt.jpg">
         <figcaption th:text="${form.title}">Test formulaire</figcaption>

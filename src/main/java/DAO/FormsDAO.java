@@ -17,7 +17,7 @@ public class FormsDAO {
         try {
             DataSource dataSource = DataSourceProvider.getDataSource();
             try (Connection connection = dataSource.getConnection()) {
-                String sql = "INSERT INTO survhei.formulaire (nom_formulaire, nombre_de_question, temps_moyen, actif, anonyme, id_user_createur) VALUES(?,?,?,?,?,?)";
+                String sql = "INSERT INTO dbsurvhei.formulaire (nom_formulaire, nombre_de_question, temps_moyen, actif, anonyme, id_user_createur) VALUES(?,?,?,?,?,?)";
                 try (PreparedStatement preparedStatement = connection.prepareStatement(
                         sql, Statement.RETURN_GENERATED_KEYS)) {
                     preparedStatement.setString(1, formulaire.getTitle());
@@ -50,7 +50,7 @@ public class FormsDAO {
         try {
             DataSource dataSource = DataSourceProvider.getDataSource();
             try (Connection connection = dataSource.getConnection()) {
-                String sql = "INSERT INTO survhei.question(obligatoire, question, ordre_question, id_formulaire_correspondant) VALUES(?,?,?,?)";
+                String sql = "INSERT INTO dbsurvhei.question(obligatoire, question, ordre_question, id_formulaire_correspondant) VALUES(?,?,?,?)";
                 try (PreparedStatement preparedStatement = connection.prepareStatement(
                         sql, Statement.RETURN_GENERATED_KEYS)) {
                     preparedStatement.setBoolean(1, page.getObligatoire());
