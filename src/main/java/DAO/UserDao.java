@@ -1,7 +1,7 @@
 package DAO;
 
+import controller.webservices.MotDePasseUtils;
 import entity.Utilisateur;
-import controller.tools.MotDePasseUtils;
 
 import javax.sql.DataSource;
 import java.sql.*;
