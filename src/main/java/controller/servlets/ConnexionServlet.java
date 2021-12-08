@@ -1,12 +1,12 @@
 package controller.servlets;
 
+import controller.webservices.MotDePasseUtils;
 import entity.Utilisateur;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.WebContext;
 import org.thymeleaf.extras.java8time.dialect.Java8TimeDialect;
 import org.thymeleaf.templatemode.TemplateMode;
 import org.thymeleaf.templateresolver.ServletContextTemplateResolver;
-import controller.tools.MotDePasseUtils;
 import service.UserService;
 
 import javax.servlet.ServletException;
