@@ -127,14 +127,14 @@ public class FormsDAO {
         try {
             DataSource dataSource = DataSourceProvider.getDataSource();
             try(Connection connection = dataSource.getConnection()) {
-                PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM formulaire WHERE id_formulaire=?");
+                PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM question WHERE id_formulaire_correspondant=?");
                 preparedStatement.setString(1,String.valueOf(IDForm));
                 System.out.println("Result of statement query"+preparedStatement);
                 int result = preparedStatement.executeUpdate();
                 System.out.println("Result of DELETE query "+result);
                 if(result!=0) {
 
-                    PreparedStatement preparedStatement2 = connection.prepareStatement("DELETE FROM question WHERE id_formulaire_correspondant="+IDForm+";");
+                    PreparedStatement preparedStatement2 = connection.prepareStatement("DELETE FROM formulaire WHERE id_formulaire="+IDForm+";");
                     preparedStatement2.executeUpdate();
 
                     System.out.println("Project deleted with id = " + IDForm);
