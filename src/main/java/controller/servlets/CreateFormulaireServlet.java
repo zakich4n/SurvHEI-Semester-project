@@ -45,7 +45,7 @@ public class CreateFormulaireServlet extends SurvHEISurvlet {
         for(int i=0; i<NbQuestions; i++) {
             QX=req.getParameter("Q"+(i+1));
             form.addQuestionsThroughFormulaire(new YesOrNO(i+1,QX,
-                    Boolean.parseBoolean(req.getParameter("cQ"+(i+1))),IDForm));
+                    Boolean.parseBoolean(req.getParameter("cQ"+(i+1))),IDForm), true);
         }
         resp.sendRedirect("forms?id="+IDForm+"&submitted=true");
     }

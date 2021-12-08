@@ -45,7 +45,7 @@ public class LoginDao {
         try {
             DataSource dataSource = DataSourceProvider.getDataSource();
             try (Connection connection = dataSource.getConnection()) {
-                String sql = "INSERT INTO dbsurvhei.survhei_user (User, Password, Email, Nom, Prenom, Sexe, DateNaissance) VALUES(?,?,?,?,?,?,?)";
+                String sql = "INSERT INTO survhei_user (User, Password, Email, Nom, Prenom, Sexe, DateNaissance) VALUES(?,?,?,?,?,?,?)";
                 try (PreparedStatement preparedStatement = connection.prepareStatement(
                         sql, Statement.RETURN_GENERATED_KEYS)) {
                     preparedStatement.setString(1, user.getUser());
@@ -70,7 +70,7 @@ public class LoginDao {
             DataSource dataSource = DataSourceProvider.getDataSource();
             try (Connection connection = dataSource.getConnection()) {
                 try (PreparedStatement statement = connection.prepareStatement(
-                        "delete from dbsurvhei.survhei_user where User=?")) {
+                        "delete from survhei_user where User=?")) {
                     statement.setString(1, User);
                     statement.executeUpdate();
                 }
@@ -87,7 +87,7 @@ public class LoginDao {
             DataSource dataSource = DataSourceProvider.getDataSource();
             try (Connection connection = dataSource.getConnection()) {
                 try (PreparedStatement statement = connection.prepareStatement(
-                        "select IDUser from dbsurvhei.survhei_user where User=? and Nom=? and Prenom=?")) {
+                        "select IDUser from survhei_user where User=? and Nom=? and Prenom=?")) {
                     statement.setString(1, User);
                     statement.setString(2, Nom);
                     statement.setString(3, Prenom);
@@ -108,7 +108,7 @@ public class LoginDao {
         try {
             DataSource dataSource = DataSourceProvider.getDataSource();
             try (Connection connection = dataSource.getConnection()) {
-                try (PreparedStatement statement = connection.prepareStatement("select * from dbsurvhei.survhei_user where User=?")) {
+                try (PreparedStatement statement = connection.prepareStatement("select * from survhei_user where User=?")) {
                     statement.setString(1, User);
                     try (ResultSet results = statement.executeQuery()) {
                         if (!results.next()) {

@@ -11,7 +11,7 @@ public class CreateFormDao {
         try {
             DataSource dataSource = DataSourceProvider.getDataSource();
             try (Connection connection = dataSource.getConnection()) {
-                String sql = "INSERT INTO dbsurvhei.question (question, ordre_question, id_formulaire_correspondant, obligatoire) VALUES(?,?,?,?)";
+                String sql = "INSERT INTO question (question, ordre_question, id_formulaire_correspondant, obligatoire) VALUES(?,?,?,?)";
                 try (PreparedStatement preparedStatement = connection.prepareStatement(
                         sql, Statement.RETURN_GENERATED_KEYS)) {
                     preparedStatement.setString(1, question.getQuestion());
