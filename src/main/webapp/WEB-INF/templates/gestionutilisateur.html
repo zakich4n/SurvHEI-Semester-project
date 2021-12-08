@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Gérez vos utilisateurs</title>
+    <link href="css/style.css" rel="stylesheet">
+
+</head>
+<body>
+    <div id="nav-userrole" th:switch="${typeuser}">
+        <div th:case="2"><section th:replace="~{ fragments :: navigationadmin }"></section></div>
+        <div th:case="1"><section th:replace="~{ fragments :: navigationuser }"></section></div>
+        <div th:case="*"><section th:replace="~{ fragments :: navigationnotconnected }"></section></div>
+    </div>
+
+    <h1>Infos utilisateurs</h1>
+    <p th:text="${role}"></p>
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th>Pseudo</th>
+            <th>Nom</th>
+            <th>Prenom</th>
+            <th>Email</th>
+            <th>Role</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="utilisateur : ${userList}">
+            <td th:text="${utilisateur.user}">pseudo?</td>
+            <td th:text="${utilisateur.nom}">nom?</td>
+            <td th:text="${utilisateur.prenom}">prenom?</td>
+            <td th:text="${utilisateur.email}">email?</td>
+            <td th:switch="${utilisateur.role}">
+                <th:block th:case="true">Admin</th:block>
+                <th:block th:case="false">Utilisateur</th:block>
+                <th:block th:case="*">Utilisateur</th:block>
+            </td>
+
+            <td><button>Supprimer</button></td>
+        </tr>
+        <tr><a href="">+</a></tr>
+        </tbody>
+    </table>
+
+</body>
+</html>

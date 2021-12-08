@@ -29,6 +29,14 @@ public class Utilisateur {
         this.Password=password;
     }
 
+    public Utilisateur(String user, String email, String nom, String prenom,boolean role){
+        this.User=user;
+        this.email=email;
+        this.nom=nom;
+        this.prenom=prenom;
+        this.IsAdmin=role;
+    }
+
     public String getUser(){ return User;}
     public String getPassword(){return Password;}
     public String getEmail(){return email;}
@@ -36,6 +44,7 @@ public class Utilisateur {
     public String getPrenom(){return prenom;}
     public LocalDateTime getDateNaissance(){return DateNaissance;}
     public String getSexe(){return Sexe;}
+    public boolean getRole(){return IsAdmin;}
 
 
 

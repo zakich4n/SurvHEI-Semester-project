@@ -5,17 +5,17 @@
     <title>Title</title>
 </head>
 <body>
-<section class="navigation" th:fragment="navigation">
+<section class="navigation" th:fragment="navigationnotconnected">
     <div class="brand">
-        <a href="Accueil"><img id="logosite" src="images/logob.png"></a>
+        <a href="Accueil"><img class="logosite" src="images/logob.png"></a>
     </div>
 
     <div class="nav-container">
         <nav>
-            <div class="nav-mobile"><a id="nav-toggle" href="Accueil"><span></span></a></div>
+            <div class="nav-mobile"><a class="nav-toggle" href="Accueil"><span></span></a></div>
             <ul class="nav-list">
                 <li>
-                    <a href="connexion">Accueil</a>
+                    <a href="Accueil">Accueil</a>
                 </li>
                 <li>
                     <a href="Contact">Contact</a>
@@ -33,6 +33,77 @@
                 </li>
                 <li>
                     <a href="connexion">Connexion</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</section>
+
+<section class="navigation" th:fragment="navigationadmin">
+    <div class="brand">
+        <a href="Accueil"><img class="logosite" src="images/logob.png"></a>
+    </div>
+
+    <div class="nav-container">
+        <nav>
+            <div class="nav-mobile"><a class="nav-toggle" href="Accueil"><span></span></a></div>
+            <ul class="nav-list">
+                <li>
+                    <a href="connexion">Accueil</a>
+                </li>
+                <li>
+                    <a href="SupprimerUser">Supprimer un utilisateur</a>
+                </li>
+                <li>
+                    <a href="usermanagement">Gérer les utilisateurs</a>
+                </li>
+                <li>
+                    <a href="#!">Services</a>
+                    <ul class="nav-dropdown">
+                        <li>
+                            <a href="GetFormulaire">Formulaires</a>
+                        </li>
+                        <li>
+                            <a href="NewFormulaire">Créer un formulaire</a>
+                        </li>
+                        <li>
+                            <a href="SupprimerForm">Supprimer un formulaire</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="deconnexion">Déconnexion</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</section>
+
+<section class="navigation" th:fragment="navigationuser">
+    <div class="brand">
+        <a href="Accueil"><img class="logosite" src="images/logob.png"></a>
+    </div>
+
+    <div class="nav-container">
+        <nav>
+            <div class="nav-mobile"><a class="nav-toggle" href="Accueil"><span></span></a></div>
+            <ul class="nav-list">
+                <li>
+                    <a href="connexion">Accueil</a>
+                </li>
+                <li>
+                    <a href="Contact">Contact</a>
+                </li>
+                <li>
+                    <a href="#!">Services</a>
+                    <ul class="nav-dropdown">
+                        <li>
+                            <a href="GetFormulaire">Formulaires</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="deconnexion">Déconnexion</a>
                 </li>
             </ul>
         </nav>
