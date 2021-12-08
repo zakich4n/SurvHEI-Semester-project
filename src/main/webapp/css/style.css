@@ -27,7 +27,7 @@ div , p {
     font-family: 'Lato', sans-serif;
     font-size: x-large;
     text-align: center;
-    margin-right: 10%;
+
 }
 
 .login-box {
@@ -272,7 +272,10 @@ body {
     background: linear-gradient(#141e30, #243b55);
 }
 
-
+#nav-userrole{
+    margin-left: 0%;
+    margin-right: 0%;
+}
 .navigation {
     display: block;
     height: 70px;
@@ -365,7 +368,7 @@ nav ul li ul li a {
     z-index: 1;
     box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
     }
-#logosite {
+.logosite {
     max-width: 40%;
     max-height: 40%;
     float: left;
