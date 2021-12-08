@@ -1,6 +1,6 @@
 package managers;
 
-import Formulaire.Formulaire;
+import Formulaire.*;
 import Reponse.Reponse;
 
 import java.util.List;
@@ -16,7 +16,7 @@ public class ReponseList {
         return managers.ReponseList.ReponseListHolder.instance;
     }
 
-    static TreeMap<Integer, Reponse> ReponseList= new TreeMap<>();
+    static TreeMap<Page, Reponse> ReponseList= new TreeMap<>();
 
 
 }

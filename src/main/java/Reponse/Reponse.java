@@ -1,19 +1,38 @@
 package Reponse;
 
-import Formulaire.Formulaire;
-
-import java.util.TreeMap;
 
 public class Reponse {
-    private Formulaire formulaire;
-    private int idUser;
-    private TreeMap<Integer, Boolean> reponse;
+    private int IDUer;
+    private int IDQuestion;
+    private boolean reponse;
 
-    public Reponse(Formulaire form, TreeMap<Integer, Boolean> rep) {
-        this.formulaire=form;
-        this.idUser=0;
-        this.reponse=rep;
+    public Reponse(int IDUer, int IDQuestion, boolean reponse) {
+        this.IDUer = IDUer;
+        this.IDQuestion = IDQuestion;
+        this.reponse = reponse;
     }
 
-    public Formulaire getFormulaire() {return formulaire;}
+    public int getIDUer() {
+        return IDUer;
+    }
+
+    public void setIDUer(int IDUer) {
+        this.IDUer = IDUer;
+    }
+
+    public int getIDQuestion() {
+        return IDQuestion;
+    }
+
+    public void setIDQuestion(int IDQuestion) {
+        this.IDQuestion = IDQuestion;
+    }
+
+    public boolean getReponse() {
+        return reponse;
+    }
+
+    public void setReponse(boolean reponse) {
+        this.reponse = reponse;
+    }
 }

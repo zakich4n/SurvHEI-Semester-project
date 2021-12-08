@@ -94,5 +94,10 @@ public class TestCaseCompile {
             Assert.assertEquals(FormsList.getInstance().getFormsByID(IDFormToEdit).getPages().get(indexPage).getObligatoire(), newObl);
         }
 
+        @Test
+        public void shouldAddReponseToDB() {
+
+        }
+
 
 }

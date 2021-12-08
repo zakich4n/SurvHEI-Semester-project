@@ -17,11 +17,11 @@ public class FormsDAO {
         try {
             DataSource dataSource = DataSourceProvider.getDataSource();
             try (Connection connection = dataSource.getConnection()) {
-                String sql = "INSERT INTO dbsurvhei.formulaire (nom_formulaire, nombre_de_question, temps_moyen, actif, anonyme, id_user_createur) VALUES(?,?,?,?,?,?)";
+                String sql = "INSERT INTO formulaire (nom_formulaire, nombre_de_question, temps_moyen, actif, anonyme, id_user_createur) VALUES(?,?,?,?,?,?)";
                 try (PreparedStatement preparedStatement = connection.prepareStatement(
                         sql, Statement.RETURN_GENERATED_KEYS)) {
                     preparedStatement.setString(1, formulaire.getTitle());
-                    preparedStatement.setInt(2,formulaire.getNb_questions() );
+                    preparedStatement.setInt(2,formulaire.GetNumberOfPage());
                     preparedStatement.setInt(3, formulaire.getTemps());
                     preparedStatement.setBoolean(4, formulaire.getActif());
                     preparedStatement.setBoolean(5, formulaire.getAnonyme());
@@ -50,7 +50,7 @@ public class FormsDAO {
         try {
             DataSource dataSource = DataSourceProvider.getDataSource();
             try (Connection connection = dataSource.getConnection()) {
-                String sql = "INSERT INTO dbsurvhei.question(obligatoire, question, ordre_question, id_formulaire_correspondant) VALUES(?,?,?,?)";
+                String sql = "INSERT INTO question(obligatoire, question, ordre_question, id_formulaire_correspondant) VALUES(?,?,?,?)";
                 try (PreparedStatement preparedStatement = connection.prepareStatement(
                         sql, Statement.RETURN_GENERATED_KEYS)) {
                     preparedStatement.setBoolean(1, page.getObligatoire());
@@ -154,12 +154,12 @@ public class FormsDAO {
         try {
             DataSource dataSource = DataSourceProvider.getDataSource();
             try (Connection connection = dataSource.getConnection()) {
-                String sql = "UPDATE dbsurvhei.formulaire t SET t.nom_formulaire=?, t.nombre_de_question=?, t.temps_moyen=?, t.actif=?, t.anonyme=?, t.id_user_createur=? WHERE t.id_formulaire =?";
+                String sql = "UPDATE formulaire t SET t.nom_formulaire=?, t.nombre_de_question=?, t.temps_moyen=?, t.actif=?, t.anonyme=?, t.id_user_createur=? WHERE t.id_formulaire =?";
                 try (PreparedStatement preparedStatement = connection.prepareStatement(
                         sql, Statement.RETURN_GENERATED_KEYS)) {
                     preparedStatement.setInt(7, formulaire.getID());
                     preparedStatement.setString(1,formulaire.getTitle());
-                    preparedStatement.setInt(2,formulaire.getNb_questions());
+                    preparedStatement.setInt(2,formulaire.GetNumberOfPage());
                     preparedStatement.setInt(3, formulaire.getTemps());
                     preparedStatement.setBoolean(4, formulaire.getActif());
                     preparedStatement.setBoolean(5, formulaire.getAnonyme());
@@ -180,7 +180,7 @@ public class FormsDAO {
         try {
             DataSource dataSource = DataSourceProvider.getDataSource();
             try (Connection connection = dataSource.getConnection()) {
-                String sql   = ("UPDATE dbsurvhei.question t SET t.question =?, t.obligatoire=? WHERE t.id_formulaire_correspondant=?");
+                String sql   = ("UPDATE question t SET t.question =?, t.obligatoire=? WHERE t.id_formulaire_correspondant=?");
                 try (PreparedStatement preparedStatement = connection.prepareStatement(
                         sql, Statement.RETURN_GENERATED_KEYS)) {
                     preparedStatement.setString(1, page.getQuestion());
