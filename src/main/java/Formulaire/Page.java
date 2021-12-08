@@ -8,7 +8,15 @@ public abstract class Page {
     public String Question; //la question ou le texte pose
     public boolean Obligatoire; //si la question st obligatoire ou pas
     public String Type; //Quel type de question (oui/non, choix mutiple, entre un nombre, entre un texte)
-    private int id_formulaire_correspondant;
+    private final int id_formulaire_correspondant;
+
+    public void setQuestion(String question) {
+        Question = question;
+    }
+
+    public void setObligatoire(boolean obligatoire) {
+        Obligatoire = obligatoire;
+    }
 
     public Page(int num, String Q, boolean obl, String type, String genre, int idform) {
         this.Numero=num;

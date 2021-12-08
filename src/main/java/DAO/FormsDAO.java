@@ -161,21 +161,41 @@ public class FormsDAO {
         try {
             DataSource dataSource = DataSourceProvider.getDataSource();
             try (Connection connection = dataSource.getConnection()) {
-                String sql = "INSERT INTO formulaire(nom_formulaire, nombre_de_question, temps_moyen, actif, anonyme, id_user_createur, id_formulaire) VALUES (?,?,?,?,?,?,?)";
+                String sql = "UPDATE survhei.formulaire t SET t.nom_formulaire=?, t.nombre_de_question=?, t.temps_moyen=?, t.actif=?, t.anonyme=?, t.id_user_createur=? WHERE t.id_formulaire =?";
                 try (PreparedStatement preparedStatement = connection.prepareStatement(
                         sql, Statement.RETURN_GENERATED_KEYS)) {
-                    preparedStatement.setString(1, formulaire.getTitle());
-                    preparedStatement.setInt(2,formulaire.getNb_questions() );
+                    preparedStatement.setInt(7, formulaire.getID());
+                    preparedStatement.setString(1,formulaire.getTitle());
+                    preparedStatement.setInt(2,formulaire.getNb_questions());
                     preparedStatement.setInt(3, formulaire.getTemps());
                     preparedStatement.setBoolean(4, formulaire.getActif());
                     preparedStatement.setBoolean(5, formulaire.getAnonyme());
                     preparedStatement.setInt(6, formulaire.getId_createur());
-                    preparedStatement.setInt(7,formulaire.getID());
+
 
                     preparedStatement.executeUpdate();
                 }
 
             }
+        } catch (SQLException e) {
+
+            e.printStackTrace();
+        }
+    }
+
+    public void editPagesFromForm(int IDForm, Page page) {
+        try {
+            DataSource dataSource = DataSourceProvider.getDataSource();
+            try (Connection connection = dataSource.getConnection()) {
+                String sql   = ("UPDATE survhei.question t SET t.question =?, t.obligatoire=? WHERE t.id_formulaire_correspondant=?");
+                try (PreparedStatement preparedStatement = connection.prepareStatement(
+                        sql, Statement.RETURN_GENERATED_KEYS)) {
+                    preparedStatement.setString(1, page.getQuestion());
+                    preparedStatement.setBoolean(2,page.getObligatoire());
+                    preparedStatement.setInt(3,IDForm);
+                    preparedStatement.executeUpdate();
+                    }
+                }
         } catch (SQLException e) {
 
             e.printStackTrace();
