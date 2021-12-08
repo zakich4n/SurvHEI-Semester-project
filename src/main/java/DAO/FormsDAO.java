@@ -132,22 +132,15 @@ public class FormsDAO {
                 System.out.println("Result of statement query"+preparedStatement);
                 int result = preparedStatement.executeUpdate();
                 System.out.println("Result of DELETE query "+result);
-                if(result!=0) {
+                PreparedStatement preparedStatement2 = connection.prepareStatement("DELETE FROM formulaire WHERE id_formulaire="+IDForm+";");
+                preparedStatement2.executeUpdate();
 
-                    PreparedStatement preparedStatement2 = connection.prepareStatement("DELETE FROM formulaire WHERE id_formulaire="+IDForm+";");
-                    preparedStatement2.executeUpdate();
+                System.out.println("Project deleted with id = " + IDForm);
+                connection.close();
+                FormsList.deleteFromFormsList(IDForm);
+                return true;
 
-                    System.out.println("Project deleted with id = " + IDForm);
-                    connection.close();
-                    FormsList.deleteFromFormsList(IDForm);
-                    return true;
 
-                }
-                else {
-                    System.out.println("No project was deleted with id = " + IDForm);
-                    connection.close();
-                    return false;
-                }
             }
         }
         catch (SQLException e) {
