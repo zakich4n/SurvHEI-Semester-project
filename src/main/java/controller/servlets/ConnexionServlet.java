@@ -7,6 +7,7 @@ import org.thymeleaf.context.WebContext;
 import org.thymeleaf.extras.java8time.dialect.Java8TimeDialect;
 import org.thymeleaf.templatemode.TemplateMode;
 import org.thymeleaf.templateresolver.ServletContextTemplateResolver;
+import service.LoginService;
 import service.UserService;
 
 import javax.servlet.ServletException;
@@ -57,12 +58,12 @@ public class ConnexionServlet extends HttpServlet {
 
         Utilisateur utilisateur= new Utilisateur(user, motDePasse);
 
-        if (UserService.getInstance().valider(utilisateur)[0]==1 || UserService.getInstance().valider(utilisateur)[0]==2) {
+        if (LoginService.getInstance().valider(utilisateur)[0]==1 || LoginService.getInstance().valider(utilisateur)[0]==2) {
             req.getSession().setAttribute("login",user);
 
-            req.getSession().setAttribute("iduser", UserService.getInstance().valider(utilisateur)[1]);
+            req.getSession().setAttribute("iduser", LoginService.getInstance().valider(utilisateur)[1]);
 
-            req.getSession().setAttribute("typeuser", Integer.toString(UserService.getInstance().valider(utilisateur)[0]));
+            req.getSession().setAttribute("typeuser", Integer.toString(LoginService.getInstance().valider(utilisateur)[0]));
 
             resp.sendRedirect("connexion");
         }

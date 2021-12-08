@@ -18,8 +18,6 @@ public class UserService {
 
     public List<Utilisateur> listUser(){return userdao.listUser();}
 
-    public int[] valider(Utilisateur utilisateur){return userdao.valider(utilisateur);}
-
     public void addUser(Utilisateur utilisateur) {
         userdao.addUser(utilisateur);
     }
@@ -29,5 +27,7 @@ public class UserService {
     public int getNameById(String User, String Nom, String Prenom){return userdao.getByIdName(User, Nom, Prenom);}
 
     public boolean checkIfExist(String User){return userdao.checkIfExist(User);}
+
+    public void PromoteUser(String User){  userdao.PromoteUser(User);}
 
 }

@@ -30,7 +30,8 @@ public class SupprimerUserServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String user = request.getParameter("suppuser");
-        LoginService.getInstance().deleteUser(user);
+        String user = request.getParameter("test");
+        System.out.println(user);
+        //LoginService.getInstance().deleteUser(user);
     }
 }

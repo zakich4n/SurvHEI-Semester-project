@@ -27,7 +27,7 @@
         </thead>
         <tbody>
         <tr th:each="utilisateur : ${userList}">
-            <td th:text="${utilisateur.user}">pseudo?</td>
+            <td th:text="${utilisateur.user}" name="test">pseudo?</td>
             <td th:text="${utilisateur.nom}">nom?</td>
             <td th:text="${utilisateur.prenom}">prenom?</td>
             <td th:text="${utilisateur.email}">email?</td>
@@ -37,7 +37,7 @@
                 <th:block th:case="*">Utilisateur</th:block>
             </td>
 
-            <td><button>Supprimer</button></td>
+            <td><button type="submit">Supprimer</button></td>
         </tr>
         <tr><a href="">+</a></tr>
         </tbody>
