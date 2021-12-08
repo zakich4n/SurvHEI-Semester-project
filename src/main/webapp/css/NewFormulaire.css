@@ -1,5 +1,6 @@
 html {
-    height: 120%;
+    size: auto;
+    height: 100%;
 }
 body {
     margin:0;
@@ -26,7 +27,7 @@ h1 {
     left: 50%;
     width: 500px;
     padding: 40px;
-    transform: translate(-50%, -90%);
+    transform: translate(-50%, -115%);
     background: rgba(0,0,0,.5);
     box-sizing: border-box;
     box-shadow: 0 15px 25px rgba(0,0,0,.6);
@@ -91,6 +92,7 @@ h1 {
     color: #03e9f4;
 }
 .formulaire form button {
+    margin-left: 2em;
     position: relative;
     display: inline-block;
     padding: 10px 20px;
@@ -262,6 +264,7 @@ button{
 }
 
 .formulaire .user-box .anonyme .cboxa {
+   margin-left: 5em;
    position: relative;
    width: 10%;
    left: 50%;
@@ -278,4 +281,11 @@ button{
     pointer-events: none;
     transition: .5s;
     color: #03e9f4;
+}
+
+#logosite {
+    margin-top: -4em;
+    float: left;
+    height: 13em;
+    width: auto;
 }

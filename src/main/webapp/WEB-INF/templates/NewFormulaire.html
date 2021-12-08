@@ -8,6 +8,9 @@
     <link rel="stylesheet" type="text/css" href="css/NewFormulaire.css">
 </head>
 <body>
+<div class="brand">
+    <a href="connexion"><img id="logosite" src="images/logob.png"></a>
+</div>
 <div class="formulaire">
     <h1>Créer ton formulaire !</h1>
     <form id="CreateForm" method="post">
@@ -16,6 +19,7 @@
             <label>Quel est le nom de ton formulaire ?</label>
             <div class="anonyme">
                 <p class="lanonyme">Les reponses sont-elles anonyme ?</p>
+                <p></p>
                 <input type="checkbox" class="cboxa" name="cnameform" id="cnameform" >
             </div>
         </div>
@@ -25,6 +29,8 @@
         </div>
         <button type="submit">Envoyer<span></span> <span></span>
             <span></span> <span></span></button>
+
+        <button onclick="location.href='connexion'" type="button">Abandonner<span></span><span></span><span></span><span></span></button>
         <p id="erreur1"></p>
         <script src="js/CreateForm1.js"></script>
     </form>

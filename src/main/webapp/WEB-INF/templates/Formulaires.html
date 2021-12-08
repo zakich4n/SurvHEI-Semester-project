@@ -10,7 +10,7 @@
     <link href="css/style.css" rel="stylesheet">
 </head>
 <body>
-<section  th:replace="~{ fragments :: navigation }"></section>
+<nav  th:replace="~{ fragments :: navigation }"></nav>
 <h1>[[${NbForms}]] formulaires disponibles</h1>
 <br/>
 <input type="text" id="FormSearchBar" onkeyup="searchAndHide()" placeholder="Search for names..">
