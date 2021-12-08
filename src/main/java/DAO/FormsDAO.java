@@ -154,7 +154,7 @@ public class FormsDAO {
         try {
             DataSource dataSource = DataSourceProvider.getDataSource();
             try (Connection connection = dataSource.getConnection()) {
-                String sql = "UPDATE survhei.formulaire t SET t.nom_formulaire=?, t.nombre_de_question=?, t.temps_moyen=?, t.actif=?, t.anonyme=?, t.id_user_createur=? WHERE t.id_formulaire =?";
+                String sql = "UPDATE dbsurvhei.formulaire t SET t.nom_formulaire=?, t.nombre_de_question=?, t.temps_moyen=?, t.actif=?, t.anonyme=?, t.id_user_createur=? WHERE t.id_formulaire =?";
                 try (PreparedStatement preparedStatement = connection.prepareStatement(
                         sql, Statement.RETURN_GENERATED_KEYS)) {
                     preparedStatement.setInt(7, formulaire.getID());
@@ -180,7 +180,7 @@ public class FormsDAO {
         try {
             DataSource dataSource = DataSourceProvider.getDataSource();
             try (Connection connection = dataSource.getConnection()) {
-                String sql   = ("UPDATE survhei.question t SET t.question =?, t.obligatoire=? WHERE t.id_formulaire_correspondant=?");
+                String sql   = ("UPDATE dbsurvhei.question t SET t.question =?, t.obligatoire=? WHERE t.id_formulaire_correspondant=?");
                 try (PreparedStatement preparedStatement = connection.prepareStatement(
                         sql, Statement.RETURN_GENERATED_KEYS)) {
                     preparedStatement.setString(1, page.getQuestion());

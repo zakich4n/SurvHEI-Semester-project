@@ -100,7 +100,7 @@ function searchAndHide() {
     input = document.getElementById('FormSearchBar');
     filter = input.value.toUpperCase();
     ul = document.getElementById("individualForm");
-    li = ul.getElementsByClassName('removable');
+    li = ul.getElementsByClassName("removable");
     console.log(input+" : "+filter);
     for (i = 0; i < li.length; i++) {
         a = li[i].getElementsByTagName("figcaption")[0];
