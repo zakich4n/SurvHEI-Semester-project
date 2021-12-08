@@ -33,7 +33,7 @@ public class Formulaire {
 
     public boolean getAnonState() {return Anonyme;}
 
-    public int GetNumberOfPage() {
+    public int  GetNumberOfPage() {
         return pages.size();
     }
 

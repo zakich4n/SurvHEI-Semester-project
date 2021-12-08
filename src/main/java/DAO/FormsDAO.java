@@ -21,7 +21,7 @@ public class FormsDAO {
                 try (PreparedStatement preparedStatement = connection.prepareStatement(
                         sql, Statement.RETURN_GENERATED_KEYS)) {
                     preparedStatement.setString(1, formulaire.getTitle());
-                    preparedStatement.setInt(2,formulaire.getNb_questions() );
+                    preparedStatement.setInt(2,formulaire.GetNumberOfPage());
                     preparedStatement.setInt(3, formulaire.getTemps());
                     preparedStatement.setBoolean(4, formulaire.getActif());
                     preparedStatement.setBoolean(5, formulaire.getAnonyme());
@@ -159,7 +159,7 @@ public class FormsDAO {
                         sql, Statement.RETURN_GENERATED_KEYS)) {
                     preparedStatement.setInt(7, formulaire.getID());
                     preparedStatement.setString(1,formulaire.getTitle());
-                    preparedStatement.setInt(2,formulaire.getNb_questions());
+                    preparedStatement.setInt(2,formulaire.GetNumberOfPage());
                     preparedStatement.setInt(3, formulaire.getTemps());
                     preparedStatement.setBoolean(4, formulaire.getActif());
                     preparedStatement.setBoolean(5, formulaire.getAnonyme());
