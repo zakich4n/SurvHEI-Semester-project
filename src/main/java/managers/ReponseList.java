@@ -1,5 +1,6 @@
 package managers;
 
+import DAO.ReponseDAO;
 import Formulaire.*;
 import Reponse.Reponse;
 
@@ -17,6 +18,23 @@ public class ReponseList {
     }
 
     static TreeMap<Page, Reponse> ReponseList= new TreeMap<>();
+
+    public TreeMap<Page, Reponse> getReponseList() {return ReponseList;}
+
+    public void initializeList() {
+        new ReponseDAO().getAllReponseFromDB();
+    }
+
+    public boolean addReponse(Reponse rep) {
+        int result=new ReponseDAO().addReponseToDB(rep);
+        switch (result) {
+            case 1 :
+                //ReponseList.put(PAGE, rep);
+                return true;
+        }
+        return false;
+    }
+
 
 
 }
