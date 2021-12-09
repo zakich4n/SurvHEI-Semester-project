@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Gérez vos utilisateurs</title>
     <link href="css/style.css" rel="stylesheet">
+    <script src="js/usermanager.js" type="application/javascript"></script>
 
 </head>
 <body>
@@ -36,8 +37,7 @@
                 <th:block th:case="false">Utilisateur</th:block>
                 <th:block th:case="*">Utilisateur</th:block>
             </td>
-
-            <td><button>Supprimer</button></td>
+            <td th:unless="${utilisateur.role}"><button  role="button" th:onclick="@{deleteUser({user})(id=${utilisateur.user})}">Supprimer</button></td>
         </tr>
         <tr><a href="">+</a></tr>
         </tbody>

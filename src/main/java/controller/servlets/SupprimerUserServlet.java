@@ -25,12 +25,12 @@ public class SupprimerUserServlet extends HttpServlet {
         engine.setTemplateResolver(resolver);
 
         WebContext context = new WebContext(req, resp, req.getServletContext());
-        engine.process("supprimeruser", context, resp.getWriter());
+        engine.process("gestionutilisateur", context, resp.getWriter());
     }
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String user = request.getParameter("suppuser");
+    protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String user = request.getParameter("pseudo");
         LoginService.getInstance().deleteUser(user);
     }
 }
