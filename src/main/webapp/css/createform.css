@@ -19,6 +19,14 @@ h1 {
     0 0 100px rgb(255, 255, 255)
 }
 
+h2, a {
+    color: white;
+    text-align: center;
+}
+
+#member {
+    margin-left: 6em;
+}
 
 .formulaire {
     position: absolute;
@@ -26,7 +34,7 @@ h1 {
     left: 50%;
     width: 400px;
     padding: 40px;
-    transform: translate(-50%, -105%);
+    transform: translate(-50%, -95%);
     background: rgba(0,0,0,.5);
     box-sizing: border-box;
     box-shadow: 0 15px 25px rgba(0,0,0,.6);
@@ -91,6 +99,7 @@ h1 {
     color: #03e9f4;
 }
 .formulaire form button {
+    margin-left: 5em;
     position: relative;
     display: inline-block;
     padding: 10px 20px;
