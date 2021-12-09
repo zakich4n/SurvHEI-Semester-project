@@ -15,6 +15,7 @@
 <br/>
 <input type="text" id="FormSearchBar" onkeyup="searchAndHide()" placeholder="Recherchez un formulaire">
 <br/>
+
 <div id="groupForms">
 <div id="individualForm" th:each="form : ${formList}" th:switch="${UserType}">
 <a class="boutonformulaire"   th:href="@{/forms?id={id}(id=${form.id})}"  href="">
@@ -24,8 +25,10 @@
     </figure>
 </a>
     <button th:case="'2'" class="button-24 removable" role="button" th:onclick="@{deleteForm({id})(id=${form.id})}">Supprimer</button>
+    <button th:case="'2'" class="button-24 removable" role="button" th:onclick="@{editForm({id})(id=${form.id})}">Modifier</button>
     <button th:case="*" style="display: none;" role="button">Supprimer</button>
 </div>
 </div>
+
 </body>
 </html>
