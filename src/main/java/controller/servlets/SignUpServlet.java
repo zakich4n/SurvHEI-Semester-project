@@ -6,7 +6,7 @@ import org.thymeleaf.context.WebContext;
 import org.thymeleaf.templatemode.TemplateMode;
 import org.thymeleaf.templateresolver.ServletContextTemplateResolver;
 import controller.webservices.MotDePasseUtils;
-import service.LoginService;
+import service.UserService;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -41,16 +41,15 @@ public class SignUpServlet extends HttpServlet {
         String dateBirthString = request.getParameter("DateNaissance");
         String genre = request.getParameter("genre");
         String password = request.getParameter("Password");
-        String passwordc = request.getParameter("Passwordc");
 
         DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         LocalDateTime dateBirth  = LocalDate.parse(dateBirthString, dateFormat).atStartOfDay();
 
-        password = MotDePasseUtils.genererMotDePasse(passwordc);
+        password = MotDePasseUtils.genererMotDePasse(password);
 
-        if(!LoginService.getInstance().checkIfExist(login)){
+        if(!UserService.getInstance().checkIfExist(login)){
             Utilisateur user = new Utilisateur(1, login, password, email, lastName, firstName, dateBirth, genre );
-            LoginService.getInstance().addUser(user);
+            UserService.getInstance().addUser(user);
             response.sendRedirect("connexion");
         }else{
             response.sendRedirect("SignUp");

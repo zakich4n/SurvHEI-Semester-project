@@ -30,13 +30,22 @@ public class Utilisateur {
         this.Password=password;
     }
 
-    public String getUser(){ return User;}
-    public String getPassword(){return Password;}
-    public String getEmail(){return email;}
-    public String getNom(){return nom;}
-    public String getPrenom(){return prenom;}
-    public LocalDateTime getDateNaissance(){return DateNaissance;}
-    public String getSexe(){return Sexe;}
+    public Utilisateur(String user, String email, String nom, String prenom,boolean role){
+        this.User=user;
+        this.email=email;
+        this.nom=nom;
+        this.prenom=prenom;
+        this.IsAdmin=role;
+    }
+
+    public String getUser(){ return this.User;}
+    public String getPassword(){return this.Password;}
+    public String getEmail(){return this.email;}
+    public String getNom(){return this.nom;}
+    public String getPrenom(){return this.prenom;}
+    public LocalDateTime getDateNaissance(){return this.DateNaissance;}
+    public String getSexe(){return this.Sexe;}
+    public boolean getRole(){return this.IsAdmin;}
 
 
 

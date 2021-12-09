@@ -9,7 +9,6 @@ body {
 }
 
 h1 {
-    margin-top: 2em;
     padding: 2%;
     color: #ffffff;
     font-family: 'Lato', sans-serif;
@@ -28,7 +27,7 @@ div , p {
     font-family: 'Lato', sans-serif;
     font-size: x-large;
     text-align: center;
-    margin-right: 10%;
+
 }
 
 .login-box {
@@ -273,7 +272,10 @@ body {
     background: linear-gradient(#141e30, #243b55);
 }
 
-
+#nav-userrole{
+    margin-left: 0%;
+    margin-right: 0%;
+}
 .navigation {
     width: 100em;
     position: fixed;
@@ -301,7 +303,7 @@ body {
     max-width: 1000px;
     margin: 0 auto;
 }
-nav.navigation{
+section.navigation{
     font-size: 18px;
 }
 nav {
@@ -426,7 +428,6 @@ figure {
     border-radius: 30px;
     width: 100%;
     margin: 3%;
-    text-decoration: none;
 }
 
 figure figcaption {

@@ -6,6 +6,11 @@
     <title>Résultats</title>
 </head>
 <body>
+<div id="nav-userrole" th:switch="${typeuser}">
+    <div th:case="2"><section th:replace="~{ fragments :: navigationadmin }"></section></div>
+    <div th:case="1"><section th:replace="~{ fragments :: navigationuser }"></section></div>
+    <div th:case="*"><section th:replace="~{ fragments :: navigationnotconnected }"></section></div>
+</div>
 <p>Questions</p>
 <p>Barre avec pourcentage de réponses OUI/NON</p>
 /* Pour chaque questions faire la même

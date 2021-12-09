@@ -15,15 +15,4 @@ public class LoginService {
     private LoginService(){}
 
     public int[] valider(Utilisateur utilisateur){return logindao.valider(utilisateur);}
-
-    public void addUser(Utilisateur utilisateur) {
-        logindao.addUser(utilisateur);
-    }
-
-    public void deleteUser(String User){logindao.deleteUser(User);}
-
-    public int getByIdName(String User, String Nom, String Prenom){return logindao.getByIdName(User, Nom, Prenom);}
-
-    public boolean checkIfExist(String User){return logindao.checkIfExist(User);}
-
 }

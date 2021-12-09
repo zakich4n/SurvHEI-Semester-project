@@ -1,13 +1,14 @@
 package controller.servlets;
 
+import controller.webservices.MotDePasseUtils;
 import entity.Utilisateur;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.WebContext;
 import org.thymeleaf.extras.java8time.dialect.Java8TimeDialect;
 import org.thymeleaf.templatemode.TemplateMode;
 import org.thymeleaf.templateresolver.ServletContextTemplateResolver;
-import controller.webservices.MotDePasseUtils;
 import service.LoginService;
+import service.UserService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -39,13 +40,12 @@ public class ConnexionServlet extends HttpServlet {
 
         WebContext context = new WebContext(req, resp, req.getServletContext());
         context.setVariable("login", login);
+        context.setVariable("typeuser", typeuser);
 
         if (typeuser == null) {
             engine.process("pagelogin", context, resp.getWriter());
-        } else if (typeuser.equals("1")) {
+        } else {
             engine.process("Accueil", context, resp.getWriter());
-        } else if (typeuser.equals("2")) {
-            engine.process("AccueilAdmin", context, resp.getWriter());
         }
 
     }
@@ -61,7 +61,7 @@ public class ConnexionServlet extends HttpServlet {
         if (LoginService.getInstance().valider(utilisateur)[0]==1 || LoginService.getInstance().valider(utilisateur)[0]==2) {
             req.getSession().setAttribute("login",user);
 
-            req.getSession().setAttribute("iduser",LoginService.getInstance().valider(utilisateur)[1]);
+            req.getSession().setAttribute("iduser", LoginService.getInstance().valider(utilisateur)[1]);
 
             req.getSession().setAttribute("typeuser", Integer.toString(LoginService.getInstance().valider(utilisateur)[0]));
 

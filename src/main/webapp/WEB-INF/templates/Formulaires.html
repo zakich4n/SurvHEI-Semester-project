@@ -10,7 +10,11 @@
     <link href="css/style.css" rel="stylesheet">
 </head>
 <body>
-<nav  th:replace="~{ fragments :: navigation }"></nav>
+<div id="nav-userrole" th:switch="${typeuser}">
+    <div th:case="2"><section th:replace="~{ fragments :: navigationadmin }"></section></div>
+    <div th:case="1"><section th:replace="~{ fragments :: navigationuser }"></section></div>
+    <div th:case="*"><section th:replace="~{ fragments :: navigationnotconnected }"></section></div>
+</div>
 <h1>[[${NbForms}]] formulaires disponibles</h1>
 <br/>
 <input type="text" id="FormSearchBar" onkeyup="searchAndHide()" placeholder="Recherchez un formulaire">

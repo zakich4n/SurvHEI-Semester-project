@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Gérez vos utilisateurs</title>
+    <link href="css/style.css" rel="stylesheet">
+    <script src="js/usermanager.js" type="application/javascript"></script>
+
+</head>
+<body>
+    <div id="nav-userrole" th:switch="${typeuser}">
+        <div th:case="2"><section th:replace="~{ fragments :: navigationadmin }"></section></div>
+        <div th:case="1"><section th:replace="~{ fragments :: navigationuser }"></section></div>
+        <div th:case="*"><section th:replace="~{ fragments :: navigationnotconnected }"></section></div>
+    </div>
+
+    <h1>Infos utilisateurs</h1>
+    <!--/*@thymesVar id="role" type=""*/-->
+    <p th:text="${role}"></p>
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th>Pseudo</th>
+            <th>Nom</th>
+            <th>Prenom</th>
+            <th>Email</th>
+            <th>Role</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr th:each="utilisateur : ${userList}" th:switch="${utilisateur.getRole()}">
+                <td th:text="${utilisateur.getUser()}">pseudo?</td>
+                <td th:text="${utilisateur.getNom()}">nom?</td>
+                <td th:text="${utilisateur.getPrenom()}">prenom?</td>
+                <td th:text="${utilisateur.getEmail()}">email?</td>
+
+                    <td th:case="true">Admin</td>
+                    <td th:case="false">Utilisateur</td>
+                    <td th:case="*" >Utilisateur</td>
+
+                <td th:unless="${utilisateur.getRole()}">
+                    <button class="deleteuser" role="button"  th:onclick="@{deleteUser('{pseudo}')(pseudo=${utilisateur.getUser()})}">Supprimer</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+</html>
