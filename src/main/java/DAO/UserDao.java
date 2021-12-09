@@ -63,7 +63,7 @@ public class UserDao {
             DataSource dataSource = DataSourceProvider.getDataSource();
             try (Connection connection = dataSource.getConnection()) {
                 try (PreparedStatement statement = connection.prepareStatement(
-                        "delete from dbsurvhei.survhei_user where User=?")) {
+                        "delete from survhei_user where User=?")) {
                     statement.setString(1, User);
                     statement.executeUpdate();
                 }

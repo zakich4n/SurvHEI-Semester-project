@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Gérez vos utilisateurs</title>
     <link href="css/style.css" rel="stylesheet">
+    <script src="js/usermanager.js" type="application/javascript"></script>
 
 </head>
 <body>
@@ -14,6 +15,7 @@
     </div>
 
     <h1>Infos utilisateurs</h1>
+    <!--/*@thymesVar id="role" type=""*/-->
     <p th:text="${role}"></p>
     <table class="table table-hover">
         <thead>
@@ -26,21 +28,20 @@
         </tr>
         </thead>
         <tbody>
-        <tr th:each="utilisateur : ${userList}">
-            <td th:text="${utilisateur.user}" name="test">pseudo?</td>
-            <td th:text="${utilisateur.nom}">nom?</td>
-            <td th:text="${utilisateur.prenom}">prenom?</td>
-            <td th:text="${utilisateur.email}">email?</td>
-            <td th:switch="${utilisateur.role}">
-                <th:block th:case="true">Admin</th:block>
-                <th:block th:case="false">Utilisateur</th:block>
-                <th:block th:case="*">Utilisateur</th:block>
-            </td>
+            <tr th:each="utilisateur : ${userList}" th:switch="${utilisateur.getRole()}">
+                <td th:text="${utilisateur.getUser()}">pseudo?</td>
+                <td th:text="${utilisateur.getNom()}">nom?</td>
+                <td th:text="${utilisateur.getPrenom()}">prenom?</td>
+                <td th:text="${utilisateur.getEmail()}">email?</td>
 
-            <td><button type="submit">Supprimer</button></td>
-            <td><button type="submit">Promote</button></td> //A cacher si Admin
-        </tr>
-        <tr><a href="">+</a></tr>
+                    <td th:case="true">Admin</td>
+                    <td th:case="false">Utilisateur</td>
+                    <td th:case="*" >Utilisateur</td>
+
+                <td th:unless="${utilisateur.getRole()}">
+                    <button class="deleteuser" role="button"  th:onclick="@{deleteUser('{pseudo}')(pseudo=${utilisateur.getUser()})}">Supprimer</button>
+                </td>
+            </tr>
         </tbody>
     </table>
 

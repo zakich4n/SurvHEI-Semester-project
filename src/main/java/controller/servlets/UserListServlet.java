@@ -21,6 +21,8 @@ public class UserListServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+        String typeuser =(String) req.getSession().getAttribute("typeuser");
         WebContext webContext = new WebContext(req, resp, req.getServletContext());
         ServletContextTemplateResolver resolver = new ServletContextTemplateResolver(req.getServletContext());
         resolver.setPrefix("/WEB-INF/templates/");
@@ -33,8 +35,15 @@ public class UserListServlet extends HttpServlet {
         engine.addDialect(new Java8TimeDialect());
 
         List<Utilisateur> listofUsers = UserService.getInstance().listUser();
+        webContext.setVariable("typeuser", typeuser);
         webContext.setVariable("userList", listofUsers);
 
         engine.process("gestionutilisateur", webContext, resp.getWriter());
+    }
+
+    @Override
+    protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String user = request.getParameter("pseudo");
+        UserService.getInstance().deleteUser(user);
     }
 }
