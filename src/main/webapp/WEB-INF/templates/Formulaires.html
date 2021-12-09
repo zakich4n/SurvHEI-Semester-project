@@ -10,12 +10,12 @@
     <link href="css/style.css" rel="stylesheet">
 </head>
 <body>
-<section  th:replace="~{ fragments :: navigation }"></section>
+<nav  th:replace="~{ fragments :: navigation }"></nav>
 <h1>[[${NbForms}]] formulaires disponibles</h1>
 <br/>
-<input type="text" id="FormSearchBar" onkeyup="searchAndHide()" placeholder="Search for names..">
+<input type="text" id="FormSearchBar" onkeyup="searchAndHide()" placeholder="Recherchez un formulaire">
 <br/>
-
+<div id="groupForms">
 <div id="individualForm" th:each="form : ${formList}" th:switch="${UserType}">
 <a class="boutonformulaire"   th:href="@{/forms?id={id}(id=${form.id})}"  href="">
     <figure class="figure removable" style="width: 50px; height: 50px; background-color: #141e30;">
@@ -25,6 +25,7 @@
 </a>
     <button th:case="'2'" class="button-24 removable" role="button" th:onclick="@{deleteForm({id})(id=${form.id})}">Supprimer</button>
     <button th:case="*" style="display: none;" role="button">Supprimer</button>
+</div>
 </div>
 </body>
 </html>

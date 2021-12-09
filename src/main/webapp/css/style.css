@@ -1,5 +1,5 @@
 html {
-    height: 200%;
+    height: 130%;
 }
 body {
     margin:0;
@@ -9,6 +9,7 @@ body {
 }
 
 h1 {
+    margin-top: 2em;
     padding: 2%;
     color: #ffffff;
     font-family: 'Lato', sans-serif;
@@ -274,9 +275,12 @@ body {
 
 
 .navigation {
+    width: 100em;
+    position: fixed;
     display: block;
     height: 70px;
     background: rgba(0,0,0,.5);
+    top: 0;
 }
 
 .brand {
@@ -297,7 +301,7 @@ body {
     max-width: 1000px;
     margin: 0 auto;
 }
-section.navigation{
+nav.navigation{
     font-size: 18px;
 }
 nav {
@@ -422,6 +426,7 @@ figure {
     border-radius: 30px;
     width: 100%;
     margin: 3%;
+    text-decoration: none;
 }
 
 figure figcaption {
@@ -619,8 +624,8 @@ figure figcaption {
     }
 }
 .button-24 {
-    background: #FF4742;
-    border: 1px solid #FF4742;
+    background: #fb9a37;
+    border: 1px solid #ffa135;
     border-radius: 6px;
     box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
     box-sizing: border-box;
@@ -641,6 +646,7 @@ figure figcaption {
     -webkit-user-select: none;
     touch-action: manipulation;
     vertical-align: middle;
+    margin-left: 4em;
 }
 
 .button-24:hover,
@@ -653,3 +659,31 @@ figure figcaption {
 .button-24:active {
     opacity: .5;
 }
+
+#individualForm {
+    border-radius: 5%;
+    display: inline-table;
+    width: 14em;
+    background-color: #333440;
+    border: black;
+    border-spacing: 10px;
+    text-align: center;
+    margin: auto;
+    margin-bottom: 0.25em;
+
+}
+
+#groupForms {
+    margin-bottom: 1em;
+    margin-right: 1em;
+    /* margin-left: auto; */
+    margin-top: 1em;
+}
+
+#FormSearchBar {
+    width: 12em;
+    border-radius: 5px;
+    height: 2em;
+    margin-left: 2em;
+}
+

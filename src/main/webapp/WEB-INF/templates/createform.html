@@ -9,12 +9,15 @@
 
 </head>
 <body>
+<div class="brand">
+    <a href="Accueil"><img id="logosite" src="images/logob.png"></a>
+</div>
 <div class="formulaire">
     <h1>Quelles sont tes questions ?</h1>
     <br/>
-    <h2>Combien de question voulez vous poser ?</h2>
-    <input type="text" id="member" name="member" value="">
-    <a href="#" id="filldetails" onclick="addFields()">Créer les questions</a>
+    <h2>Combien de questions voulez vous poser ?</h2>
+    <input onkeyup="addFields()" type="text" id="member" name="member" value="">
+
     <br/><br/><br/>
 
     <form id="CreateForm" method="post" >
@@ -33,6 +36,9 @@
         </div>-->
         <button type="submit">Envoyer<span></span> <span></span>
             <span></span> <span></span></button>
+
+        <button onclick="location.href='connexion'" type="button">Abandonner<span></span><span>
+        </span><span></span><span></span></button>
         <p id="erreur"></p>
     </form>
 </div>
