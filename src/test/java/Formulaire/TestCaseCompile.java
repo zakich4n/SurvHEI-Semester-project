@@ -2,9 +2,11 @@ package Formulaire;
 import Formulaire.*;
 import Formulaire.Compile;
 import Codage.*;
+import entity.Utilisateur;
 import managers.FormsList;
 import org.junit.Assert;
 import org.junit.Test;
+import service.UserService;
 
 import java.util.ArrayList;
 
@@ -62,5 +64,17 @@ public class TestCaseCompile {
         Assert.assertNotNull(form.getID());
     }
 
+    @Test
+    public void shouldDeleteUser() {
+        //GIVEN
+        Utilisateur test = new Utilisateur("test","emailtest","nomtest","prenomtest",false);
+        UserService.getInstance().addUser(test);
+
+        //WHEN
+        UserService.getInstance().deleteUser(test.getUser());
+
+        //THEN
+        System.out.println(test);
+    }
 
 }
