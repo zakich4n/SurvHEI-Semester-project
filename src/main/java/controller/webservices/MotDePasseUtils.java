@@ -11,6 +11,7 @@ public class MotDePasseUtils {
   private static final int MEMOIRE = 65536;
   private static final int PARALLELISME = 1;
 
+
   private static Argon2 instancierArgon2() {
     return Argon2Factory.create(Argon2Factory.Argon2Types.ARGON2i, LONGUEUR_SEL, LONGUEUR_HASH);
   }

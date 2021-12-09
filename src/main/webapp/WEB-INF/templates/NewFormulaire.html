@@ -1,20 +1,91 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
+    <link rel="icon" type="image/png" sizes="16x16" href="../../images/logo2.png">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Create Form</title>
     <link rel="stylesheet" type="text/css" href="css/NewFormulaire.css">
 </head>
-<body>
-<div class="formulaire">
+<body th:switch="${action}">
+<div class="brand">
+    <a href="connexion"><img id="logosite" src="images/logob.png"></a>
+</div>
+
+<div class="formulaire" th:case="'changed'">
+    <h1>Modifiez le formuaire</h1>
+    <form id="CreateForm" method="PUT">
+        <div class="user-box">
+            <h3 style="color: red">Le formulaire a été mise à jour !</h3>
+            <input id="prodId" name="id" type="hidden" th:value="${form.id}">
+            <input type="text" name="nameform" id="nameform" th:value="${form.title}">
+            <label>Quel est le nom de ton formulaire ?</label>
+            <div class="anonyme" th:if="${form.anonyme}">
+                <p class="lanonyme">Les reponses sont-elles anonyme ?</p>
+                <p></p>
+                <input type="checkbox" class="cboxa" name="cnameform" id="cnameform" checked="checked" >
+            </div>
+            <div class="anonyme" th:unless="${form.anonyme}">
+                <p class="lanonyme">Les reponses sont-elles anonyme ?</p>
+                <p></p>
+                <input type="checkbox" class="cboxa" name="cnameform" id="cnameform">
+            </div>
+        </div>
+        <div class="user-box">
+            <input type="text" name="timeform" id="timeform" th:value="${form.temps}">
+            <label>Temps estimé pour y répondre (en minute) :</label>
+        </div>
+        <button type="submit">Envoyer<span></span> <span></span>
+            <span></span> <span></span></button>
+
+        <button onclick="location.href='connexion'" type="button">Abandonner<span></span><span>
+        </span><span></span><span></span></button>
+        <p id="erreur1"></p>
+        <script src="js/CreateForm1.js"></script>
+    </form>
+</div>
+
+<div class="formulaire" th:case="'edit'">
+    <h1>Modifiez le formuaire</h1>
+    <form id="CreateForm" method="PUT">
+        <div class="user-box">
+            <input id="prodId" name="id" type="hidden" th:value="${form.id}">
+            <input type="text" name="nameform" id="nameform" th:value="${form.title}">
+            <label>Quel est le nom de ton formulaire ?</label>
+            <div class="anonyme" th:if="${form.anonyme}">
+                <p class="lanonyme">Les reponses sont-elles anonyme ?</p>
+                <p></p>
+                <input type="checkbox" class="cboxa" name="cnameform" id="cnameform" checked="checked" >
+            </div>
+            <div class="anonyme" th:unless="${form.anonyme}">
+                <p class="lanonyme">Les reponses sont-elles anonyme ?</p>
+                <p></p>
+                <input type="checkbox" class="cboxa" name="cnameform" id="cnameform">
+            </div>
+        </div>
+        <div class="user-box">
+            <input type="text" name="timeform" id="timeform" th:value="${form.temps}">
+            <label>Temps estimé pour y répondre (en minute) :</label>
+        </div>
+        <button type="submit">Envoyer<span></span> <span></span>
+            <span></span> <span></span></button>
+
+        <button onclick="location.href='connexion'" type="button">Abandonner<span></span><span>
+        </span><span></span><span></span></button>
+        <p id="erreur1"></p>
+        <script src="js/CreateForm1.js"></script>
+    </form>
+</div>
+
+<div class="formulaire" th:case="*">
     <h1>Créer ton formulaire !</h1>
     <form id="CreateForm" method="post">
         <div class="user-box">
             <input type="text" name="nameform" id="nameform">
             <label>Quel est le nom de ton formulaire ?</label>
             <div class="anonyme">
-                <p class="lanonyme">Veux-tu être anonyme ?</p>
+                <p class="lanonyme">Les reponses sont-elles anonyme ?</p>
+                <p></p>
                 <input type="checkbox" class="cboxa" name="cnameform" id="cnameform" >
             </div>
         </div>
@@ -24,10 +95,14 @@
         </div>
         <button type="submit">Envoyer<span></span> <span></span>
             <span></span> <span></span></button>
+
+        <button onclick="location.href='connexion'" type="button">Abandonner<span></span><span>
+        </span><span></span><span></span></button>
         <p id="erreur1"></p>
         <script src="js/CreateForm1.js"></script>
     </form>
 </div>
+
 </body>
 </html>
 

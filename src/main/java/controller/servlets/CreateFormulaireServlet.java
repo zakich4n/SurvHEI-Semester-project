@@ -1,11 +1,12 @@
 package controller.servlets;
 
-import entity.Question;
+import DAO.FormsDAO;
+import Formulaire.*;
+import managers.FormsList;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.WebContext;
 import org.thymeleaf.templatemode.TemplateMode;
 import org.thymeleaf.templateresolver.ServletContextTemplateResolver;
-import service.CreateFormService;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -13,10 +14,14 @@ import javax.servlet.annotation.*;
 import java.io.IOException;
 
 @WebServlet("/CreateFormulaire")
-public class CreateFormulaireServlet extends HttpServlet {
+public class CreateFormulaireServlet extends SurvHEISurvlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         ServletContextTemplateResolver resolver = new ServletContextTemplateResolver(req.getServletContext());
+        int IDForm= Integer.parseInt(req.getParameter("idFormulaire"));
+        WebContext webContext = new WebContext(req, resp, req.getServletContext());
+        webContext.setVariable("IDForm", IDForm);
+
         resolver.setPrefix("/WEB-INF/templates/");
         resolver.setSuffix(".html");
         resolver.setTemplateMode(TemplateMode.HTML);
@@ -24,52 +29,24 @@ public class CreateFormulaireServlet extends HttpServlet {
         TemplateEngine engine = new TemplateEngine();
         engine.setTemplateResolver(resolver);
 
-        WebContext context = new WebContext(req, resp, req.getServletContext());
-        engine.process("createform", context, resp.getWriter());
+        TemplateEngine templateEngine = createTemplateEngine(req.getServletContext());
+        templateEngine.process("createform", webContext, resp.getWriter());
+
 
     }
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-        //Récupération de l'id du formulaire
-        int NewformulaireId =(int) request.getSession().getAttribute("NewFormulaireId");
-
-        //Récupération des informations pour la question 1
-        String q1 = request.getParameter("Q1");
-        boolean cq1;
-        if (request.getParameter("cQ1") == null) {
-            cq1 = false;
-        } else {
-            cq1 = true;
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        new FormsDAO().getAllFormulaireFromDB();
+        int IDForm= Integer.parseInt(req.getParameter("idFormulaire"));
+        Formulaire form= FormsList.getInstance().getFormsByID(IDForm);
+        int NbQuestions=Integer.parseInt(req.getParameter("NBQuestions"));
+        String QX= "";
+        for(int i=0; i<NbQuestions; i++) {
+            QX=req.getParameter("Q"+(i+1));
+            form.addQuestionsThroughFormulaire(new YesOrNO(i+1,QX,
+                    Boolean.parseBoolean(req.getParameter("cQ"+(i+1))),IDForm), true);
         }
-
-        Question Q1 = new Question(q1, 1, NewformulaireId, cq1);
-        CreateFormService.getInstance().AddQuestion(Q1);
-
-        //Récupération des informations de la question 2
-        String q2 = request.getParameter("Q2");
-        boolean cq2;
-        if (request.getParameter("cQ2") == null) {
-            cq2 = false;
-        } else {
-            cq2 = true;
-        }
-
-        Question Q2 = new Question(q2, 2, NewformulaireId, cq2);
-        CreateFormService.getInstance().AddQuestion(Q2);
-
-        //Récupération des informations de la question 3
-        String q3 = request.getParameter("Q3");
-        boolean cq3;
-        if (request.getParameter("cQ3") == null) {
-            cq3 = false;
-        } else {
-            cq3 = true;
-        }
-
-        Question Q3 = new Question(q3, 3, NewformulaireId, cq3);
-        CreateFormService.getInstance().AddQuestion(Q3);
-
+        resp.sendRedirect("forms?id="+IDForm+"&submitted=true");
     }
 }

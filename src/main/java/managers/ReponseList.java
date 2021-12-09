@@ -1,6 +1,7 @@
 package managers;
 
-import Formulaire.Formulaire;
+import DAO.ReponseDAO;
+import Formulaire.*;
 import Reponse.Reponse;
 
 import java.util.List;
@@ -16,14 +17,24 @@ public class ReponseList {
         return managers.ReponseList.ReponseListHolder.instance;
     }
 
-    static TreeMap<Integer, Reponse> ReponseList= new TreeMap<>();
+    static TreeMap<Page, Reponse> ReponseList= new TreeMap<>();
 
-    public void addReponse(Reponse rep) {
-        if (ReponseList.isEmpty()) {
-            ReponseList.put(0, rep);
-        }
-        else {
-            ReponseList.put(ReponseList.lastKey() + 1, rep);
-        }
+    public TreeMap<Page, Reponse> getReponseList() {return ReponseList;}
+
+    public void initializeList() {
+        new ReponseDAO().getAllReponseFromDB();
     }
+
+    public boolean addReponse(Reponse rep) {
+        int result=new ReponseDAO().addReponseToDB(rep);
+        switch (result) {
+            case 1 :
+                //ReponseList.put(PAGE, rep);
+                return true;
+        }
+        return false;
+    }
+
+
+
 }
