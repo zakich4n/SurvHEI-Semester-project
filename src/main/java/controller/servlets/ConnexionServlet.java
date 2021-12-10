@@ -54,7 +54,7 @@ public class ConnexionServlet extends SurvHEISurvlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         WebContext webContext = new WebContext(req, resp, req.getServletContext());
-
+        resp.setContentType("text/html;charset=utf-8");
         String user = req.getParameter("login");
         String motDePasse = req.getParameter("mdp");
 
