@@ -1,5 +1,6 @@
 package service;
 
+import DAO.FormsDAO;
 import Formulaire.Formulaire;
 
 import java.util.TreeMap;
@@ -23,7 +24,11 @@ public class FormsListService {
     public void addFormulaireToList(int id, Formulaire form) {
         FormsList.put(id, form);
     }
-
+    public int addFormulaire(Formulaire form) {
+        int id=new FormsDAO().addFormulaireToDB(form);
+       addFormulaireToList(id, form);
+       return id;
+    }
     public void deleteFromFormsList(Formulaire form) {
         FormsList.remove(form.getID());
     }
