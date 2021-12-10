@@ -4,7 +4,8 @@ import DAO.FormsDAO;
 import Formulaire.Formulaire;
 import exception.FormulaireNotFoundException;
 
-import java.util.TreeMap;
+import java.lang.reflect.Array;
+import java.util.*;
 
 public class FormsListService {
 
@@ -32,6 +33,16 @@ public class FormsListService {
        addFormulaireToList(id, form);
        return id;
     }
+
+    public List<Integer> getAllIDs() {
+        return new ArrayList<>(FormsList.keySet());
+    }
+
+    public int randomID() {
+        Random r = new Random();
+        return getAllIDs().get(r.nextInt(FormsList.size()));
+    }
+
     public void deleteFromFormsList(Formulaire form) {
         FormsList.remove(form.getID());
     }
