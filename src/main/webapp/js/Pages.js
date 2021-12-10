@@ -143,6 +143,7 @@ function checkInput() {
 //border-bottom: 1px solid red;
     if (username.length===0 && password.length!==0) {
         document.querySelector("input#login").setAttribute("style", "border-bottom: 1px solid red;");
+        document.querySelector("label.Username").setAttribute("style", "color : red;");
         console.log("user 0 pass 1 ");
         console.log("User = "+username);
         console.log("password = "+password);
@@ -150,6 +151,7 @@ function checkInput() {
     }
     else if (password.length===0 && username.length!==0) {
             document.querySelector("input#password").setAttribute("style","border-bottom: 1px solid red;");
+        document.querySelector("label.Password").setAttribute("style", "color : red;");
         console.log("user 1 pass 0 ");
         console.log("User = "+username);
         console.log("password = "+password);
@@ -158,6 +160,8 @@ function checkInput() {
     else if (password.length===0 && username.length===0) {
         document.querySelector("input#password").setAttribute("style", "border-bottom: 1px solid red;");
         document.querySelector("input#login").setAttribute("style", "border-bottom: 1px solid red;");
+        document.querySelector("label.Username").setAttribute("style", "color : red;");
+        document.querySelector("label.Password").setAttribute("style", "color : red;");
         console.log("user 0 pass 0 ");
         console.log("User = "+username);
         console.log("password = "+password);

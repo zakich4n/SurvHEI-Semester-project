@@ -1,5 +1,5 @@
 html {
-    height: 100%;
+    height : 100%
 }
 body {
     margin:0;
@@ -294,4 +294,8 @@ img.logosite {
     float: left;
     height: 13em;
     width: auto;
+}
+
+div#GenerateQuestions {
+    color : white;
 }
