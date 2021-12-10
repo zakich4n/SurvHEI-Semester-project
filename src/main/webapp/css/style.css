@@ -371,7 +371,7 @@ nav ul li ul li a {
     z-index: 1;
     box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
     }
-#logosite {
+.logosite {
     max-width: 40%;
     max-height: 40%;
     float: left;

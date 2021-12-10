@@ -6,39 +6,94 @@
     <title>Title</title>
 </head>
 <body>
-<nav class="navigation" th:fragment="navigation">
+<section class="navigation" th:fragment="navigationnotconnected">
     <div class="brand">
-        <a href="Accueil"><img id="logosite" src="images/logob.png"></a>
+        <a href="Accueil"><img class="logosite" src="images/logob.png"></a>
     </div>
 
     <div class="nav-container">
         <nav>
-            <div class="nav-mobile"><a id="nav-toggle" href="Accueil"><span></span></a></div>
+            <div class="nav-mobile"><a class="nav-toggle" href="Accueil"><span></span></a></div>
             <ul class="nav-list">
                 <li>
-                    <a href="Accueil">Acceuil</a>
+                    <a href="Accueil">Accueil</a>
                 </li>
                 <li>
                     <a href="Contact">Contact</a>
                 </li>
-                <li>
-                    <a href="#!">Services</a>
-                    <ul class="nav-dropdown">
-                        <li>
-                            <a href="Formulaire">Formulaires</a>
-                        </li>
-                        <li>
-                            <a href="#!">Créer un formulaire</a>
-                        </li>
-                    </ul>
-                </li>
+
                 <li>
                     <a href="connexion">Connexion</a>
                 </li>
             </ul>
         </nav>
     </div>
-</nav>
+</section>
+
+<section class="navigation" th:fragment="navigationadmin">
+    <div class="brand">
+        <a href="Accueil"><img class="logosite" src="images/logob.png"></a>
+    </div>
+
+    <div class="nav-container">
+        <nav>
+            <div class="nav-mobile"><a class="nav-toggle" href="Accueil"><span></span></a></div>
+            <ul class="nav-list">
+                <li>
+                    <a href="Accueil">Accueil</a>
+                </li>
+                <li>
+                    <a href="usermanagement">Gérer un utilisateur</a>
+                </li>
+                <li>
+                    <a href="#!">Services</a>
+                    <ul class="nav-dropdown">
+                        <li>
+                            <a href="Formulaire">Voir Formulaires</a>
+                        </li>
+                        <li>
+                            <a href="NewFormulaire">Créer un formulaire</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="deconnexion">Deconnexion</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</section>
+
+<section class="navigation" th:fragment="navigationuser">
+    <div class="brand">
+        <a href="Accueil"><img class="logosite" src="images/logob.png"></a>
+    </div>
+
+    <div class="nav-container">
+        <nav>
+            <div class="nav-mobile"><a class="nav-toggle" href="Accueil"><span></span></a></div>
+            <ul class="nav-list">
+                <li>
+                    <a href="Accueil">Accueil</a>
+                </li>
+                <li>
+                    <a href="#!">Formulaires</a>
+                    <ul class="nav-dropdown">
+                        <li>
+                            <a href="Formulaire">Voir Formulaires</a>
+                        </li>
+                        <li>
+                            <a href="NewFormulaire">Créer un formulaire</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="deconnexion">Deconnexion</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</section>
 
 </body>
 </html>
