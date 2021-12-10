@@ -118,10 +118,9 @@ function sendPUTForm() {
 }
 
 function searchAndHide() {
-    var input, filter, ul, li, a, i, txtValue;
+    var input, filter,li, a, i, txtValue;
     input = document.getElementById("FormSearchBar");
     filter = input.value.toUpperCase();
-    //ul = document.getElementById("individualForm");
     li = document.getElementsByClassName("removable");
     console.log(input+" : "+filter);
     for (i = 0; i < li.length; i++) {
@@ -132,5 +131,45 @@ function searchAndHide() {
         } else {
             li[i].style.display = "none";
         }
+    }
+}
+
+
+function checkInput() {
+    let username, password, button;
+    username=document.getElementById("login").value;
+    password=document.getElementById("password").value;
+    button = document.querySelector('button#button')
+//border-bottom: 1px solid red;
+    if (username.length===0 && password.length!==0) {
+        document.querySelector("input#login").setAttribute("style", "border-bottom: 1px solid red;");
+        console.log("user 0 pass 1 ");
+        console.log("User = "+username);
+        console.log("password = "+password);
+        button.disabled=true;
+    }
+    else if (password.length===0 && username.length!==0) {
+            document.querySelector("input#password").setAttribute("style","border-bottom: 1px solid red;");
+        console.log("user 1 pass 0 ");
+        console.log("User = "+username);
+        console.log("password = "+password);
+        button.disabled=true;
+    }
+    else if (password.length===0 && username.length===0) {
+        document.querySelector("input#password").setAttribute("style", "border-bottom: 1px solid red;");
+        document.querySelector("input#login").setAttribute("style", "border-bottom: 1px solid red;");
+        console.log("user 0 pass 0 ");
+        console.log("User = "+username);
+        console.log("password = "+password);
+        button.disabled=true;
+
+    }
+    else if (password.length!==0 && username.length!==0) {
+        document.querySelector("input#password").removeAttribute("style");
+        document.querySelector("input#login").removeAttribute("style");
+        console.log("user 1 pass 1 ");
+        console.log("User = "+username);
+        console.log("password = "+password);
+        button.disabled=false;
     }
 }

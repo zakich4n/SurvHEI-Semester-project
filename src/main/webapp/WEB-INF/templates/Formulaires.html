@@ -29,8 +29,8 @@
         </a>
 
     <div th:case="'2'">
-        <button  class="button-24 removable" role="button" th:onclick="@{deleteForm({id})(id=${form.id})}">Supprimer</button>
-        <button  class="button-24 removable" role="button" th:onclick="@{editForm({id})(id=${form.id})}">Modifier</button>
+        <button  class="button-24" role="button" th:onclick="@{deleteForm({id})(id=${form.id})}">Supprimer</button>
+        <button  class="button-24" role="button" th:onclick="@{editForm({id})(id=${form.id})}">Modifier</button>
     </div>
     <button th:case="*" style="display: none;" role="button">Supprimer</button>
 </div>

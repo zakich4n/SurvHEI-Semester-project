@@ -22,7 +22,7 @@ public class AccueilServlet extends HttpServlet {
         resolver.setPrefix("/WEB-INF/templates/");
         resolver.setSuffix(".html");
         resolver.setTemplateMode(TemplateMode.HTML);
-
+        resp.setContentType("text/html;charset=utf-8");
         TemplateEngine engine = new TemplateEngine();
         engine.setTemplateResolver(resolver);
 
