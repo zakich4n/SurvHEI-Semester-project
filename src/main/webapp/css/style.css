@@ -426,7 +426,6 @@ figure {
 }
 
 .boutonformulaire .imgfig {
-    border-radius: 30px;
     width: 100%;
     margin: 3%;
 }
@@ -697,4 +696,8 @@ a {
 
 ul.presentation {
     list-style: none;
+}
+
+figure.figure {
+    background-color: transparent;
 }
