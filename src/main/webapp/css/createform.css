@@ -295,3 +295,7 @@ button{
     height: 13em;
     width: auto;
 }
+
+#GenerateQuestions {
+    color: white;
+}

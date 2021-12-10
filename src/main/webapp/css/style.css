@@ -423,6 +423,7 @@ figure {
 }
 
 .boutonformulaire .imgfig {
+    text-decoration: none;
     border-radius: 30px;
     width: 100%;
     margin: 3%;
@@ -646,7 +647,7 @@ figure figcaption {
     -webkit-user-select: none;
     touch-action: manipulation;
     vertical-align: middle;
-    margin-left: 4em;
+    margin-left: 13em;
 }
 
 .button-24:hover,
@@ -661,6 +662,7 @@ figure figcaption {
 }
 
 #individualForm {
+    max-height: 5em;
     border-radius: 5%;
     display: inline-table;
     width: 14em;
@@ -668,8 +670,7 @@ figure figcaption {
     border: black;
     border-spacing: 10px;
     text-align: center;
-    margin: auto;
-    margin-bottom: 0.25em;
+    margin: auto auto 0.25em;
 
 }
 
@@ -687,3 +688,14 @@ figure figcaption {
     margin-left: 2em;
 }
 
+a.boutonformulaire{
+    text-decoration: none;
+}
+
+p.formulairename {
+    margin-left: -2em;
+}
+
+#Oui {
+    width: 20%;
+}
