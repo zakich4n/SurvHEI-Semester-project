@@ -45,7 +45,8 @@ public class ConnexionServlet extends SurvHEISurvlet {
         if (typeuser == null) {
             engine.process("pagelogin", context, resp.getWriter());
         } else {
-            engine.process("Accueil", context, resp.getWriter());
+            resp.sendRedirect("/Accueil");
+
         }
 
     }
