@@ -2,9 +2,7 @@ package controller.servlets;
 
 
 import Formulaire.Formulaire;
-import Reponse.Reponse;
-import managers.FormsList;
-import managers.ReponseList;
+import service.FormsListService;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.WebContext;
 
@@ -23,7 +21,7 @@ public class FormsServlet extends SurvHEISurvlet {
         String typeuser = (String) req.getSession().getAttribute("typeuser");
         String login = (String) req.getSession().getAttribute("login");
         WebContext webContext = new WebContext(req, resp, req.getServletContext());
-        FormsList frm=FormsList.getInstance();
+        FormsListService frm= FormsListService.getInstance();
         int IDForm = Integer.parseInt(req.getParameter("id"));
 
         webContext.setVariable("pagesList", frm.getFormsByID(IDForm).getPages());
@@ -36,7 +34,7 @@ public class FormsServlet extends SurvHEISurvlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         int IDForm = Integer.parseInt(req.getParameter("id"));
-        FormsList frm=FormsList.getInstance();
+        FormsListService frm= FormsListService.getInstance();
         Formulaire temp=frm.getFormsByID(IDForm);
         TreeMap<Integer, Boolean> rep= new TreeMap<Integer, Boolean>();
         for(int i=1; i<temp.GetNumberOfPage(); i++) {

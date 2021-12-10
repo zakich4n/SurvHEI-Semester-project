@@ -2,7 +2,7 @@ package controller.servlets;
 
 import DAO.FormsDAO;
 import Formulaire.*;
-import managers.FormsList;
+import service.FormsListService;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.WebContext;
 import org.thymeleaf.templatemode.TemplateMode;
@@ -41,7 +41,7 @@ public class CreateFormulaireServlet extends SurvHEISurvlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         new FormsDAO().getAllFormulaireFromDB();
         int IDForm= Integer.parseInt(req.getParameter("idFormulaire"));
-        Formulaire form= FormsList.getInstance().getFormsByID(IDForm);
+        Formulaire form= FormsListService.getInstance().getFormsByID(IDForm);
         int NbQuestions=Integer.parseInt(req.getParameter("NBQuestions"));
         String QX= "";
         for(int i=0; i<NbQuestions; i++) {

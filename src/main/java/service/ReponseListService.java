@@ -1,20 +1,19 @@
-package managers;
+package service;
 
 import DAO.ReponseDAO;
 import Formulaire.*;
 import Reponse.Reponse;
 
-import java.util.List;
 import java.util.TreeMap;
 
-public class ReponseList {
+public class ReponseListService {
 
     private static class ReponseListHolder {
-        private final static ReponseList instance = new ReponseList();
+        private final static ReponseListService instance = new ReponseListService();
     }
 
-    public static ReponseList getInstance() {
-        return managers.ReponseList.ReponseListHolder.instance;
+    public static ReponseListService getInstance() {
+        return ReponseListService.ReponseListHolder.instance;
     }
 
     static TreeMap<Page, Reponse> ReponseList= new TreeMap<>();

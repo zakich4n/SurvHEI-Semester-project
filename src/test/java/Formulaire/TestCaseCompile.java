@@ -1,13 +1,12 @@
 package Formulaire;
 
 import DAO.FormsDAO;
-import managers.FormsList;
+import service.FormsListService;
 import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Random;
 
 public class TestCaseCompile {
 
@@ -39,12 +38,12 @@ public class TestCaseCompile {
         public void shouldGetAllFormsFromDB() {
             int NbForms= new FormsDAO().getAllFormulaireFromDB();
             System.out.println(NbForms+" forms added :");
-            Collection<Formulaire> values = FormsList.getInstance().getFormsList().values();
+            Collection<Formulaire> values = FormsListService.getInstance().getFormsList().values();
             //iterate values using forEach
             values.forEach( value -> {
                 System.out.println( value.getTitle() );
             });
-            Assert.assertEquals(NbForms, FormsList.getInstance().getFormsList().size());
+            Assert.assertEquals(NbForms, FormsListService.getInstance().getFormsList().size());
         }
 /*
         @Test

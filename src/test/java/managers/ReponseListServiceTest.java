@@ -6,7 +6,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-public class ReponseListTest extends TestCase {
+public class ReponseListServiceTest extends TestCase {
 
     @Before
     public void setUp() throws Exception {

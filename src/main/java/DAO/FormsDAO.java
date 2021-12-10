@@ -3,12 +3,11 @@ package DAO;
 import Formulaire.Formulaire;
 import javax.sql.DataSource;
 import java.sql.*;
-import DAO.*;
+
 import Formulaire.*;
-import managers.FormsList;
+import service.FormsListService;
 
 import java.util.ArrayList;
-import java.util.TreeMap;
 
 public class FormsDAO {
 
@@ -76,7 +75,7 @@ public class FormsDAO {
     public int getAllFormulaireFromDB() {
         int NbFormulaire=0;
         PreparedStatement statementPages;
-        FormsList FormsList= managers.FormsList.getInstance();
+        FormsListService FormsList = FormsListService.getInstance();
         try {
             DataSource dataSource = DataSourceProvider.getDataSource();
             try (Connection connection = dataSource.getConnection()) {
@@ -122,7 +121,7 @@ public class FormsDAO {
     }
 
     public boolean DeleteFormulaire(Formulaire formulaire) {
-        FormsList FormsList= managers.FormsList.getInstance();
+        FormsListService FormsList = FormsListService.getInstance();
         int IDForm=formulaire.getID();
         try {
             DataSource dataSource = DataSourceProvider.getDataSource();

@@ -1,19 +1,18 @@
-package managers;
+package service;
 
 import Formulaire.Page;
 import DAO.*;
-import Reponse.Reponse;
 
 import java.util.TreeMap;
 
-public class PageList {
+public class PageListService {
 
     private static class PageListHolder {
-        private final static PageList instance = new PageList();
+        private final static PageListService instance = new PageListService();
     }
 
-    public static PageList getInstance() {
-        return managers.PageList.PageListHolder.instance;
+    public static PageListService getInstance() {
+        return PageListService.PageListHolder.instance;
     }
 
     static TreeMap<Integer, Page> PageList= new TreeMap<>();
