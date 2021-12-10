@@ -626,6 +626,7 @@ figure figcaption {
     }
 }
 .button-24 {
+    width : 6em;
     background: #fb9a37;
     border: 1px solid #ffa135;
     border-radius: 6px;
@@ -648,8 +649,9 @@ figure figcaption {
     -webkit-user-select: none;
     touch-action: manipulation;
     vertical-align: middle;
-    margin-left: 4em;
+    margin-left: 2em;
 }
+
 
 .button-24:hover,
 .button-24:active {
