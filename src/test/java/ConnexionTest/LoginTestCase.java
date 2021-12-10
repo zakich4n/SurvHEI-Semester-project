@@ -4,7 +4,6 @@ import DAO.LoginDao;
 import entity.Utilisateur;
 import org.junit.Assert;
 import org.junit.Test;
-import service.LoginService;
 
 public class LoginTestCase {
     private LoginDao login = new LoginDao();

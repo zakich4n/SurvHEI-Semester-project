@@ -46,15 +46,15 @@ public class TestCaseCompile {
             });
             Assert.assertEquals(NbForms, FormsList.getInstance().getFormsList().size());
         }
-
+/*
         @Test
         public void shouldDeleteForms() {
             int IDFormToDelete=14;
             System.out.println("Added :"+new FormsDAO().getAllFormulaireFromDB());
             boolean result= new FormsDAO().DeleteFormulaire(FormsList.getInstance().getFormsByID(IDFormToDelete));
             Assert.assertNull(FormsList.getInstance().getFormsByID(IDFormToDelete));
-        }
-
+        } */
+/*
         @Test
         public void shouldEditFormInDB() {
             int IDFormToEdit=41;
@@ -71,9 +71,9 @@ public class TestCaseCompile {
             System.out.println("Updated to : "+rand+"// Had : "+oldTime);
             Assert.assertEquals(FormsList.getInstance().getFormsByID(IDFormToEdit).getTitle(), randomTitle);
             Assert.assertEquals(FormsList.getInstance().getFormsByID(IDFormToEdit).getTemps(), rand);
-        }
+        }*/
 
-        @Test
+   /*     @Test
         public void shouldChangePageFromForm() {
             int IDFormToEdit=40;
             int indexPage=1;
@@ -92,7 +92,7 @@ public class TestCaseCompile {
             System.out.println("Updated to : "+newObl+"// Had : "+oldObl);
             Assert.assertEquals(FormsList.getInstance().getFormsByID(IDFormToEdit).getPages().get(indexPage).getQuestion(), newQ);
             Assert.assertEquals(FormsList.getInstance().getFormsByID(IDFormToEdit).getPages().get(indexPage).getObligatoire(), newObl);
-        }
+        }*/
 
         @Test
         public void shouldAddReponseToDB() {

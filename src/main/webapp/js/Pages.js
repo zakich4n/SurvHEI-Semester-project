@@ -95,6 +95,12 @@ function deleteForm(IDForm) {
     deleteFormRequest.send();
 }
 
+function editForm(IDForm) {
+    let deleteFormRequest=new XMLHttpRequest();
+    deleteFormRequest.open("PUT","/FormulaireEdit?id="+IDForm,true);
+    deleteFormRequest.send();
+}
+
 function searchAndHide() {
     var input, filter, ul, li, a, i, txtValue;
     input = document.getElementById("FormSearchBar");
