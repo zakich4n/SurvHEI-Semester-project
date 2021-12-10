@@ -2,6 +2,7 @@ package service;
 
 import DAO.FormsDAO;
 import Formulaire.Formulaire;
+import exception.FormulaireNotFoundException;
 
 import java.util.TreeMap;
 
@@ -19,7 +20,9 @@ public class FormsListService {
 
     public TreeMap<Integer, Formulaire> getFormsList() {return FormsList;}
 
-    public Formulaire getFormsByID(int id) {return FormsList.get(id);}
+    public Formulaire getFormsByID(int id) {
+        return FormsList.get(id);
+    }
 
     public void addFormulaireToList(int id, Formulaire form) {
         FormsList.put(id, form);

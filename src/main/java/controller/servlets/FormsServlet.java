@@ -2,6 +2,7 @@ package controller.servlets;
 
 
 import Formulaire.Formulaire;
+import exception.FormulaireNotFoundException;
 import service.FormsListService;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.WebContext;
