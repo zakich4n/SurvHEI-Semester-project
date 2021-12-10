@@ -17,33 +17,36 @@
     <h1>Infos utilisateurs</h1>
     <!--/*@thymesVar id="role" type=""*/-->
     <p th:text="${role}"></p>
-    <table class="table table-hover">
-        <thead>
-        <tr>
-            <th>Pseudo</th>
-            <th>Nom</th>
-            <th>Prenom</th>
-            <th>Email</th>
-            <th>Role</th>
+    <div class="tableauG">
+    <table class="tableau">
+        <thead class="tableau">
+        <tr class="tableau">
+            <th class="tableau">Pseudo</th>
+            <th class="tableau">Nom</th>
+            <th class="tableau">Prenom</th>
+            <th class="tableau">Email</th>
+            <th class="tableau">Role</th>
         </tr>
         </thead>
         <tbody>
-            <tr th:each="utilisateur : ${userList}" th:switch="${utilisateur.getRole()}">
-                <td th:text="${utilisateur.getUser()}">pseudo?</td>
-                <td th:text="${utilisateur.getNom()}">nom?</td>
-                <td th:text="${utilisateur.getPrenom()}">prenom?</td>
-                <td th:text="${utilisateur.getEmail()}">email?</td>
+            <tr class="tableau" th:each="utilisateur : ${userList}" th:switch="${utilisateur.getRole()}">
+                <td class="tableau" th:text="${utilisateur.getUser()}">pseudo?</td>
+                <td class="tableau" th:text="${utilisateur.getNom()}">nom?</td>
+                <td class="tableau" th:text="${utilisateur.getPrenom()}">prenom?</td>
+                <td class="tableau" th:text="${utilisateur.getEmail()}">email?</td>
 
-                    <td th:case="true">Admin</td>
-                    <td th:case="false">Utilisateur</td>
-                    <td th:case="*" >Utilisateur</td>
+                    <td class="tableau" th:case="true">Admin</td>
+                    <td class="tableau" th:case="false">Utilisateur</td>
+                    <td class="tableau" th:case="*" >Utilisateur</td>
 
-                <td th:unless="${utilisateur.getRole()}">
+                <td class="tableau" th:unless="${utilisateur.getRole()}">
                     <button class="deleteuser" role="button"  th:onclick="@{deleteUser('{pseudo}')(pseudo=${utilisateur.getUser()})}">Supprimer</button>
                 </td>
             </tr>
         </tbody>
     </table>
+    </div>
 
 </body>
 </html>
+
