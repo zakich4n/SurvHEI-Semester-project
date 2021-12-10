@@ -1,6 +1,5 @@
 html {
-    size: auto;
-    height: 100%;
+    height : 100%
 }
 body {
     margin:0;
@@ -20,14 +19,22 @@ h1 {
     0 0 100px rgb(255, 255, 255)
 }
 
+h2, a {
+    color: white;
+    text-align: center;
+}
+
+#member {
+    margin-left: 6em;
+}
 
 .formulaire {
     position: absolute;
     top: 90%;
     left: 50%;
-    width: 500px;
+    width: 400px;
     padding: 40px;
-    transform: translate(-50%, -115%);
+    transform: translate(-50%, -95%);
     background: rgba(0,0,0,.5);
     box-sizing: border-box;
     box-shadow: 0 15px 25px rgba(0,0,0,.6);
@@ -43,7 +50,7 @@ h1 {
 
 .formulaire .user-box {
     position: relative;
-    
+    padding-bottom: 10%;
 }
 .formulaire .user-box1 {
     position: relative;
@@ -92,7 +99,7 @@ h1 {
     color: #03e9f4;
 }
 .formulaire form button {
-    margin-left: 2em;
+    margin-left: 5em;
     position: relative;
     display: inline-block;
     padding: 10px 20px;
@@ -248,10 +255,10 @@ button{
 
 /*Pour créer le formulaire*/
 
-.formulaire .user-box .anonyme {
+.formulaire .user-box .obligatoire {
     position: relative;
 }
-.formulaire .user-box .anonyme input {
+.formulaire .user-box .obligatoire input {
     width: 100%;
     padding: 10px 0;
     font-size: 16px;
@@ -263,15 +270,14 @@ button{
     background: transparent;
 }
 
-.formulaire .user-box .anonyme .cboxa {
-   margin-left: 5em;
-   position: relative;
-   width: 10%;
-   left: 50%;
-   margin-top: 7%;
+.formulaire .user-box .obligatoire .cbox {
+    position: relative;
+    width: 10%;
+    left: 30%;
+    margin-top: 9%;
 }
 
-.formulaire .user-box .anonyme p {
+.formulaire .user-box .obligatoire p {
     position: absolute;
     top:0;
     left: 0;
@@ -283,9 +289,22 @@ button{
     color: #03e9f4;
 }
 
-#logosite {
+img.logosite {
     margin-top: -4em;
     float: left;
     height: 13em;
-    width: 20%;
+    width: auto;
+}
+
+div#GenerateQuestions {
+    color : white;
+}
+
+img#logosite {
+    height: 12em;
+    margin-top: -3em;
+}
+
+p.lanonyme {
+    color : #03e9f4;
 }

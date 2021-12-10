@@ -179,7 +179,7 @@ public class FormsDAO {
         try {
             DataSource dataSource = DataSourceProvider.getDataSource();
             try (Connection connection = dataSource.getConnection()) {
-                String sql   = ("UPDATE question t SET t.question =?, t.obligatoire=? WHERE t.id_formulaire_correspondant=?");
+                String sql   = ("UPDATE question t SET t.question =?,   t.obligatoire=? WHERE t.id_formulaire_correspondant=?");
                 try (PreparedStatement preparedStatement = connection.prepareStatement(
                         sql, Statement.RETURN_GENERATED_KEYS)) {
                     preparedStatement.setString(1, page.getQuestion());
