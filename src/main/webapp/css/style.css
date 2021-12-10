@@ -702,6 +702,11 @@ figure.figure {
     background-color: transparent;
 }
 
+.tableauT {
+    border: 1px solid;
+    color: white;
+}
+
 .tableau {
     border: 1px solid;
     color: white;
@@ -742,4 +747,8 @@ button.deleteuser {
     -webkit-user-select: none;
     touch-action: manipulation;
     vertical-align: middle;
+}
+
+td.tableaudel{
+    border: none;
 }

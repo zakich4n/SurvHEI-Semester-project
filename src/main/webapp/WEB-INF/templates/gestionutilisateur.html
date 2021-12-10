@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr" xmlns:th="http://www.thymeleaf.org">
 <head>
+    <link rel="icon" type="image/png" sizes="16x16" href="../../images/logo2.png">
     <meta charset="UTF-8">
     <title>Gérez vos utilisateurs</title>
     <link href="css/style.css" rel="stylesheet">
@@ -18,7 +19,7 @@
     <!--/*@thymesVar id="role" type=""*/-->
     <p th:text="${role}"></p>
     <div class="tableauG">
-    <table class="tableau">
+    <table class="tableauT">
         <thead class="tableau">
         <tr class="tableau">
             <th class="tableau">Pseudo</th>
@@ -39,7 +40,7 @@
                     <td class="tableau" th:case="false">Utilisateur</td>
                     <td class="tableau" th:case="*" >Utilisateur</td>
 
-                <td class="tableau" th:unless="${utilisateur.getRole()}">
+                <td class="tableaudel" th:unless="${utilisateur.getRole()}">
                     <button class="deleteuser" role="button"  th:onclick="@{deleteUser('{pseudo}')(pseudo=${utilisateur.getUser()})}">Supprimer</button>
                 </td>
             </tr>
