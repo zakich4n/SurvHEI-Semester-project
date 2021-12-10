@@ -1,17 +1,12 @@
 package DAO;
 
-import Formulaire.Formulaire;
 import javax.sql.DataSource;
 import java.sql.*;
-import DAO.*;
-import Formulaire.*;
-import Reponse.Reponse;
-import managers.FormsList;
-import managers.PageList;
-import managers.ReponseList;
 
-import java.util.ArrayList;
-import java.util.TreeMap;
+import Reponse.Reponse;
+import service.PageListService;
+import service.ReponseListService;
+
 public class ReponseDAO {
 
 
@@ -42,8 +37,8 @@ public class ReponseDAO {
         return rowsAffedted;
     }
         public void getAllReponseFromDB() {
-            ReponseList rep=ReponseList.getInstance();
-            PageList page=PageList.getInstance();
+            ReponseListService rep= ReponseListService.getInstance();
+            PageListService page= PageListService.getInstance();
             try {
                 DataSource dataSource = DataSourceProvider.getDataSource();
                 try (Connection connection = dataSource.getConnection()) {

@@ -2,11 +2,9 @@ package controller.servlets;
 
 import DAO.FormsDAO;
 import Formulaire.Formulaire;
-import managers.FormsList;
+import service.FormsListService;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.WebContext;
-import org.thymeleaf.templatemode.TemplateMode;
-import org.thymeleaf.templateresolver.ServletContextTemplateResolver;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -23,7 +21,7 @@ public class EditPageServlet extends SurvHEISurvlet{
         int NbForms= new FormsDAO().getAllFormulaireFromDB();
         String UserType=(String) req.getSession().getAttribute("typeuser");
         WebContext context = new WebContext(req, resp, req.getServletContext());
-        Collection<Formulaire> formList = FormsList.getInstance().getFormsList().values();
+        Collection<Formulaire> formList = FormsListService.getInstance().getFormsList().values();
 
         context.setVariable("formList", formList);
         context.setVariable("NbForms",NbForms);

@@ -2,7 +2,7 @@ package managers;
 
 import junit.framework.TestCase;
 
-public class FormsListTest extends TestCase {
+public class FormsListServiceTest extends TestCase {
 
     public void setUp() throws Exception {
         super.setUp();

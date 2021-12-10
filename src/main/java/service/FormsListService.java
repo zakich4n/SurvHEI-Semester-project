@@ -1,19 +1,16 @@
-package managers;
+package service;
 
 import Formulaire.Formulaire;
-import exception.AddingSameIDException;
 
-import java.util.ArrayList;
-import Formulaire.*;
 import java.util.TreeMap;
 
-public class FormsList {
+public class FormsListService {
 
     private static class FormsListHolder {
-        private final static FormsList instance = new FormsList();
+        private final static FormsListService instance = new FormsListService();
     }
 
-    public static FormsList getInstance() {
+    public static FormsListService getInstance() {
         return FormsListHolder.instance;
     }
 

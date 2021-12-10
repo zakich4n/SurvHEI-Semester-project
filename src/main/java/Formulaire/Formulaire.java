@@ -1,7 +1,6 @@
 package Formulaire;
 
 import DAO.FormsDAO;
-import managers.FormsList;
 
 import java.util.ArrayList;
 
