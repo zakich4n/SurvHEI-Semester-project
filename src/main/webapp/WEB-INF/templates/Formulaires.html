@@ -21,15 +21,17 @@
 <br/>
 
 <div id="groupForms">
-<div id="individualForm" th:each="form : ${formList}" th:switch="${UserType}">
-<a class="boutonformulaire"   th:href="@{/forms?id={id}(id=${form.id})}"  href="">
-    <figure class="figure removable" style="width: 50px; height: 50px; background-color: #141e30;">
+<div id="individualForm" class="removable" th:each="form : ${formList}" th:switch="${UserType}">
+<a class="boutonformulaire removable"   th:href="@{/forms?id={id}(id=${form.id})}"  href="">
+    <figure class="figure" style="width: 50px; height: 50px; background-color: #141e30;">
         <img class="imgfig"  src="images/jt.jpg">
         <figcaption th:text="${form.title}">Test formulaire</figcaption>
     </figure>
 </a>
-    <button th:case="'2'" class="button-24 removable" role="button" th:onclick="@{deleteForm({id})(id=${form.id})}">Supprimer</button>
-    <button th:case="'2'" class="button-24 removable" role="button" th:onclick="@{editForm({id})(id=${form.id})}">Modifier</button>
+    <div th:case="'2'">
+        <button  class="button-24 removable" role="button" th:onclick="@{deleteForm({id})(id=${form.id})}">Supprimer</button>
+        <button  class="button-24 removable" role="button" th:onclick="@{editForm({id})(id=${form.id})}">Modifier</button>
+    </div>
     <button th:case="*" style="display: none;" role="button">Supprimer</button>
 </div>
 </div>

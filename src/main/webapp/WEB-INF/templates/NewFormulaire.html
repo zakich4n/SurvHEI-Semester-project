@@ -14,9 +14,11 @@
 
 <div class="formulaire" th:case="'changed'">
     <h1>Modifiez le formuaire</h1>
-    <form id="CreateForm" method="PUT">
+    <h2 style="color: red">Le formulaire a été mise à jour !</h2>
+    <form id="CreateForm">
+        <input type="hidden" name="_method" value="put" />
         <div class="user-box">
-            <h3 style="color: red">Le formulaire a été mise à jour !</h3>
+
             <input id="prodId" name="id" type="hidden" th:value="${form.id}">
             <input type="text" name="nameform" id="nameform" th:value="${form.title}">
             <label>Quel est le nom de ton formulaire ?</label>
@@ -41,13 +43,14 @@
         <button onclick="location.href='connexion'" type="button">Abandonner<span></span><span>
         </span><span></span><span></span></button>
         <p id="erreur1"></p>
-        <script src="js/CreateForm1.js"></script>
+        <script src="js/Pages.js"></script>
     </form>
 </div>
 
 <div class="formulaire" th:case="'edit'">
     <h1>Modifiez le formuaire</h1>
-    <form id="CreateForm" method="PUT">
+    <form id="CreateForm">
+
         <div class="user-box">
             <input id="prodId" name="id" type="hidden" th:value="${form.id}">
             <input type="text" name="nameform" id="nameform" th:value="${form.title}">
@@ -67,14 +70,15 @@
             <input type="text" name="timeform" id="timeform" th:value="${form.temps}">
             <label>Temps estimé pour y répondre (en minute) :</label>
         </div>
-        <button type="submit">Envoyer<span></span> <span></span>
+    </form>
+        <button onclick="sendPUTForm()">Envoyer<span></span> <span></span>
             <span></span> <span></span></button>
 
         <button onclick="location.href='connexion'" type="button">Abandonner<span></span><span>
         </span><span></span><span></span></button>
         <p id="erreur1"></p>
-        <script src="js/CreateForm1.js"></script>
-    </form>
+        <script src="js/Pages.js"></script>
+
 </div>
 
 <div class="formulaire" th:case="*">
