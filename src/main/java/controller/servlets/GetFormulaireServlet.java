@@ -23,9 +23,12 @@ public class GetFormulaireServlet extends SurvHEISurvlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         int NbForms= new FormsDAO().getAllFormulaireFromDB();
         String UserType=(String) req.getSession().getAttribute("typeuser");
+        String login = (String) req.getSession().getAttribute("login");
+
         WebContext context = new WebContext(req, resp, req.getServletContext());
         Collection<Formulaire> formList = FormsList.getInstance().getFormsList().values();
-
+        context.setVariable("typeuser", UserType);
+        context.setVariable("login", login);
         context.setVariable("formList", formList);
         context.setVariable("NbForms",NbForms);
         context.setVariable("UserType",UserType);

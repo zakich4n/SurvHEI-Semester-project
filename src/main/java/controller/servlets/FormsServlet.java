@@ -20,12 +20,15 @@ public class FormsServlet extends SurvHEISurvlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String typeuser = (String) req.getSession().getAttribute("typeuser");
+        String login = (String) req.getSession().getAttribute("login");
         WebContext webContext = new WebContext(req, resp, req.getServletContext());
         FormsList frm=FormsList.getInstance();
         int IDForm = Integer.parseInt(req.getParameter("id"));
 
         webContext.setVariable("pagesList", frm.getFormsByID(IDForm).getPages());
-
+        webContext.setVariable("typeuser", typeuser);
+        webContext.setVariable("login", login);
         TemplateEngine templateEngine = createTemplateEngine(req.getServletContext());
         templateEngine.process("forms", webContext, resp.getWriter());
     }

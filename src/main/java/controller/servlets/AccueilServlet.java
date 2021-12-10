@@ -17,6 +17,7 @@ public class AccueilServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         new FormsDAO().getAllFormulaireFromDB();
         String typeuser =(String) req.getSession().getAttribute("typeuser");
+        String login = (String) req.getSession().getAttribute("login");
         ServletContextTemplateResolver resolver = new ServletContextTemplateResolver(req.getServletContext());
         resolver.setPrefix("/WEB-INF/templates/");
         resolver.setSuffix(".html");
@@ -27,6 +28,7 @@ public class AccueilServlet extends HttpServlet {
 
         WebContext webContext = new WebContext(req, resp, req.getServletContext());
         webContext.setVariable("typeuser", typeuser);
+        webContext.setVariable("login", login);
         engine.process("Accueil", webContext, resp.getWriter());
 
 

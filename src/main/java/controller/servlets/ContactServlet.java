@@ -14,6 +14,8 @@ import java.io.IOException;
 public class ContactServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String typeuser = (String) req.getSession().getAttribute("typeuser");
+        String login = (String) req.getSession().getAttribute("login");
         ServletContextTemplateResolver resolver = new
                 ServletContextTemplateResolver(req.getServletContext());
         resolver.setPrefix("/WEB-INF/templates/");

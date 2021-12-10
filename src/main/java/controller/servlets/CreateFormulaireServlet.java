@@ -17,6 +17,8 @@ import java.io.IOException;
 public class CreateFormulaireServlet extends SurvHEISurvlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String typeuser = (String) req.getSession().getAttribute("typeuser");
+        String login = (String) req.getSession().getAttribute("login");
         ServletContextTemplateResolver resolver = new ServletContextTemplateResolver(req.getServletContext());
         int IDForm= Integer.parseInt(req.getParameter("idFormulaire"));
         WebContext webContext = new WebContext(req, resp, req.getServletContext());
