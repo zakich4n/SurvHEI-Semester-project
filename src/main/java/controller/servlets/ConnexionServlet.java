@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @WebServlet("/connexion")
-public class ConnexionServlet extends HttpServlet {
+public class ConnexionServlet extends SurvHEISurvlet {
     private MotDePasseUtils mdp = new MotDePasseUtils();
 
 
@@ -52,6 +52,7 @@ public class ConnexionServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        WebContext webContext = new WebContext(req, resp, req.getServletContext());
 
         String user = req.getParameter("login");
         String motDePasse = req.getParameter("mdp");
@@ -66,6 +67,13 @@ public class ConnexionServlet extends HttpServlet {
             req.getSession().setAttribute("typeuser", Integer.toString(LoginService.getInstance().valider(utilisateur)[0]));
 
             resp.sendRedirect("connexion");
+        }
+        else {
+            webContext.setVariable("eta", "failed");
+
+            TemplateEngine templateEngine = createTemplateEngine(req.getServletContext());
+            templateEngine.process("pagelogin", webContext, resp.getWriter());
+
         }
     }
 }
