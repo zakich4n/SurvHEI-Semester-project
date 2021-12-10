@@ -46,14 +46,14 @@ public class TestCaseCompile {
             });
             Assert.assertEquals(NbForms, FormsList.getInstance().getFormsList().size());
         }
-/*
+
         @Test
         public void shouldDeleteForms() {
-            int IDFormToDelete=14;
+            int IDFormToDelete=47;
             System.out.println("Added :"+new FormsDAO().getAllFormulaireFromDB());
             boolean result= new FormsDAO().DeleteFormulaire(FormsList.getInstance().getFormsByID(IDFormToDelete));
             Assert.assertNull(FormsList.getInstance().getFormsByID(IDFormToDelete));
-        } */
+        }
 /*
         @Test
         public void shouldEditFormInDB() {
