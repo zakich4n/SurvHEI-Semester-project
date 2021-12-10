@@ -96,9 +96,25 @@ function deleteForm(IDForm) {
 }
 
 function editForm(IDForm) {
-    let deleteFormRequest=new XMLHttpRequest();
-    deleteFormRequest.open("PUT","/FormulaireEdit?id="+IDForm,true);
-    deleteFormRequest.send();
+    location.href = "/FormulaireEdit?id="+IDForm;
+}
+
+function sendPUTForm() {
+    var id, nameform, anonyme, timeform;
+    id= document.getElementById("prodId").value;
+    nameform=document.getElementById("nameform").value;
+    anonyme=document.getElementById("cnameform").value;
+    timeform=document.getElementById("timeform").value;
+    console.log("nameform='"+nameform+"'&cnameform='"+anonyme+"'&timeform="+timeform);
+    let putFormRequest=new XMLHttpRequest();
+    putFormRequest.open("PUT","/FormulaireEdit?id="+id,true);
+
+
+    putFormRequest.onload = function () {
+        location.reload();
+    }
+    putFormRequest.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+    putFormRequest.send("nameform="+nameform+"&cnameform="+anonyme+"&timeform="+timeform);
 }
 
 function searchAndHide() {

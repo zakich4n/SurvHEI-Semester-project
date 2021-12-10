@@ -54,11 +54,11 @@ public class TestCaseCompile {
             boolean result= new FormsDAO().DeleteFormulaire(FormsList.getInstance().getFormsByID(IDFormToDelete));
             Assert.assertNull(FormsList.getInstance().getFormsByID(IDFormToDelete));
         }
-/*
+
         @Test
         public void shouldEditFormInDB() {
-            int IDFormToEdit=41;
-            String randomTitle="Encore un testteeeeee";
+            int IDFormToEdit=46;
+            String randomTitle="Encore un testteeeeee update";
             Random r = new Random();
             int rand = r.nextInt(90) + 10;
             System.out.println("Added :"+new FormsDAO().getAllFormulaireFromDB());
@@ -71,7 +71,7 @@ public class TestCaseCompile {
             System.out.println("Updated to : "+rand+"// Had : "+oldTime);
             Assert.assertEquals(FormsList.getInstance().getFormsByID(IDFormToEdit).getTitle(), randomTitle);
             Assert.assertEquals(FormsList.getInstance().getFormsByID(IDFormToEdit).getTemps(), rand);
-        }*/
+        }
 
    /*     @Test
         public void shouldChangePageFromForm() {
@@ -96,6 +96,7 @@ public class TestCaseCompile {
 
         @Test
         public void shouldAddReponseToDB() {
+           // new FormsDAO().editFormInDB(FormsList.getInstance().getFormsByID(IDForm));
 
         }
 
